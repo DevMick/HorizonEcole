@@ -26,7 +26,7 @@ jobs:
             git pull origin main
 
             echo "=== [2/5] Installing dependencies ==="
-            pnpm install --frozen-lockfile
+            pnpm install --no-frozen-lockfile
 
             echo "=== [3/5] Building application ==="
             pnpm db:generate
