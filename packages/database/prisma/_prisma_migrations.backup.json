@@ -1,0 +1,12 @@
+[
+  {
+    "id": "61e9f05b-41cd-44a3-8f90-39c99a8524c6",
+    "checksum": "508f584e1df0610517d7822dd2a93cc707dde7b3de40f1539156521dc9c1b93b",
+    "finished_at": null,
+    "migration_name": "20241018090000_change_academic_year_to_years",
+    "logs": "A migration failed to apply. New migrations cannot be applied before the error is recovered from. Read more about how to resolve migration issues in a production database: https://pris.ly/d/migrate-resolve\n\nMigration name: 20241018090000_change_academic_year_to_years\n\nDatabase error code: 42P01\n\nDatabase error:\nERREUR: la relation « academic_years » n'existe pas\n\nDbError { severity: \"ERREUR\", parsed_severity: Some(Error), code: SqlState(E42P01), message: \"la relation « academic_years » n'existe pas\", detail: None, hint: None, position: None, where_: None, schema: None, table: None, column: None, datatype: None, constraint: None, file: Some(\"namespace.c\"), line: Some(639), routine: Some(\"RangeVarGetRelidExtended\") }\n\n",
+    "rolled_back_at": null,
+    "started_at": "2026-04-01T00:30:07.876Z",
+    "applied_steps_count": 0
+  }
+]
