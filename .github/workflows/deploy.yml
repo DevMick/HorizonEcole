@@ -1,0 +1,43 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to horizonecole.com
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          command_timeout: 20m
+          script: |
+            set -e
+            cd /var/www/horizonecole
+
+            echo "=== [1/5] Pulling latest code ==="
+            git pull origin main
+
+            echo "=== [2/5] Installing dependencies ==="
+            pnpm install --frozen-lockfile
+
+            echo "=== [3/5] Building application ==="
+            pnpm db:generate
+            pnpm run build
+
+            echo "=== [4/5] Applying database migrations ==="
+            pnpm db:migrate:deploy
+
+            echo "=== [5/5] Restarting API ==="
+            pm2 restart horizonecole-api || pm2 start ecosystem.config.cjs --env production
+            pm2 save
+
+            echo ""
+            echo "✓ Deployed successfully to https://horizonecole.com"
