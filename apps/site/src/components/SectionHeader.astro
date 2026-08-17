@@ -1,0 +1,20 @@
+---
+interface Props {
+  titre: string;
+  chapo?: string;
+  /** Sur fond sombre, le titre passe en blanc. */
+  sombre?: boolean;
+  centre?: boolean;
+  as?: 'h2' | 'h3';
+}
+const { titre, chapo, sombre = false, centre = false, as: Balise = 'h2' } = Astro.props;
+---
+
+<div class={centre ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
+  <Balise class={sombre ? 'text-display-lg !text-white' : 'text-display-lg'}>{titre}</Balise>
+  {/* Filet ambre — reprise littérale du motif de section du PDF tarifaire. */}
+  <div class={`mt-3 h-[3px] w-16 rounded bg-ambre-600 ${centre ? 'mx-auto' : ''}`} aria-hidden="true"></div>
+  {chapo && (
+    <p class={`mt-5 text-chapo ${sombre ? 'text-ink-100' : 'text-ardoise-600'}`}>{chapo}</p>
+  )}
+</div>

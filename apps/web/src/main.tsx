@@ -23,28 +23,16 @@ import AuthProvider from './components/AuthProvider.tsx'
 dayjs.locale('fr')
 import { ThemeProvider } from './components/theme/ThemeProvider.tsx'
 import ErrorBoundary from './components/ErrorBoundary.tsx'
-import faviconImage from './assets/images/Image.png?url'
 import './index.css'
 
-// Configuration du favicon dynamiquement
-const setFavicon = (url: string) => {
-  // Mettre à jour ou créer le lien favicon
-  let link = document.querySelector("link[rel*='icon']") as HTMLLinkElement
-  if (!link) {
-    link = document.createElement('link')
-    link.rel = 'icon'
-    link.type = 'image/png'
-    document.getElementsByTagName('head')[0].appendChild(link)
-  }
-  link.href = url
-}
-
-// Définir le favicon dès que possible
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => setFavicon(faviconImage))
-} else {
-  setFavicon(faviconImage)
-}
+/*
+ * Le favicon est déclaré dans index.html et n'est plus posé par JavaScript.
+ *
+ * L'ancien code réécrivait le lien au démarrage, ce qui écrasait l'icône du
+ * document par une autre image et faisait clignoter l'onglet le temps du
+ * chargement du bundle. Deux mécanismes pour une même icône, dont le second
+ * gagnait toujours : le premier ne pouvait donc jamais être corrigé.
+ */
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -109,6 +97,10 @@ const AppWrapper = (
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter
+          // L'application vit sous /app/ (voir vite.config.ts). React Router
+          // retire ce préfixe avant de confronter l'URL aux <Route path="/…">,
+          // qui restent donc écrits sans lui.
+          basename="/app"
           future={{
             v7_startTransition: true,
             v7_relativeSplatPath: true,

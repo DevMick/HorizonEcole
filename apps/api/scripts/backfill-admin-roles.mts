@@ -1,7 +1,7 @@
 import '../src/load-env';
 import { randomUUID } from 'crypto';
 import { unscopedPrisma } from '@school/database';
-import { menuKeysForSchoolType } from '@school/types';
+import { descriptionRoleAdmin, menuKeysForSchoolType } from '@school/types';
 
 /**
  * Rattrapage : donne son rôle « Administrateur » protégé aux établissements
@@ -22,12 +22,13 @@ async function main() {
   });
 
   let createdRoles = 0;
+  let renamedRoles = 0;
   let linkedUsers = 0;
 
   for (const establishment of establishments) {
     const existing = await unscopedPrisma.role.findFirst({
       where: { establishment_id: establishment.id, isProtected: true },
-      select: { id: true },
+      select: { id: true, description: true },
     });
 
     let roleId = existing?.id;
@@ -38,7 +39,7 @@ async function main() {
           id: randomUUID(),
           establishment_id: establishment.id,
           name: ADMIN_ROLE_NAME,
-          description: `Accès complet aux menus d'un établissement de type ${String(establishment.schoolType).toLowerCase()}.`,
+          description: descriptionRoleAdmin(establishment.schoolType),
           isProtected: true,
           menus: {
             create: menuKeysForSchoolType(establishment.schoolType).map((menuKey) => ({
@@ -52,6 +53,19 @@ async function main() {
       roleId = role.id;
       createdRoles += 1;
       console.log(`+ rôle « ${ADMIN_ROLE_NAME} » créé pour ${establishment.name}`);
+    } else {
+      // Les écoles ouvertes avant la correction du libellé portent encore la
+      // valeur brute de l'énumération — « de type lycee », sans accent. On la
+      // réécrit : cette phrase s'affiche dans l'écran des rôles.
+      const attendue = descriptionRoleAdmin(establishment.schoolType);
+      if (existing.description !== attendue) {
+        await unscopedPrisma.role.update({
+          where: { id: roleId },
+          data: { description: attendue },
+        });
+        renamedRoles += 1;
+        console.log(`~ description corrigée pour ${establishment.name} : « ${attendue} »`);
+      }
     }
 
     // Les comptes ADMIN déjà rattachés à un rôle sont laissés tels quels.
@@ -65,7 +79,10 @@ async function main() {
     }
   }
 
-  console.log(`\nTerminé : ${createdRoles} rôle(s) créé(s), ${linkedUsers} compte(s) rattaché(s).`);
+  console.log(
+    `\nTerminé : ${createdRoles} rôle(s) créé(s), ${renamedRoles} description(s) corrigée(s), ` +
+      `${linkedUsers} compte(s) rattaché(s).`,
+  );
 }
 
 main()

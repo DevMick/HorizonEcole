@@ -2,11 +2,22 @@ import { Router } from 'express';
 
 import { prisma } from '@school/database';
 import { authenticate } from '../middleware/auth';
+import { requireRole } from '../middleware/rbac';
 
 const router = Router();
 
+/**
+ * Rôles admis sur le tableau de bord opérationnel.
+ *
+ * `authenticate` seul ne suffit pas : tout compte authentifié y accédait, y
+ * compris un propriétaire (`OWNER`), dont l'espace est strictement limité aux
+ * agrégats de `/api/owner/*`. `/activities` est le cas sensible — il renvoie
+ * des noms d'élèves et des notes nominatives.
+ */
+const DASHBOARD_ROLES = ['ADMIN', 'ACCOUNTANT', 'TEACHER'] as const;
+
 // Get dashboard statistics
-router.get('/stats', authenticate, async (req, res) => {
+router.get('/stats', authenticate, requireRole(...DASHBOARD_ROLES), async (req, res) => {
   try {
     const [
       totalStudents,
@@ -77,7 +88,7 @@ router.get('/stats', authenticate, async (req, res) => {
 });
 
 // Get recent activities
-router.get('/activities', authenticate, async (req, res) => {
+router.get('/activities', authenticate, requireRole(...DASHBOARD_ROLES), async (req, res) => {
   try {
     const [recentStudents, recentPayments, recentGrades] = await Promise.all([
       // Recent students

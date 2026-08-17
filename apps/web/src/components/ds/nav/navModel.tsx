@@ -10,6 +10,7 @@ import {
   Home,
   PenSquare,
   Trophy,
+  Wallet,
   Menu as MenuIcon,
 } from 'lucide-react';
 
@@ -83,6 +84,18 @@ export function getTabbarItems(
   options: { primaryOnly?: boolean } = {},
 ): TabbarItem[] {
   const normalizedRole = String(role).toUpperCase();
+  // Propriétaire : quatre raccourcis, tous dans son espace. Sans cette branche,
+  // le repli administratif en fin de fonction l'enverrait vers /dashboard,
+  // /people/students, /academic/timetable et /academic/inscriptions — quatre
+  // écrans qui lui sont fermés. C'est un point de sécurité, pas de confort.
+  if (normalizedRole === 'OWNER') {
+    return [
+      { label: 'Accueil', icon: <LayoutDashboard {...ICON} />, path: '/owner' },
+      { label: 'Effectifs', icon: <Users {...ICON} />, path: '/owner/effectifs' },
+      { label: 'Résultats', icon: <Trophy {...ICON} />, path: '/owner/resultats' },
+      { label: 'Finance', icon: <Wallet {...ICON} />, path: '/owner/finance' },
+    ];
+  }
   if (normalizedRole === 'STUDENT') {
     return [
       { label: 'Accueil', icon: <Home {...ICON} />, path: '/student' },

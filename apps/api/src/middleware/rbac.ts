@@ -100,6 +100,16 @@ export const isParent = (req: AuthRequest): boolean => {
 };
 
 /**
+ * Check if user is owner
+ *
+ * Le propriétaire n'a accès qu'aux tableaux de bord analytiques de son
+ * établissement (`/api/owner/*`), en lecture seule.
+ */
+export const isOwner = (req: AuthRequest): boolean => {
+  return req.user?.role === 'OWNER';
+};
+
+/**
  * Check if user has any of the specified roles
  */
 export const hasAnyRole = (req: AuthRequest, ...roles: UserRole[]): boolean => {

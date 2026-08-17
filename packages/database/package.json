@@ -14,7 +14,6 @@
     "migrate:deploy": "prisma migrate deploy",
     "migrate:reset": "prisma migrate reset",
     "studio": "prisma studio",
-    "seed": "tsx src/seed.ts",
     "convert-inscriptions": "tsx src/scripts/convert-inscriptions-to-students.ts",
     "apply-payroll-migration": "tsx src/scripts/apply-payroll-migration.ts",
     "apply-seniority-bareme-migration": "tsx src/scripts/apply-seniority-bareme-migration.ts",

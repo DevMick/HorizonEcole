@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
-import { Alert, App, Button, Card, Form, Input, Steps, Typography } from 'antd';
-import { ArrowLeft, Building2, Check, Copy, GraduationCap, Image as ImageIcon, School, ShieldCheck, Upload, X } from 'lucide-react';
+import { useState } from 'react';
+import { Alert, App, Button, Card, Form, Input, Steps, Typography, Upload } from 'antd';
+import { ArrowLeft, Building2, Check, Copy, GraduationCap, Image as ImageIcon, School, ShieldCheck, Upload as UploadIcon, X } from 'lucide-react';
 import { useMutation } from '@tanstack/react-query';
 import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../lib/api';
@@ -64,25 +64,29 @@ export default function CreateEstablishmentPage() {
   const [created, setCreated] = useState<CreatedResult | null>(null);
   const [logoFile, setLogoFile] = useState<File | null>(null);
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
-  const logoInputRef = useRef<HTMLInputElement>(null);
-
-  const onPickLogo = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    e.target.value = ''; // permet de re-sélectionner le même fichier
-    if (!file) return;
+  /**
+   * Sélection du logo, via le composant Upload d'Ant Design.
+   *
+   * `beforeUpload` retourne toujours `false` : le fichier n'est pas envoyé au
+   * fil de l'eau, il est conservé en mémoire et joint au multipart de création
+   * de l'établissement (§ handleSubmit). Une école n'existe pas encore au
+   * moment où l'on choisit son logo — il n'y a donc nulle part où le déposer.
+   */
+  const onPickLogo = (file: File) => {
     if (!file.type.startsWith('image/')) {
       message.error('Le logo doit être une image (JPG, PNG, WEBP).');
-      return;
+      return false;
     }
     if (file.size > 2 * 1024 * 1024) {
       message.error('Le logo ne doit pas dépasser 2 Mo.');
-      return;
+      return false;
     }
     setLogoFile(file);
     setLogoPreview((prev) => {
       if (prev) URL.revokeObjectURL(prev);
       return URL.createObjectURL(file);
     });
+    return false;
   };
 
   const clearLogo = () => {
@@ -334,19 +338,23 @@ export default function CreateEstablishmentPage() {
                   <ImageIcon className="text-muted-foreground" aria-hidden="true" />
                 )}
               </span>
-              <input
-                ref={logoInputRef}
-                type="file"
-                accept="image/*"
-                className="hidden"
-                onChange={onPickLogo}
-              />
-              <Button
-                icon={<Upload className="h-4 w-4" aria-hidden="true" />}
-                onClick={() => logoInputRef.current?.click()}
+              {/* Upload d'Ant Design plutôt qu'un <input type="file"> masqué :
+                  Ant applique `.ant-form input[type="file"] { display: block }`,
+                  dont la spécificité (0,2,1) l'emporte sur la classe utilitaire
+                  `hidden` (0,1,0). Le champ natif restait donc visible à côté du
+                  bouton, et l'écran offrait deux commandes pour une seule
+                  action. Upload masque le sien par style en ligne, hors de
+                  portée de cette règle. */}
+              <Upload
+                accept="image/jpeg,image/png,image/webp"
+                beforeUpload={onPickLogo}
+                showUploadList={false}
+                maxCount={1}
               >
-                {logoFile ? 'Changer le logo' : 'Charger un logo'}
-              </Button>
+                <Button icon={<UploadIcon className="h-4 w-4" aria-hidden="true" />}>
+                  {logoFile ? 'Changer le logo' : 'Charger un logo'}
+                </Button>
+              </Upload>
               {logoFile && (
                 <Button
                   type="text"

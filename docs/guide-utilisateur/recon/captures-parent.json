@@ -1,0 +1,62 @@
+[
+  {
+    "cle": "connexion",
+    "titre": "Se connecter",
+    "url": "http://localhost:5173/app/login",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 4,
+    "posees": 4,
+    "manquees": []
+  },
+  {
+    "cle": "espace-famille",
+    "titre": "L'Espace Famille",
+    "url": "http://localhost:5173/app/parent",
+    "hauteurDocument": 1088,
+    "hauteurCapture": 1088,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 6,
+    "posees": 6,
+    "manquees": []
+  },
+  {
+    "cle": "mes-enfants",
+    "titre": "Mes enfants",
+    "url": "http://localhost:5173/app/parent/children",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "emploi-du-temps",
+    "titre": "L'emploi du temps",
+    "url": "http://localhost:5173/app/parent/timetable",
+    "hauteurDocument": 991,
+    "hauteurCapture": 991,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 4,
+    "posees": 4,
+    "manquees": []
+  },
+  {
+    "cle": "resultats",
+    "titre": "Résultats & Bulletins",
+    "url": "http://localhost:5173/app/parent/grades",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 7,
+    "posees": 7,
+    "manquees": []
+  }
+]

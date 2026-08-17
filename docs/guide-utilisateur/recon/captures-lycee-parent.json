@@ -1,0 +1,80 @@
+[
+  {
+    "cle": "connexion",
+    "titre": "Se connecter",
+    "url": "http://localhost:5173/app/login",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 4,
+    "posees": 4,
+    "manquees": []
+  },
+  {
+    "cle": "espace-famille",
+    "titre": "L’Espace Famille",
+    "url": "http://localhost:5173/app/parent",
+    "hauteurDocument": 1461,
+    "hauteurCapture": 1461,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "mes-enfants",
+    "titre": "Mes enfants",
+    "url": "http://localhost:5173/app/parent/children",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "emploi-du-temps",
+    "titre": "L’emploi du temps",
+    "url": "http://localhost:5173/app/parent/timetable",
+    "hauteurDocument": 1060,
+    "hauteurCapture": 1060,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": true,
+    "pastilles": 4,
+    "posees": 4,
+    "manquees": []
+  },
+  {
+    "cle": "presences",
+    "titre": "Les présences",
+    "url": "http://localhost:5173/app/parent/attendance",
+    "hauteurDocument": 17277,
+    "hauteurCapture": 1600,
+    "decalage": 0,
+    "tronquee": true,
+    "cadrageVoulu": true,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "resultats",
+    "titre": "Résultats & Bulletins",
+    "url": "http://localhost:5173/app/parent/grades",
+    "hauteurDocument": 3996,
+    "hauteurCapture": 1800,
+    "decalage": 0,
+    "tronquee": true,
+    "cadrageVoulu": true,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  }
+]

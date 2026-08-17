@@ -49,12 +49,47 @@ export const PRIMARY_MENU_KEYS: string[] = [
   '/primary/results',
 ];
 
-/** Finance : commune à tous les types d'établissement. */
+/**
+ * Finance : commune à tous les types d'établissement.
+ *
+ * `/finance/payments` figurait dans le sidebar et dans le catalogue de l'écran
+ * des rôles, mais pas ici : cocher « Paiements » sur un rôle n'avait donc aucun
+ * effet, la clé étant écartée au filtrage côté serveur. Le manque ne se voyait
+ * pas tant que les administrateurs échappaient au filtre ; il se verrait
+ * maintenant qu'ils y sont soumis.
+ *
+ * Les trois clés suivantes, à l'inverse, ne mènent à aucun écran monté
+ * (`App.tsx` n'en déclare aucune route) : elles restent le temps que les rôles
+ * existants ne perdent pas de lignes, mais aucun catalogue ne les propose.
+ */
 export const FINANCE_MENU_KEYS: string[] = [
   '/finance/payment-conditions',
+  '/finance/payments',
   '/finance/fee-rates',
   '/finance/payment-schedules',
   '/finance/invoices',
+];
+
+/**
+ * Menus de l'espace Propriétaire — tableaux de bord analytiques, en lecture
+ * seule.
+ *
+ * Ils sont tenus **à l'écart** de `ALL_MENU_KEYS` et de `menuKeysForSchoolType()`
+ * à dessein : ce sont les menus d'un profil, pas des menus d'administration. Les
+ * verser dans la liste commune donnerait l'espace Propriétaire au rôle
+ * « Administrateur », et proposerait « Pilotage » comme case à cocher pour un
+ * comptable — une case qui ne mènerait nulle part, la navigation d'un compte
+ * ADMIN n'ayant aucune entrée `/owner/*`.
+ */
+export const OWNER_HOME_MENU_KEY = '/owner';
+
+export const OWNER_MENU_KEYS: string[] = [
+  OWNER_HOME_MENU_KEY,
+  '/owner/effectifs',
+  '/owner/assiduite',
+  '/owner/resultats',
+  '/owner/enseignants',
+  '/owner/finance',
 ];
 
 /** Toutes les clés existantes — sert de référence, jamais d'octroi de droits. */
@@ -66,6 +101,30 @@ export const ALL_MENU_KEYS: string[] = [
 ];
 
 export type SchoolTypeValue = 'PRIMAIRE' | 'COLLEGE' | 'LYCEE';
+
+/** Libellés français des types d'établissement, pour tout affichage. */
+export const SCHOOL_TYPE_LABELS: Record<SchoolTypeValue, string> = {
+  PRIMAIRE: 'École primaire',
+  COLLEGE: 'Collège',
+  LYCEE: 'Lycée',
+};
+
+/**
+ * Description du rôle « Administrateur » d'une école, telle qu'elle s'affiche
+ * dans l'écran des rôles.
+ *
+ * Rédigée ici et nulle part ailleurs : la création d'un établissement et le
+ * script de rattrapage l'écrivaient chacun de leur côté, et toutes deux à
+ * partir de la valeur brute de l'énumération — d'où le « de type lycee » sans
+ * accent ni majuscule que lisaient les utilisateurs. Le libellé est mis en
+ * minuscules parce qu'il suit « de type ».
+ */
+export function descriptionRoleAdmin(schoolType: string | null | undefined): string {
+  const libelle = (
+    SCHOOL_TYPE_LABELS[schoolType as SchoolTypeValue] ?? String(schoolType)
+  ).toLowerCase();
+  return `Accès complet aux menus d'un établissement de type ${libelle}.`;
+}
 
 /**
  * Menus pertinents pour un type d'établissement. C'est la liste que reçoit le
@@ -88,8 +147,41 @@ export function menuKeysForSchoolType(schoolType: string | null | undefined): st
   }
 }
 
+/**
+ * Menus de l'espace Propriétaire ouverts par un type d'établissement.
+ *
+ * L'assiduité suit la même règle que la navigation : l'appel par séance est un
+ * mécanisme du secondaire, et une école primaire pure n'a ni séances ni notes
+ * de conduite. Lui affecter ce menu mènerait à un écran qui se referme sur
+ * lui-même.
+ */
+export function ownerMenuKeysForSchoolType(schoolType: string | null | undefined): string[] {
+  if (schoolType === 'PRIMAIRE') {
+    return OWNER_MENU_KEYS.filter((key) => key !== '/owner/assiduite');
+  }
+  return [...OWNER_MENU_KEYS];
+}
+
+/**
+ * Menu que le rôle « Administrateur » ne peut pas perdre.
+ *
+ * C'est depuis l'écran des rôles qu'on répare une coche malheureuse : l'en
+ * priver enfermerait l'établissement dehors, sans aucun retour possible par
+ * l'interface.
+ */
+export const ADMIN_LOCKED_MENU_KEY = '/people/roles';
+
 /** Nom du rôle système protégé, créé automatiquement et affecté à tous les menus. */
 export const PROTECTED_ADMIN_ROLE_NAME = 'Administrateur';
+
+/**
+ * Nom du second rôle protégé, créé lui aussi à l'ouverture de l'école.
+ *
+ * Il porte les menus de l'espace Propriétaire et, comme « Administrateur »,
+ * c'est son nom qui fait dériver le rôle système d'un compte auquel on
+ * l'affecte (cf. `apps/api/src/routes/users.ts`).
+ */
+export const PROTECTED_OWNER_ROLE_NAME = 'Propriétaire';
 
 // User types
 export interface User {
@@ -110,7 +202,14 @@ export enum UserRole {
   ACCOUNTANT = 'ACCOUNTANT',
   PARENT = 'PARENT',
   STUDENT = 'STUDENT',
-  STAFF = 'STAFF'
+  STAFF = 'STAFF',
+  /**
+   * Propriétaire de l'établissement : lecture seule des tableaux de bord
+   * analytiques (`/api/owner/*`). Ce n'est pas un rôle personnalisé
+   * `Role`/`RoleMenu` — les clés de menu `/owner/*` ne rejoignent donc ni
+   * `COMMON_MENU_KEYS` ni `menuKeysForSchoolType()`.
+   */
+  OWNER = 'OWNER'
 }
 
 // Student types

@@ -1,66 +1,79 @@
 import { randomUUID } from 'crypto';
-import { menuKeysForSchoolType } from '@school/types';
+import {
+  menuKeysForSchoolType,
+  ownerMenuKeysForSchoolType,
+  PROTECTED_OWNER_ROLE_NAME,
+} from '@school/types';
 import { prisma, unscopedPrisma } from '@school/database';
 
 /**
- * Un rôle protégé (ex. « Administrateur ») reçoit automatiquement les menus de
- * son type d'établissement — il ne peut pas être édité manuellement, donc c'est
- * le seul moyen pour lui d'obtenir les nouveaux menus créés dans l'application.
- * Appelé à la lecture (liste/détail des rôles, login, refresh, /me) pour rester
- * toujours synchronisé sans migration à chaque nouveau menu.
+ * Menus par défaut d'un établissement, et création du rôle Propriétaire.
  *
- * La cible n'est pas la liste complète des menus mais celle du type d'école :
- * l'administrateur d'une école primaire reçoit le module CP1 → CM2 et non la
- * pédagogie du secondaire, et réciproquement. Sans ce tri, l'administrateur
- * d'une école primaire se voyait privé de tout son module — les clés
- * `/primary/*` ne figuraient nulle part dans la liste canonique.
+ * Il n'y a **plus de resynchronisation automatique** : les menus de tous les
+ * rôles, protégés compris, sont choisis par l'administrateur depuis l'écran des
+ * rôles. Les remettre d'office à leur valeur canonique annulerait chacune de
+ * ses modifications à la lecture suivante.
+ *
+ * Ce que cela coûte, et qu'il faut savoir : un écran ajouté à l'application
+ * dans une version future n'atterrira plus tout seul dans le menu des rôles
+ * existants. Il faudra le cocher — les boutons « Tout » de chaque groupe sont
+ * là pour ça.
  */
-export async function syncProtectedRoleMenus(roleId: string): Promise<void> {
-  const targetMenuKeys = await menuKeysForRole(roleId);
-  if (targetMenuKeys.length === 0) return;
-
-  const current = await prisma.roleMenu.findMany({ where: { roleId }, select: { menuKey: true } });
-  const currentKeys = new Set(current.map((m) => m.menuKey));
-  const targetKeys = new Set(targetMenuKeys);
-
-  const toAdd = targetMenuKeys.filter((k) => !currentKeys.has(k));
-  const toRemove = [...currentKeys].filter((k) => !targetKeys.has(k));
-
-  if (toAdd.length === 0 && toRemove.length === 0) return;
-
-  await prisma.$transaction([
-    ...(toRemove.length
-      ? [prisma.roleMenu.deleteMany({ where: { roleId, menuKey: { in: toRemove } } })]
-      : []),
-    ...(toAdd.length
-      ? [prisma.roleMenu.createMany({ data: toAdd.map((menuKey) => ({ id: randomUUID(), roleId, menuKey })) })]
-      : []),
-  ]);
-}
 
 /**
- * Menus autorisés pour l'établissement auquel appartient un rôle. Renvoie une
- * liste vide si le rôle est introuvable — mieux vaut ne rien synchroniser que
- * de retirer ses menus à un rôle qu'on n'a pas su rattacher.
+ * Type d'école. `establishment` est la table du cloisonnement lui-même : elle
+ * se lit avec le client non cloisonné, comme partout ailleurs dans les services.
  */
-export async function menuKeysForRole(roleId: string): Promise<string[]> {
-  const role = await prisma.role.findUnique({
-    where: { id: roleId },
-    select: { establishment_id: true },
-  });
-  if (!role?.establishment_id) return [];
-
-  return menuKeysForEstablishment(role.establishment_id);
-}
-
-/** Menus autorisés pour un établissement, d'après son type d'école. */
-export async function menuKeysForEstablishment(establishmentId: string): Promise<string[]> {
-  // `establishment` est la table du cloisonnement lui-même : elle se lit avec
-  // le client non cloisonné, comme partout ailleurs dans les services.
+async function schoolTypeOf(establishmentId: string): Promise<string | null> {
   const establishment = await unscopedPrisma.establishment.findUnique({
     where: { id: establishmentId },
     select: { schoolType: true },
   });
+  return establishment?.schoolType ?? null;
+}
 
-  return menuKeysForSchoolType(establishment?.schoolType);
+/** Menus d'administration ouverts par le type d'école. */
+export async function menuKeysForEstablishment(establishmentId: string): Promise<string[]> {
+  return menuKeysForSchoolType(await schoolTypeOf(establishmentId));
+}
+
+/** Menus de l'espace Propriétaire ouverts par le type d'école. */
+export async function ownerMenuKeysForEstablishment(establishmentId: string): Promise<string[]> {
+  return ownerMenuKeysForSchoolType(await schoolTypeOf(establishmentId));
+}
+
+/**
+ * Garantit l'existence du rôle « Propriétaire » d'un établissement.
+ *
+ * Les écoles créées avant l'introduction de ce rôle n'en ont pas : plutôt
+ * qu'une migration de données, qui devrait deviner le type de chaque école et
+ * fabriquer ses lignes de menus, il est créé à la première lecture de la page
+ * des rôles. Rien à jouer, rien à rattraper.
+ *
+ * Renvoie `true` si le rôle vient d'être créé.
+ */
+export async function ensureOwnerRole(establishmentId: string): Promise<boolean> {
+  const existing = await prisma.role.findFirst({
+    where: { name: PROTECTED_OWNER_ROLE_NAME },
+    select: { id: true },
+  });
+  if (existing) return false;
+
+  const schoolType = await schoolTypeOf(establishmentId);
+  const menuKeys = ownerMenuKeysForSchoolType(schoolType);
+
+  await prisma.role.create({
+    data: {
+      id: randomUUID(),
+      name: PROTECTED_OWNER_ROLE_NAME,
+      description:
+        "Accès en lecture seule aux tableaux de bord analytiques de l'établissement.",
+      isProtected: true,
+      menus: {
+        create: menuKeys.map((menuKey) => ({ id: randomUUID(), menuKey })),
+      },
+    },
+  });
+
+  return true;
 }

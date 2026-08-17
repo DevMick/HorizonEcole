@@ -1,0 +1,88 @@
+---
+import Base from '@/layouts/Base.astro';
+import { CONTACT } from '@/lib/navigation';
+---
+
+<Base
+  titre="Politique de confidentialité"
+  description="Quelles données HorizonEcole collecte sur ce site, pourquoi, combien de temps, et comment exercer vos droits."
+  canonique="/confidentialite"
+>
+  <section class="section">
+    <div class="conteneur max-w-prose">
+      <h1 class="text-display-lg">Politique de confidentialité</h1>
+      <div class="mt-3 h-[3px] w-16 rounded bg-ambre-600" aria-hidden="true"></div>
+
+      <div class="prose-site mt-8">
+        <p class="text-chapo text-ardoise-600">
+          Cette page distingue deux traitements de nature différente : celui du
+          <strong>site vitrine</strong>, dont nous sommes responsables, et celui de
+          l’<strong>application</strong>, où nous n’intervenons que pour le compte des
+          établissements.
+        </p>
+
+        <h2>1. Données collectées sur ce site</h2>
+        <p>
+          Les seules données que nous collectons ici sont celles que vous saisissez
+          volontairement dans nos formulaires de démonstration, de devis ou de contact :
+          nom et prénoms, fonction, établissement, ville, téléphone, e-mail, cycles et
+          effectif approximatif, ainsi que votre message.
+        </p>
+        <p>
+          <strong>Aucune donnée d’élève n’est collectée par ce site.</strong>
+        </p>
+
+        <h3>Finalité</h3>
+        <p>Répondre à votre demande et, le cas échéant, établir une proposition commerciale.</p>
+
+        <h3>Durée de conservation</h3>
+        <p>Trois ans à compter du dernier contact, puis suppression.</p>
+
+        <h3>Destinataires</h3>
+        <p>
+          Les seules personnes de notre équipe commerciale en charge du suivi. Ces données
+          ne sont ni cédées, ni louées, ni revendues.
+        </p>
+
+        <h2>2. Données traitées dans l’application</h2>
+        <p>
+          Les données scolaires — élèves, parents, notes, absences, paiements — sont
+          traitées <strong>pour le compte de l’établissement</strong>, qui en est le
+          responsable. Nous intervenons comme sous-traitant, dans les limites fixées par
+          le contrat qui nous lie à lui.
+        </p>
+        <p>
+          Ces données ne sont utilisées pour aucune autre finalité : ni prospection, ni
+          publicité, ni entraînement de système automatisé. Elles restent la propriété de
+          l’établissement, qui peut en obtenir l’export complet à tout moment.
+          Voir <a href="/securite">Sécurité &amp; données</a>.
+        </p>
+
+        <h2>3. Mesure d’audience</h2>
+        <p>
+          Nous mesurons la fréquentation du site sans cookie de suivi et sans profilage
+          individuel. Aucune donnée n’est transmise à une régie publicitaire.
+        </p>
+
+        <h2>4. Vos droits</h2>
+        <p>
+          Vous disposez d’un droit d’accès, de rectification, d’opposition et de
+          suppression des données vous concernant. Pour l’exercer, écrivez à
+          <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>. Nous répondons sous
+          trente jours.
+        </p>
+        <p>
+          Si les données concernées sont celles d’un établissement utilisateur de
+          l’application, adressez votre demande directement à cet établissement, qui en est
+          responsable.
+        </p>
+
+        <h2>5. Cadre applicable</h2>
+        <p>
+          Le traitement est soumis à la loi ivoirienne n° 2013-450 relative à la protection
+          des données à caractère personnel.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

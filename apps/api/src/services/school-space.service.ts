@@ -25,15 +25,22 @@ export interface SchoolChild {
   cycle?: 'PRIMAIRE' | 'SECONDAIRE' | null;
 }
 
-/** Note ramenée sur 20 + coefficient de pondération (barème /10 = demi-poids). */
-function normalize(note: number, maxNote: number): { value: number; weight: number } {
+/**
+ * Note ramenée sur 20 + coefficient de pondération (barème /10 = demi-poids).
+ *
+ * Exporté pour que l'espace Propriétaire calcule ses agrégats avec **cette**
+ * formule et pas une copie : une moyenne d'établissement qui ne tomberait pas
+ * sur la moyenne du bulletin d'un élève serait indéfendable, et l'écart ne se
+ * verrait qu'au moment où quelqu'un poserait la question.
+ */
+export function normalize(note: number, maxNote: number): { value: number; weight: number } {
   return maxNote === 10 ? { value: (note / 10) * 20, weight: 0.5 } : { value: note, weight: 1 };
 }
 
-const round2 = (n: number) => Math.round(n * 100) / 100;
+export const round2 = (n: number) => Math.round(n * 100) / 100;
 
 /** Coefficients des matières de la classe (défaut 1 si la matière n'y figure pas). */
-async function coefficientsOf(classId: string | null): Promise<Map<string, number>> {
+export async function coefficientsOf(classId: string | null): Promise<Map<string, number>> {
   const map = new Map<string, number>();
   if (!classId) return map;
   const rows = await prisma.class_subjects.findMany({

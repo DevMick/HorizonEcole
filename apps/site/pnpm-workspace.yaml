@@ -1,0 +1,27 @@
+# Ce fichier fait d'apps/site sa propre racine pnpm : l'installation n'est pas
+# happée par le workspace du monorepo, dont le lockfile est d'une version
+# incompatible et dont la réinstallation complète casserait l'application.
+packages:
+  - '.'
+
+allowBuilds:
+  esbuild: set this to true or false
+  sharp: set this to true or false
+
+# Rollup publie un binaire natif par plateforme, en dépendance optionnelle.
+# Sans cette restriction, pnpm tente de récupérer les métadonnées des binaires
+# android, linux-arm64 et win32-ia32 — inutiles ici, et première cause d'échec
+# de l'installation sur une connexion instable.
+supportedArchitectures:
+  os:
+    - win32   # postes de développement
+    - linux   # VPS de production et CI
+  cpu:
+    - x64
+
+# pnpm 10 bloque les scripts d'installation par défaut. Ces deux-là sont
+# indispensables : esbuild récupère son binaire natif (sans lui, aucun build),
+# sharp celui du traitement d'images d'Astro.
+onlyBuiltDependencies:
+  - esbuild
+  - sharp

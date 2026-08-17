@@ -54,10 +54,9 @@ export default function RolesPage() {
   };
 
   const handleOpenEdit = (role: any) => {
-    if (role.isProtected) {
-      toast.error('Ce rôle est protégé : il reçoit automatiquement tous les menus et ne peut pas être modifié.');
-      return;
-    }
+    // Tous les rôles s'éditent, protégés compris : c'est ici qu'on décide des
+    // écrans ouverts à chaque profil. Seuls leur nom et leur suppression
+    // restent verrouillés pour les deux rôles système.
     setEditing(role);
     setName(role.name);
     setDescription(role.description || '');
@@ -106,14 +105,13 @@ export default function RolesPage() {
           cardOf={(r) => ({
             key: r.id,
             title: r.name,
-            // Le rôle protégé se passe de description et d'actions : il reçoit
-            // tous les menus d'office et n'est ni modifiable ni supprimable.
-            subtitle: r.isProtected ? undefined : r.description || '—',
+            subtitle: r.description || '—',
             badges: [
               { label: `${r.menuKeys?.length ?? 0} menu(s)`, kind: 'info' as const },
               { label: `${r.usersCount ?? 0} utilisateur(s)`, kind: 'role' as const },
             ],
-            hideEdit: !!r.isProtected,
+            // Les rôles système s'éditent mais ne se suppriment pas : leur nom
+            // porte les droits des comptes qui les portent.
             hideDelete: !!r.isProtected,
           })}
           onEdit={handleOpenEdit}

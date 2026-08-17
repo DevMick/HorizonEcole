@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { GraduationCap } from 'lucide-react';
 import { cn } from '../../../lib/utils';
 import { AppSidebar } from './AppSidebar';
 import { AppTopbar } from './AppTopbar';
@@ -37,7 +36,9 @@ export function AppShell({
   title,
   subtitle,
   brandTitle = 'HorizonEcole',
-  brandSubtitle = 'École Le Souverain',
+  // Repli volontairement neutre : le nom d'une école en dur ici s'afficherait
+  // chez toutes les autres. Layout passe le nom réel de l'établissement.
+  brandSubtitle = 'Gestion scolaire',
   children,
 }: AppShellProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -53,11 +54,32 @@ export function AppShell({
 
   const brand = (
     <div className="ds-brand">
-      <div className="ds-brand-mark" aria-hidden>
-        <GraduationCap width={18} height={18} />
-      </div>
+      {/*
+        Chemin construit sur BASE_URL ('/app/') et non relatif : la barre
+        latérale s'affiche sur toutes les routes, et « logo.png » se résoudrait
+        en /app/owner/logo.png dès qu'une route a deux niveaux.
+      */}
+      <img
+        className="ds-brand-mark"
+        src={`${import.meta.env.BASE_URL}logo-horizonecole.png`}
+        alt=""
+        width={34}
+        height={34}
+        aria-hidden
+      />
       <div className="ds-brand-text">
-        <strong>{brandTitle}</strong>
+        {/* Les deux couleurs de la marque ne s'appliquent qu'au nom du produit :
+            un titre personnalisé passerait par la découpe et serait tronqué. */}
+        <strong>
+          {brandTitle === 'HorizonEcole' ? (
+            <>
+              <span className="ds-brand-ink">Horizon</span>
+              <span className="ds-brand-ambre">Ecole</span>
+            </>
+          ) : (
+            brandTitle
+          )}
+        </strong>
         <span>{brandSubtitle}</span>
       </div>
     </div>

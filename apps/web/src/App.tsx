@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './lib/store';
 import { authApi } from './lib/api';
-import { roleHome, isParentRole, isStudentRole } from './lib/navigation/role-home';
+import { roleHome, isParentRole, isStudentRole, isOwnerRole } from './lib/navigation/role-home';
 import { useEffect } from 'react';
 import { App as AntApp } from 'antd';
 import Layout from './components/Layout';
@@ -74,6 +74,12 @@ import PrimaryTeacherProfilePage from './pages/primary/PrimaryTeacherProfilePage
 import PrimarySaisieNotesPage from './pages/primary/PrimarySaisieNotesPage';
 import PaymentConditionsPage from './pages/finance/PaymentConditionsPage';
 import PaymentsPage from './pages/finance/PaymentsPage';
+import OwnerHomePage from './pages/owner/OwnerHomePage';
+import OwnerEnrollmentPage from './pages/owner/OwnerEnrollmentPage';
+import OwnerAttendancePage from './pages/owner/OwnerAttendancePage';
+import OwnerResultsPage from './pages/owner/OwnerResultsPage';
+import OwnerStaffPage from './pages/owner/OwnerStaffPage';
+import OwnerFinancePage from './pages/owner/OwnerFinancePage';
 
 function App() {
   const { isAuthenticated, token, user } = useAuthStore();
@@ -151,6 +157,45 @@ function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
+      </AntApp>
+    );
+  }
+
+  // Espace Propriétaire : tableaux de bord analytiques, en lecture seule. La
+  // garde n'est pas un masquage — les pages d'administration ne sont pas
+  // montées du tout. Saisir /people/users dans la barre d'adresse tombe donc
+  // sur le catch-all et ramène à /owner.
+  if (isOwnerRole(user?.role)) {
+    // Les menus cochés sur le rôle « Propriétaire » décident aussi des routes
+    // montées : un écran retiré du menu ne doit pas rester atteignable en
+    // tapant son adresse. Sans rôle personnalisé, l'espace est entier.
+    const granted: string[] | undefined = user?.customRole?.menuKeys;
+    const allows = (key: string) =>
+      !granted || granted.length === 0 || key === '/owner' || granted.includes(key);
+
+    return (
+      <AntApp>
+        <Layout>
+          <Routes>
+            <Route path="/owner" element={<OwnerHomePage />} />
+            {allows('/owner/effectifs') && (
+              <Route path="/owner/effectifs" element={<OwnerEnrollmentPage />} />
+            )}
+            {allows('/owner/assiduite') && (
+              <Route path="/owner/assiduite" element={<OwnerAttendancePage />} />
+            )}
+            {allows('/owner/resultats') && (
+              <Route path="/owner/resultats" element={<OwnerResultsPage />} />
+            )}
+            {allows('/owner/enseignants') && (
+              <Route path="/owner/enseignants" element={<OwnerStaffPage />} />
+            )}
+            {allows('/owner/finance') && (
+              <Route path="/owner/finance" element={<OwnerFinancePage />} />
+            )}
+            <Route path="*" element={<Navigate to="/owner" replace />} />
+          </Routes>
+        </Layout>
       </AntApp>
     );
   }

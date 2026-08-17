@@ -44,7 +44,9 @@ class ErrorBoundary extends Component<Props, State> {
 
   private handleReset = () => {
     this.setState({ hasError: false, error: null });
-    window.location.href = '/';
+    // Retour à la racine de l'application (« /app/ »), pas à celle du domaine,
+    // qui sert désormais le site vitrine.
+    window.location.href = import.meta.env.BASE_URL;
   };
 
   public render() {

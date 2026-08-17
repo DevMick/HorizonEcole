@@ -1,0 +1,1047 @@
+[
+  {
+    "cle": "connexion",
+    "titre": "Se connecter",
+    "chapitre": "Prise en main",
+    "chemin": "/login",
+    "menu": [],
+    "sansSession": true,
+    "attendre": "input",
+    "url": "http://localhost:5173/app/login",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "HorizonEcole",
+        "rect": {
+          "x": 550,
+          "y": 239,
+          "w": 400,
+          "h": 48
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1438,
+          "y": 20,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "HE",
+        "id": null,
+        "titre": "Accueil HorizonEcole",
+        "classe": "login-he-logo",
+        "rect": {
+          "x": 720,
+          "y": 165,
+          "w": 60,
+          "h": 60
+        }
+      },
+      {
+        "texte": "Se connecter",
+        "id": null,
+        "titre": null,
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-primary",
+        "rect": {
+          "x": 579,
+          "y": 607,
+          "w": 342,
+          "h": 48
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "text",
+        "id": "login_email",
+        "nom": null,
+        "libelle": "Email",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 619,
+          "y": 443,
+          "w": 290,
+          "h": 24
+        }
+      },
+      {
+        "balise": "input",
+        "type": "password",
+        "id": "login_password",
+        "nom": null,
+        "libelle": "Mot de passe",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 619,
+          "y": 549,
+          "w": 270,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [
+      "login",
+      "login_email",
+      "login_password"
+    ],
+    "hauteurDocument": 950,
+    "texte": "HE\nHorizonEcole\n\nConnectez-vous à votre espace de gestion\n\nEmail\nMot de passe\nSe connecter\n\nVotre école n'est pas encore enregistrée ? Configurer un établissement\n\nGestion scolaire · Primaire, Collège et Lycée"
+  },
+  {
+    "cle": "espace-famille",
+    "titre": "L'Espace Famille",
+    "chapitre": "Prise en main",
+    "chemin": "/parent",
+    "menu": [],
+    "url": "http://localhost:5173/app/parent",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Bonjour, Franck",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [
+      {
+        "texte": "YK Yannick Kouassi CE1",
+        "actif": true,
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 178,
+          "h": 46
+        }
+      },
+      {
+        "texte": "MK Marie Kouassi CE1",
+        "actif": false,
+        "rect": {
+          "x": 638,
+          "y": 177,
+          "w": 163,
+          "h": 46
+        }
+      }
+    ],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "FK Franck Kouassi Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "FK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "YK Yannick Kouassi CE1",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 178,
+          "h": 46
+        }
+      },
+      {
+        "texte": "MK Marie Kouassi CE1",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 638,
+          "y": 177,
+          "w": 163,
+          "h": 46
+        }
+      },
+      {
+        "texte": "Tout voir",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1294,
+          "y": 379,
+          "w": 79,
+          "h": 31
+        }
+      },
+      {
+        "texte": "Tout voir",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1294,
+          "y": 548,
+          "w": 79,
+          "h": 31
+        }
+      },
+      {
+        "texte": "Emploi du temps",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 391,
+          "y": 849,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Notes",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 639,
+          "y": 849,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 887,
+          "y": 849,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Bulletins",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 1135,
+          "y": 849,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 391,
+          "y": 917,
+          "w": 238,
+          "h": 58
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1088,
+    "texte": "Bonjour, Franck\n\nDimanche 16 Août 2026 · Année 2025-2026\n\nENFANT\nYK\nYannick Kouassi\nCE1\nMK\nMarie Kouassi\nCE1\nTaux de présence\n—\nSéances suivies\n0\nRetards\n0\nAbsences\n0\nLes cours de Yannick aujourd'hui\n0\n\nAucun cours programmé aujourd'hui.\n\nDerniers appels\nTout voir\n\nAucun appel enregistré pour cette année.\n\nDernières compositions\nTout voir\n15/06\nComposition\nCOMPOSITION DE PASSAGE\nExcellent\n10,00/10\n30/04\nComposition\nCOMPOSITION 3\nExcellent\n10,00/10\n15/03\nComposition\nCOMPOSITION 2\nExcellent\n9,95/10\n\nRACCOURCIS\n\nEmploi du temps\nNotes\nPrésences\nBulletins\nMes enfants\n\nDonnées affichées pour Yannick Kouassi — CE1."
+  },
+  {
+    "cle": "mes-enfants",
+    "titre": "Mes enfants",
+    "chapitre": "Suivre mon enfant",
+    "chemin": "/parent/children",
+    "menu": [],
+    "url": "http://localhost:5173/app/parent/children",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Mes enfants",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "FK Franck Kouassi Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "FK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Emploi du temps",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-outline ds-btn-sm",
+        "rect": {
+          "x": 391,
+          "y": 350,
+          "w": 149,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 548,
+          "y": 350,
+          "w": 113,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletins",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 668,
+          "y": 350,
+          "w": 101,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Emploi du temps",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-outline ds-btn-sm",
+        "rect": {
+          "x": 911,
+          "y": 350,
+          "w": 149,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1068,
+          "y": 350,
+          "w": 113,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletins",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1188,
+          "y": 350,
+          "w": 101,
+          "h": 32
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 950,
+    "texte": "Mes enfants\n\nLes élèves rattachés à votre compte, et l'accès direct à leur suivi.\n\nYK\nYannick Kouassi\nCE1\n2026-0001\nInscrit\nDate de naissance\n01/01/2014(12 ans)\nLien de parenté\nPère\nEmploi du temps\nPrésences\nBulletins\nMK\nMarie Kouassi\nCE1\n2026-0002\nInscrit\nDate de naissance\n02/02/2015(11 ans)\nLien de parenté\nPère\nEmploi du temps\nPrésences\nBulletins"
+  },
+  {
+    "cle": "emploi-du-temps",
+    "titre": "L'emploi du temps",
+    "chapitre": "Suivre mon enfant",
+    "chemin": "/parent/timetable",
+    "menu": [],
+    "url": "http://localhost:5173/app/parent/timetable",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Emploi du temps",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 269,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [
+      {
+        "texte": "YK Yannick Kouassi CE1",
+        "actif": true,
+        "rect": {
+          "x": 387,
+          "y": 177,
+          "w": 178,
+          "h": 46
+        }
+      },
+      {
+        "texte": "MK Marie Kouassi CE1",
+        "actif": false,
+        "rect": {
+          "x": 574,
+          "y": 177,
+          "w": 163,
+          "h": 46
+        }
+      }
+    ],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "FK Franck Kouassi Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "FK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "YK Yannick Kouassi CE1",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 387,
+          "y": 177,
+          "w": 178,
+          "h": 46
+        }
+      },
+      {
+        "texte": "MK Marie Kouassi CE1",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 574,
+          "y": 177,
+          "w": 163,
+          "h": 46
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 1266,
+          "y": 116,
+          "w": 192,
+          "h": 32
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "HORAIRES",
+          "LUNDI",
+          "MARDI",
+          "MERCREDI",
+          "JEUDI",
+          "VENDREDI",
+          "SAMEDI"
+        ],
+        "lignes": 10,
+        "premiereLigne": [
+          "07:30 - 08:20",
+          "LECT Enseignant",
+          "LECT Enseignant",
+          "—",
+          "EXP TEXTE Enseignant",
+          "LECT Enseignant",
+          "—"
+        ],
+        "rect": {
+          "x": 307,
+          "y": 249,
+          "w": 1150,
+          "h": 681
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 991,
+    "texte": "Emploi du temps\n\nLa semaine de Yannick — classe de CE1.\n\nAnnée scolaire\n2025-2026 (En cours)\nENFANT\nYK\nYannick Kouassi\nCE1\nMK\nMarie Kouassi\nCE1\nHORAIRES\tLUNDI\tMARDI\tMERCREDI\tJEUDI\tVENDREDI\tSAMEDI\n07:30 - 08:20\t\nLECT\nEnseignant\n\t\nLECT\nEnseignant\n\t\n—\n\t\nEXP TEXTE\nEnseignant\n\t\nLECT\nEnseignant\n\t\n—\n\n08:20 - 09:10\t\nEXP TEXTE\nEnseignant\n\t\nMATH\nEnseignant\n\t\n—\n\t\nLECT\nEnseignant\n\t\nMATH\nEnseignant\n\t\n—\n\n09:10 - 10:00\t\nMATH\nEnseignant\n\t\nEXP TEXTE\nEnseignant\n\t\n—\n\t\nMATH\nEnseignant\n\t\nCOPIE\nEnseignant\n\t\n—\n\n10:00 - 10:15\tRÉCRÉATION\n10:15 - 11:05\t\nLECT\nEnseignant\n\t\nDICTEE\nEnseignant\n\t\n—\n\t\nEXP ECRIT\nEnseignant\n\t\nEXP TEXTE\nEnseignant\n\t\n—\n\n11:05 - 11:55\t\nEXP ECRIT\nEnseignant\n\t\nCOPIE\nEnseignant\n\t\n—\n\t\nDICTEE\nEnseignant\n\t\nEXP ECRIT\nEnseignant\n\t\n—\n\n11:55 - 14:00\tAPRÈS-MIDI\n14:00 - 14:50\t\nMATH\nEnseignant\n\t\nEV MILIEU\nEnseignant\n\t\n—\n\t\nLECT\nEnseignant\n\t\nMATH\nEnseignant\n\t\n—\n\n14:50 - 15:40\t\nEPS\nEnseignant\n\t\nMATH\nEnseignant\n\t\n—\n\t\nEPS\nEnseignant\n\t\nCHANT\nEnseignant\n\t\n—\n\n15:40 - 16:30\t\nCHANT\nEnseignant\n\t\nDESS\nEnseignant\n\t\n—\n\t\nEV MILIEU\nEnseignant\n\t\nDESS\nEnseignant\n\t\n—"
+  },
+  {
+    "cle": "resultats",
+    "titre": "Résultats & Bulletins",
+    "chapitre": "Suivre mon enfant",
+    "chemin": "/parent/grades",
+    "menu": [],
+    "url": "http://localhost:5173/app/parent/grades",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Résultats & Bulletins",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [
+      {
+        "texte": "YK Yannick Kouassi CE1",
+        "actif": true,
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 178,
+          "h": 46
+        }
+      },
+      {
+        "texte": "MK Marie Kouassi CE1",
+        "actif": false,
+        "rect": {
+          "x": 638,
+          "y": 177,
+          "w": 163,
+          "h": 46
+        }
+      }
+    ],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "FK Franck Kouassi Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "FK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "YK Yannick Kouassi CE1",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 178,
+          "h": 46
+        }
+      },
+      {
+        "texte": "MK Marie Kouassi CE1",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 638,
+          "y": 177,
+          "w": 163,
+          "h": 46
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 391,
+          "y": 297,
+          "w": 483,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "COMPOSITION 1 — 15/12/2025",
+        "requis": false,
+        "rect": {
+          "x": 890,
+          "y": 297,
+          "w": 483,
+          "h": 32
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 950,
+    "texte": "Résultats & Bulletins\n\nRésultats de Yannick, composition par composition — classe de CE1.\n\nENFANT\nYK\nYannick Kouassi\nCE1\nMK\nMarie Kouassi\nCE1\nAnnée scolaire\n2025-2026 (En cours)\nComposition\nCOMPOSITION 1 — 15/12/2025\nMoyenne de la classe\n6,15/10\nÉlèves ayant composé\n30\nRang de Yannick\n2e\nCOMPOSITION 1\ntotal ÷ 10 → /10\n\nAdmission à partir de 5/10 · insuffisant en dessous de 4/10.\n\nYannick Kouassi\n2e\n· Excellent\n9,30/10\nAdmis(e)\nEXP TEXTE /30\n29,50\nEV MILIEU /30\n29,50\nDICTEE /10\n9,00\nMATH /30\n25,00\nTotal /100\n93,00\nMOYENNE ANNUELLE\n9,81/10\nMoyenne des 4 compositions publiées"
+  }
+]

@@ -1,0 +1,4519 @@
+[
+  {
+    "cle": "connexion",
+    "titre": "Se connecter",
+    "chapitre": "Prise en main",
+    "chemin": "/login",
+    "menu": [],
+    "sansSession": true,
+    "attendre": "input",
+    "url": "http://localhost:5173/app/login",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "HorizonEcole",
+        "rect": {
+          "x": 550,
+          "y": 239,
+          "w": 400,
+          "h": 48
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1438,
+          "y": 20,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "HE",
+        "id": null,
+        "titre": "Accueil HorizonEcole",
+        "classe": "login-he-logo",
+        "rect": {
+          "x": 720,
+          "y": 165,
+          "w": 60,
+          "h": 60
+        }
+      },
+      {
+        "texte": "Se connecter",
+        "id": null,
+        "titre": null,
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-primary",
+        "rect": {
+          "x": 579,
+          "y": 607,
+          "w": 342,
+          "h": 48
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "text",
+        "id": "login_email",
+        "nom": null,
+        "libelle": "Email",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 619,
+          "y": 443,
+          "w": 290,
+          "h": 24
+        }
+      },
+      {
+        "balise": "input",
+        "type": "password",
+        "id": "login_password",
+        "nom": null,
+        "libelle": "Mot de passe",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 619,
+          "y": 549,
+          "w": 270,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [
+      "login",
+      "login_email",
+      "login_password"
+    ],
+    "hauteurDocument": 950,
+    "texte": "HE\nHorizonEcole\n\nConnectez-vous à votre espace de gestion\n\nEmail\nMot de passe\nSe connecter\n\nVotre école n'est pas encore enregistrée ? Configurer un établissement\n\nGestion scolaire · Primaire, Collège et Lycée"
+  },
+  {
+    "cle": "tableau-de-bord",
+    "titre": "Le tableau de bord",
+    "chapitre": "Prise en main",
+    "chemin": "/dashboard",
+    "menu": [],
+    "url": "http://localhost:5173/app/dashboard",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Bonjour, Drissa",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Tableau de bord",
+        "id": null,
+        "titre": "Tableau de bord",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ma Classe",
+        "id": null,
+        "titre": "Ma Classe",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 138,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Élèves",
+        "id": null,
+        "titre": "Élèves",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 192,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Saisie de Notes",
+        "id": null,
+        "titre": "Saisie de Notes",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 246,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 300,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Bilan Annuel",
+        "id": null,
+        "titre": "Bilan Annuel",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 353,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Profil",
+        "id": null,
+        "titre": "Profil",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 407,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "DK Drissa Koné Enseignant",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1rcblah ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "DK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Voir ma classe",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 1259,
+          "y": 199,
+          "w": 114,
+          "h": 31
+        }
+      },
+      {
+        "texte": "Saisir les notes",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-primary ds-btn-sm",
+        "rect": {
+          "x": 1256,
+          "y": 425,
+          "w": 117,
+          "h": 31
+        }
+      },
+      {
+        "texte": "Tout voir",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 774,
+          "y": 532,
+          "w": 79,
+          "h": 31
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 391,
+          "y": 890,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Mes élèves",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 639,
+          "y": 890,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Ma classe",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 887,
+          "y": 890,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Bilan annuel",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 1135,
+          "y": 890,
+          "w": 238,
+          "h": 58
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1061,
+    "texte": "Bonjour, Drissa\n\nDimanche 16 Août 2026 · Année 2025-2026\n\nMa classe — CE1\nCE1\n30 élève(s)\n· 4 matière(s)\nVoir ma classe\nÉlèves\n30\nMatières notées\n4\nCompositions\n4\nSaisies ouvertes\n4\nProchaine composition à saisir\nCOMPOSITION 1\nlundi 15 décembre 2025 · 120 note(s) déjà saisie(s)\nSaisir les notes\nMes compositions\nTout voir\n15/12\n2025\nCOMPOSITION 1\n120 note(s) saisie(s)\nOuverte\n15/03\n2026\nCOMPOSITION 2\n120 note(s) saisie(s)\nOuverte\n30/04\n2026\nCOMPOSITION 3\n120 note(s) saisie(s)\nOuverte\n15/06\n2026\nCOMPOSITION DE PASSAGE\n120 note(s) saisie(s)\nOuverte\nLes matières que je note\n4\nEXP TEXTE\n/30\nEV MILIEU\n/30\nDICTEE\n/10\nMATH\n/30\n\nMoyenne = total des notes ÷ 10 → sur 10. Barèmes fixés par l'administration.\n\nRACCOURCIS\n\nRésultats & Bulletins\nMes élèves\nMa classe\nBilan annuel\n\nDonnées affichées pour CE1 — année 2025-2026."
+  },
+  {
+    "cle": "ma-classe",
+    "titre": "Ma Classe",
+    "chapitre": "Ma classe",
+    "chemin": "/primary/my-class",
+    "menu": [],
+    "url": "http://localhost:5173/app/primary/my-class",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Ma classe",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Tableau de bord",
+        "id": null,
+        "titre": "Tableau de bord",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ma Classe",
+        "id": null,
+        "titre": "Ma Classe",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 138,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Élèves",
+        "id": null,
+        "titre": "Élèves",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 192,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Saisie de Notes",
+        "id": null,
+        "titre": "Saisie de Notes",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 246,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 300,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Bilan Annuel",
+        "id": null,
+        "titre": "Bilan Annuel",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 353,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Profil",
+        "id": null,
+        "titre": "Profil",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 407,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "DK Drissa Koné Enseignant",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1rcblah ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "DK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Saisir les notes",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-primary ds-btn-sm",
+        "rect": {
+          "x": 1233,
+          "y": 198,
+          "w": 140,
+          "h": 32
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Saisir les notes",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 737,
+          "y": 777,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Fiche de classement",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 779,
+          "y": 777,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Bulletins de la classe",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 821,
+          "y": 777,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Saisir les notes",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 737,
+          "y": 836,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Fiche de classement",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 779,
+          "y": 836,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Bulletins de la classe",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 821,
+          "y": 836,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Saisir les notes",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 737,
+          "y": 895,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Fiche de classement",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 779,
+          "y": 895,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Bulletins de la classe",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 821,
+          "y": 895,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Saisir les notes",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 737,
+          "y": 962,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Fiche de classement",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 779,
+          "y": 962,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Bulletins de la classe",
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 821,
+          "y": 962,
+          "w": 36,
+          "h": 36
+        }
+      },
+      {
+        "texte": "Tout voir",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1298,
+          "y": 731,
+          "w": 79,
+          "h": 31
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 391,
+          "y": 326,
+          "w": 317,
+          "h": 32
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1213,
+    "texte": "Ma classe\n\nVos compositions, votre grille de matières et vos élèves.\n\nCE1\nCE1\n30 élève(s)\n· Année 2025-2026\nSaisir les notes\nAnnée scolaire\n2025-2026 (En cours)\nÉlèves\n30\nMatières notées\n4\nCompositions\n4\nNiveau\nCE1\nBarèmes de la classe\n4\nEXP TEXTE\n/30\nEV MILIEU\n/30\nDICTEE\n/10\nMATH\n/30\nTotal des barèmes\n100\nCalcul de la moyenne\n÷ 10 → /10\nMoyenne d'admission\n5\nSeuil de redoublement\n4\nCompositions de l'année\n4\n15/12\n2025\nCOMPOSITION 1\n120 note(s)\nOuverte\n15/03\n2026\nCOMPOSITION 2\n120 note(s)\nOuverte\n30/04\n2026\nCOMPOSITION 3\n120 note(s)\nOuverte\n15/06\n2026\nCOMPOSITION DE PASSAGE\n120 note(s)\nOuverte\nMes élèves\nTout voir\nAA\nAka Aicha\n2026-0016\nF\nAP\nAka Prince\n2026-0015\nM\nAA\nAssi Adama\n2026-0021\nM\nBD\nBakayoko Divine\n2026-0030\nF\nBC\nBamba Cedric\n2026-0011\nM\nBN\nBamba Naomi\n2026-0012\nF\net 24 autre(s) élève(s)…"
+  },
+  {
+    "cle": "eleves",
+    "titre": "Mes élèves",
+    "chapitre": "Ma classe",
+    "chemin": "/primary/my-students",
+    "menu": [],
+    "url": "http://localhost:5173/app/primary/my-students",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Mes élèves",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Tableau de bord",
+        "id": null,
+        "titre": "Tableau de bord",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ma Classe",
+        "id": null,
+        "titre": "Ma Classe",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 138,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Élèves",
+        "id": null,
+        "titre": "Élèves",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 192,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Saisie de Notes",
+        "id": null,
+        "titre": "Saisie de Notes",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 246,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 300,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Bilan Annuel",
+        "id": null,
+        "titre": "Bilan Annuel",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 353,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Profil",
+        "id": null,
+        "titre": "Profil",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 407,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "DK Drissa Koné Enseignant",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1rcblah ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "DK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 391,
+          "y": 326,
+          "w": 317,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "Tous les élèves",
+        "requis": false,
+        "rect": {
+          "x": 724,
+          "y": 326,
+          "w": 317,
+          "h": 32
+        }
+      },
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Nom ou matricule…",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 1056,
+          "y": 326,
+          "w": 317,
+          "h": 44
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 2504,
+    "texte": "Mes élèves\n\nLes élèves inscrits dans votre classe, tels que l'administration les a enregistrés.\n\nCE1\nCE1\n30 élève(s)\n· Année 2025-2026\nAnnée scolaire\n2025-2026 (En cours)\nSexe\nTous les élèves\nRechercher\nEffectif de la classe\n30\nGarçons\n15\nFilles\n15\nListe de la classe\n30\nAA\nAka Aicha\n2026-0016\n· né(e) le 16/04/2017\nFille\nAP\nAka Prince\n2026-0015\n· né(e) le 15/03/2016\nGarçon\nAA\nAssi Adama\n2026-0021\n· né(e) le 21/09/2016\nGarçon\nBD\nBakayoko Divine\n2026-0030\n· né(e) le 03/06/2019\nFille\nBC\nBamba Cedric\n2026-0011\n· né(e) le 11/11/2018\nGarçon\nBN\nBamba Naomi\n2026-0012\n· né(e) le 12/12/2019\nFille\nBS\nBrou Sarah\n2026-0022\n· né(e) le 22/10/2017\nFille\nCE\nCisse Estelle\n2026-0026\n· né(e) le 26/02/2015\nFille\nDA\nDiaby Ali\n2026-0023\n· né(e) le 23/11/2018\nGarçon\nDI\nDiallo Ines\n2026-0010\n· né(e) le 10/10/2017\nFille\nDS\nDiallo Serge\n2026-0009\n· né(e) le 09/09/2016\nGarçon\nEK\nEhui Kadiatou\n2026-0028\n· né(e) le 01/04/2017\nFille\nGA\nGnagne Awa\n2026-0020\n· né(e) le 20/08/2015\nFille\nGF\nGnagne Franck\n2026-0019\n· né(e) le 19/07/2014\nGarçon\nKI\nKanga Ibrahim\n2026-0027\n· né(e) le 27/03/2016\nGarçon\nKC\nKoffi Chloe\n2026-0004\n· né(e) le 04/04/2017\nFille\nKJ\nKoffi Jean\n2026-0003\n· né(e) le 03/03/2016\nGarçon\nKG\nKone Grace\n2026-0006\n· né(e) le 06/06/2019\nFille\nKI\nKone Ismael\n2026-0005\n· né(e) le 05/05/2018\nGarçon\nKB\nKouame Boubacar\n2026-0025\n· né(e) le 25/01/2014\nGarçon\nKM\nKouassi Marie\n2026-0002\n· né(e) le 02/02/2015\nFille\nKY\nKouassi Yannick\n2026-0001\n· né(e) le 01/01/2014\nGarçon\nOR\nOuattara Rachel\n2026-0024\n· né(e) le 24/12/2019\nFille\nTE\nToure Emmanuel\n2026-0017\n· né(e) le 17/05/2018\nGarçon\nTF\nToure Fatou\n2026-0018\n· né(e) le 18/06/2019\nFille\nTM\nTraore Marc\n2026-0007\n· né(e) le 07/07/2014\nGarçon\nTM\nTraore Mariam\n2026-0008\n· né(e) le 08/08/2015\nFille\nYL\nYao Laura\n2026-0014\n· né(e) le 14/02/2015\nFille\nYO\nYao Olivier\n2026-0013\n· né(e) le 13/01/2014\nGarçon\nZJ\nZadi Junior\n2026-0029\n· né(e) le 02/05/2018\nGarçon\n\nLes inscriptions sont gérées par l'administration. Pour ajouter ou retirer un élève, adressez-vous au secrétariat."
+  },
+  {
+    "cle": "saisie-notes",
+    "titre": "La saisie des notes — écran d’accueil",
+    "chapitre": "Les notes",
+    "chemin": "/primary/saisie",
+    "menu": [],
+    "url": "http://localhost:5173/app/primary/saisie",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Saisie des Notes",
+        "rect": {
+          "x": 290,
+          "y": 118,
+          "w": 1184,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Tableau de bord",
+        "id": null,
+        "titre": "Tableau de bord",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ma Classe",
+        "id": null,
+        "titre": "Ma Classe",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 138,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Élèves",
+        "id": null,
+        "titre": "Élèves",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 192,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Saisie de Notes",
+        "id": null,
+        "titre": "Saisie de Notes",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 246,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 300,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Bilan Annuel",
+        "id": null,
+        "titre": "Bilan Annuel",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 353,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Profil",
+        "id": null,
+        "titre": "Profil",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 407,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "DK Drissa Koné Enseignant",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1rcblah ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "DK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 311,
+          "y": 249,
+          "w": 370,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "Sélectionnez une composition",
+        "requis": false,
+        "rect": {
+          "x": 697,
+          "y": 249,
+          "w": 370,
+          "h": 32
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 950,
+    "texte": "Résultats & Bulletins\nSaisie des Notes\n\nSélectionnez une composition pour saisir les notes.\n\nAnnée scolaire\n2025-2026 (En cours)\nComposition\nSélectionnez une composition\nCE1\nCE1\n30 élève(s)\n· Année 2025-2026\n\nAucune composition sélectionnée\n\nChoisissez une composition dans les filtres ci-dessus pour ouvrir la grille de saisie."
+  },
+  {
+    "cle": "saisie-notes-grille",
+    "titre": "La grille de saisie d’une composition",
+    "chapitre": "Les notes",
+    "depuis": "/primary/saisie",
+    "menu": [],
+    "url": "http://localhost:5173/app/primary/saisie",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Saisie des Notes",
+        "rect": {
+          "x": 290,
+          "y": 118,
+          "w": 1184,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Tableau de bord",
+        "id": null,
+        "titre": "Tableau de bord",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ma Classe",
+        "id": null,
+        "titre": "Ma Classe",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 138,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Élèves",
+        "id": null,
+        "titre": "Élèves",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 192,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Saisie de Notes",
+        "id": null,
+        "titre": "Saisie de Notes",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 246,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 300,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Bilan Annuel",
+        "id": null,
+        "titre": "Bilan Annuel",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 353,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Profil",
+        "id": null,
+        "titre": "Profil",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 407,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "DK Drissa Koné Enseignant",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1rcblah ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "DK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Enregistrer",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-primary",
+        "rect": {
+          "x": 1323,
+          "y": 2386,
+          "w": 130,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 311,
+          "y": 249,
+          "w": 370,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "COMPOSITION 1 — 15/12/2025 COMPOSITION 1 — 15/12/2025",
+        "requis": false,
+        "rect": {
+          "x": 697,
+          "y": 249,
+          "w": 370,
+          "h": 32
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Aka Aicha",
+        "valeur": "10",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 655,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Aka Aicha",
+        "valeur": "10.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 655,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Aka Aicha",
+        "valeur": "3",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 655,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Aka Aicha",
+        "valeur": "12.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 655,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Aka Aicha absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 663,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Aka Prince",
+        "valeur": "27.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 713,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Aka Prince",
+        "valeur": "23.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 713,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Aka Prince",
+        "valeur": "7.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 713,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Aka Prince",
+        "valeur": "21.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 713,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Aka Prince absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 720,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Assi Adama",
+        "valeur": "16.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 770,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Assi Adama",
+        "valeur": "19",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 770,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Assi Adama",
+        "valeur": "6.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 770,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Assi Adama",
+        "valeur": "21",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 770,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Assi Adama absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 778,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Bakayoko Divine",
+        "valeur": "20",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 828,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Bakayoko Divine",
+        "valeur": "22",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 828,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Bakayoko Divine",
+        "valeur": "5.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 828,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Bakayoko Divine",
+        "valeur": "19",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 828,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Bakayoko Divine absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 835,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Bamba Cedric",
+        "valeur": "10.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 885,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Bamba Cedric",
+        "valeur": "11.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 885,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Bamba Cedric",
+        "valeur": "4.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 885,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Bamba Cedric",
+        "valeur": "12.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 885,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Bamba Cedric absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 893,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Bamba Naomi",
+        "valeur": "18",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 943,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Bamba Naomi",
+        "valeur": "20.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 943,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Bamba Naomi",
+        "valeur": "8",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 943,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Bamba Naomi",
+        "valeur": "23.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 943,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Bamba Naomi absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 950,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Brou Sarah",
+        "valeur": "26.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1000,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Brou Sarah",
+        "valeur": "25.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1000,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Brou Sarah",
+        "valeur": "7.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1000,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Brou Sarah",
+        "valeur": "22.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1000,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Brou Sarah absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1008,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Cisse Estelle",
+        "valeur": "23.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1058,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Cisse Estelle",
+        "valeur": "25.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1058,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Cisse Estelle",
+        "valeur": "7",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1058,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Cisse Estelle",
+        "valeur": "21.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1058,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Cisse Estelle absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1065,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Diaby Ali",
+        "valeur": "12",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1115,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Diaby Ali",
+        "valeur": "11",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1115,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Diaby Ali",
+        "valeur": "5.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1115,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Diaby Ali",
+        "valeur": "15.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1115,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Diaby Ali absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1123,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Diallo Ines",
+        "valeur": "14",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1173,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Diallo Ines",
+        "valeur": "11.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1173,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Diallo Ines",
+        "valeur": "4",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1173,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Diallo Ines",
+        "valeur": "15.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1173,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Diallo Ines absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1180,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Diallo Serge",
+        "valeur": "13",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1230,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Diallo Serge",
+        "valeur": "11.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1230,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Diallo Serge",
+        "valeur": "4.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1230,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Diallo Serge",
+        "valeur": "16",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1230,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Diallo Serge absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1238,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Ehui Kadiatou",
+        "valeur": "24.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1288,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Ehui Kadiatou",
+        "valeur": "29.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1288,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Ehui Kadiatou",
+        "valeur": "10",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1288,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Ehui Kadiatou",
+        "valeur": "29.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1288,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Ehui Kadiatou absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1295,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Gnagne Awa",
+        "valeur": "10",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1345,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Gnagne Awa",
+        "valeur": "10.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1345,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Gnagne Awa",
+        "valeur": "5.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1345,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Gnagne Awa",
+        "valeur": "13.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1345,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Gnagne Awa absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1353,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Gnagne Franck",
+        "valeur": "11",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1403,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Gnagne Franck",
+        "valeur": "15.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1403,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Gnagne Franck",
+        "valeur": "5.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1403,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Gnagne Franck",
+        "valeur": "15",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1403,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Gnagne Franck absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1410,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Kanga Ibrahim",
+        "valeur": "12.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1460,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Kanga Ibrahim",
+        "valeur": "12",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1460,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Kanga Ibrahim",
+        "valeur": "4.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1460,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Kanga Ibrahim",
+        "valeur": "17",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1460,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Kanga Ibrahim absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1468,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Koffi Chloe",
+        "valeur": "13.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1518,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Koffi Chloe",
+        "valeur": "13.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1518,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Koffi Chloe",
+        "valeur": "4",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1518,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Koffi Chloe",
+        "valeur": "18.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1518,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Koffi Chloe absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1525,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Koffi Jean",
+        "valeur": "13",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1575,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Koffi Jean",
+        "valeur": "12.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1575,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Koffi Jean",
+        "valeur": "3",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1575,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Koffi Jean",
+        "valeur": "14",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1575,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Koffi Jean absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1583,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Kone Grace",
+        "valeur": "22",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1633,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Kone Grace",
+        "valeur": "18.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1633,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Kone Grace",
+        "valeur": "7.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1633,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Kone Grace",
+        "valeur": "15.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1633,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Kone Grace absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1640,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Kone Ismael",
+        "valeur": "27.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1690,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Kone Ismael",
+        "valeur": "27.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1690,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Kone Ismael",
+        "valeur": "9",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1690,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Kone Ismael",
+        "valeur": "24.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1690,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Kone Ismael absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1698,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Kouame Boubacar",
+        "valeur": "11",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1748,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Kouame Boubacar",
+        "valeur": "10.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1748,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Kouame Boubacar",
+        "valeur": "4.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1748,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Kouame Boubacar",
+        "valeur": "14",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1748,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Kouame Boubacar absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1755,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Kouassi Marie",
+        "valeur": "24",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1805,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Kouassi Marie",
+        "valeur": "26",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1805,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Kouassi Marie",
+        "valeur": "9.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1805,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Kouassi Marie",
+        "valeur": "24",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1805,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Kouassi Marie absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1813,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Kouassi Yannick",
+        "valeur": "29.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1863,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Kouassi Yannick",
+        "valeur": "29.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1863,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Kouassi Yannick",
+        "valeur": "9",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1863,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Kouassi Yannick",
+        "valeur": "25",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1863,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Kouassi Yannick absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1870,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Ouattara Rachel",
+        "valeur": "23.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1920,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Ouattara Rachel",
+        "valeur": "18.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1920,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Ouattara Rachel",
+        "valeur": "6.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1920,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Ouattara Rachel",
+        "valeur": "17",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1920,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Ouattara Rachel absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1928,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Toure Emmanuel",
+        "valeur": "24.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 1978,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Toure Emmanuel",
+        "valeur": "25",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 1978,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Toure Emmanuel",
+        "valeur": "7.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 1978,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Toure Emmanuel",
+        "valeur": "19.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 1978,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Toure Emmanuel absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 1985,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Toure Fatou",
+        "valeur": "23",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 2035,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Toure Fatou",
+        "valeur": "25",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 2035,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Toure Fatou",
+        "valeur": "6.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 2035,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Toure Fatou",
+        "valeur": "19",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 2035,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Toure Fatou absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 2043,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Traore Marc",
+        "valeur": "18.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 2093,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Traore Marc",
+        "valeur": "18",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 2093,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Traore Marc",
+        "valeur": "5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 2093,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Traore Marc",
+        "valeur": "19",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 2093,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Traore Marc absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 2100,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Traore Mariam",
+        "valeur": "19.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 2150,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Traore Mariam",
+        "valeur": "16",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 2150,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Traore Mariam",
+        "valeur": "6",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 2150,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Traore Mariam",
+        "valeur": "20.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 2150,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Traore Mariam absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 2158,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Yao Laura",
+        "valeur": "21.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 2208,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Yao Laura",
+        "valeur": "23.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 2208,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Yao Laura",
+        "valeur": "7.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 2208,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Yao Laura",
+        "valeur": "23",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 2208,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Yao Laura absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 2215,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Yao Olivier",
+        "valeur": "8",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 2265,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Yao Olivier",
+        "valeur": "10.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 2265,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Yao Olivier",
+        "valeur": "5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 2265,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Yao Olivier",
+        "valeur": "15.5",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 2265,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Yao Olivier absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 2273,
+          "w": 16,
+          "h": 16
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EXP TEXTE pour Zadi Junior",
+        "valeur": "19.5",
+        "requis": false,
+        "rect": {
+          "x": 658,
+          "y": 2323,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note EV MILIEU pour Zadi Junior",
+        "valeur": "18.5",
+        "requis": false,
+        "rect": {
+          "x": 818,
+          "y": 2323,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note DICTEE pour Zadi Junior",
+        "valeur": "4.5",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 2323,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "number",
+        "id": null,
+        "nom": null,
+        "libelle": "Note MATH pour Zadi Junior",
+        "valeur": "17",
+        "requis": false,
+        "rect": {
+          "x": 1138,
+          "y": 2323,
+          "w": 80,
+          "h": 36
+        }
+      },
+      {
+        "balise": "input",
+        "type": "checkbox",
+        "id": null,
+        "nom": null,
+        "libelle": "Marquer Zadi Junior absent",
+        "valeur": "on",
+        "requis": false,
+        "rect": {
+          "x": 1285,
+          "y": 2330,
+          "w": 16,
+          "h": 16
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "#",
+          "Élève",
+          "EXP TEXTE /30",
+          "EV MILIEU /30",
+          "DICTEE /10",
+          "MATH /30",
+          "Absent",
+          "Moyenne /10"
+        ],
+        "lignes": 30,
+        "premiereLigne": [
+          "1",
+          "Aka Aicha 2026-0016",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "3,60"
+        ],
+        "rect": {
+          "x": 291,
+          "y": 583,
+          "w": 1182,
+          "h": 1787
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 2526,
+    "texte": "Résultats & Bulletins\nSaisie des Notes\n\nCE1 — COMPOSITION 1 · 15 décembre 2025\n\nAnnée scolaire\n2025-2026 (En cours)\nComposition\nCOMPOSITION 1 — 15/12/2025\nCOMPOSITION 1 — 15/12/2025\nCE1\nCE1\n30 élève(s)\n· Année 2025-2026\nÉlèves inscrits\n30\nPrésents\n30\nAbsents\n0\nCOMPOSITION 1\n15 décembre 2025\nBarème ÷ 10 → /10\n#\tÉlève\t\nEXP TEXTE\n/30\n\t\nEV MILIEU\n/30\n\t\nDICTEE\n/10\n\t\nMATH\n/30\n\tAbsent\t\nMoyenne\n/10\n\n1\t\nAka Aicha\n2026-0016\n\t\t\t\t\t\t3,60\n2\t\nAka Prince\n2026-0015\n\t\t\t\t\t\t8,00\n3\t\nAssi Adama\n2026-0021\n\t\t\t\t\t\t6,30\n4\t\nBakayoko Divine\n2026-0030\n\t\t\t\t\t\t6,65\n5\t\nBamba Cedric\n2026-0011\n\t\t\t\t\t\t3,90\n6\t\nBamba Naomi\n2026-0012\n\t\t\t\t\t\t7,00\n7\t\nBrou Sarah\n2026-0022\n\t\t\t\t\t\t8,20\n8\t\nCisse Estelle\n2026-0026\n\t\t\t\t\t\t7,75\n9\t\nDiaby Ali\n2026-0023\n\t\t\t\t\t\t4,40\n10\t\nDiallo Ines\n2026-0010\n\t\t\t\t\t\t4,50\n11\t\nDiallo Serge\n2026-0009\n\t\t\t\t\t\t4,50\n12\t\nEhui Kadiatou\n2026-0028\n\t\t\t\t\t\t9,35\n13\t\nGnagne Awa\n2026-0020\n\t\t\t\t\t\t3,95\n14\t\nGnagne Franck\n2026-0019\n\t\t\t\t\t\t4,70\n15\t\nKanga Ibrahim\n2026-0027\n\t\t\t\t\t\t4,60\n16\t\nKoffi Chloe\n2026-0004\n\t\t\t\t\t\t4,95\n17\t\nKoffi Jean\n2026-0003\n\t\t\t\t\t\t4,25\n18\t\nKone Grace\n2026-0006\n\t\t\t\t\t\t6,35\n19\t\nKone Ismael\n2026-0005\n\t\t\t\t\t\t8,85\n20\t\nKouame Boubacar\n2026-0025\n\t\t\t\t\t\t4,00\n21\t\nKouassi Marie\n2026-0002\n\t\t\t\t\t\t8,35\n22\t\nKouassi Yannick\n2026-0001\n\t\t\t\t\t\t9,30\n23\t\nOuattara Rachel\n2026-0024\n\t\t\t\t\t\t6,55\n24\t\nToure Emmanuel\n2026-0017\n\t\t\t\t\t\t7,65\n25\t\nToure Fatou\n2026-0018\n\t\t\t\t\t\t7,35\n26\t\nTraore Marc\n2026-0007\n\t\t\t\t\t\t6,05\n27\t\nTraore Mariam\n2026-0008\n\t\t\t\t\t\t6,20\n28\t\nYao Laura\n2026-0014\n\t\t\t\t\t\t7,55\n29\t\nYao Olivier\n2026-0013\n\t\t\t\t\t\t3,90\n30\t\nZadi Junior\n2026-0029\n\t\t\t\t\t\t5,95\nTout est enregistré\nEnregistrer"
+  },
+  {
+    "cle": "resultats",
+    "titre": "Résultats & Bulletins",
+    "chapitre": "Les notes",
+    "chemin": "/primary/grades",
+    "menu": [],
+    "url": "http://localhost:5173/app/primary/grades",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Résultats & Bulletins",
+        "rect": {
+          "x": 290,
+          "y": 86,
+          "w": 1184,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Tableau de bord",
+        "id": null,
+        "titre": "Tableau de bord",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ma Classe",
+        "id": null,
+        "titre": "Ma Classe",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 138,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Élèves",
+        "id": null,
+        "titre": "Élèves",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 192,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Saisie de Notes",
+        "id": null,
+        "titre": "Saisie de Notes",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 246,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 300,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Bilan Annuel",
+        "id": null,
+        "titre": "Bilan Annuel",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 353,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Profil",
+        "id": null,
+        "titre": "Profil",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 407,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "DK Drissa Koné Enseignant",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1rcblah ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "DK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Saisir les notes",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-primary ds-btn-sm",
+        "rect": {
+          "x": 745,
+          "y": 391,
+          "w": 140,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Fiche de classement (PDF)",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 893,
+          "y": 391,
+          "w": 210,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletins de la classe",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 1111,
+          "y": 391,
+          "w": 175,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bilan annuel (PDF)",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-primary ds-btn-sm",
+        "rect": {
+          "x": 1294,
+          "y": 391,
+          "w": 159,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 559,
+          "y": 900,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 959,
+          "y": 900,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 1359,
+          "y": 900,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 559,
+          "y": 1190,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 959,
+          "y": 1190,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 1359,
+          "y": 1190,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 559,
+          "y": 1480,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 959,
+          "y": 1480,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 1359,
+          "y": 1480,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletin",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 559,
+          "y": 1771,
+          "w": 94,
+          "h": 32
+        }
+      },
+      {
+        "texte": "‹",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 1332,
+          "y": 1840,
+          "w": 31,
+          "h": 31
+        }
+      },
+      {
+        "texte": "›",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 1443,
+          "y": 1840,
+          "w": 31,
+          "h": 31
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 311,
+          "y": 326,
+          "w": 370,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "COMPOSITION 1 — 15/12/2025",
+        "requis": false,
+        "rect": {
+          "x": 697,
+          "y": 326,
+          "w": 370,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "10 par page",
+        "requis": false,
+        "rect": {
+          "x": 1204,
+          "y": 1843,
+          "w": 120,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1947,
+    "texte": "Résultats & Bulletins\n\nFiches de classement, bulletins individuels et synthèse annuelle par composition.\n\nCE1\nCE1\n30 élève(s)\n· Année 2025-2026\nAnnée scolaire\n2025-2026 (En cours)\nComposition\nCOMPOSITION 1 — 15/12/2025\nSaisir les notes\nFiche de classement (PDF)\nBulletins de la classe\nBilan annuel (PDF)\nMoyenne de la classe\n6,15/10\nOnt composé\n30/30\nTaux de réussite\n60,00%\nPlus forte moyenne\n9,35\nCE1 — COMPOSITION 1\ntotal ÷ 10 → /10\n\nAdmission à partir de 5/10 · insuffisant en dessous de 4/10. Une matière non saisie compte 0 ; un élève absent n'est pas classé.\n\nEhui Kadiatou\n2026-0028\n· 1er\n· Excellent\n9,35/10\nAdmis(e)\nEXP TEXTE /30\n24,50\nEV MILIEU /30\n29,50\nDICTEE /10\n10,00\nMATH /30\n29,50\nTotal /100\n93,50\nBulletin\nKouassi Yannick\n2026-0001\n· 2e\n· Excellent\n9,30/10\nAdmis(e)\nEXP TEXTE /30\n29,50\nEV MILIEU /30\n29,50\nDICTEE /10\n9,00\nMATH /30\n25,00\nTotal /100\n93,00\nBulletin\nKone Ismael\n2026-0005\n· 3e\n· Très Bien\n8,85/10\nAdmis(e)\nEXP TEXTE /30\n27,50\nEV MILIEU /30\n27,50\nDICTEE /10\n9,00\nMATH /30\n24,50\nTotal /100\n88,50\nBulletin\nKouassi Marie\n2026-0002\n· 4e\n· Très Bien\n8,35/10\nAdmis(e)\nEXP TEXTE /30\n24,00\nEV MILIEU /30\n26,00\nDICTEE /10\n9,50\nMATH /30\n24,00\nTotal /100\n83,50\nBulletin\nBrou Sarah\n2026-0022\n· 5e\n· Très Bien\n8,20/10\nAdmis(e)\nEXP TEXTE /30\n26,50\nEV MILIEU /30\n25,50\nDICTEE /10\n7,50\nMATH /30\n22,50\nTotal /100\n82,00\nBulletin\nAka Prince\n2026-0015\n· 6e\n· Très Bien\n8,00/10\nAdmis(e)\nEXP TEXTE /30\n27,50\nEV MILIEU /30\n23,50\nDICTEE /10\n7,50\nMATH /30\n21,50\nTotal /100\n80,00\nBulletin\nCisse Estelle\n2026-0026\n· 7e\n· Bien\n7,75/10\nAdmis(e)\nEXP TEXTE /30\n23,50\nEV MILIEU /30\n25,50\nDICTEE /10\n7,00\nMATH /30\n21,50\nTotal /100\n77,50\nBulletin\nToure Emmanuel\n2026-0017\n· 8e\n· Bien\n7,65/10\nAdmis(e)\nEXP TEXTE /30\n24,50\nEV MILIEU /30\n25,00\nDICTEE /10\n7,50\nMATH /30\n19,50\nTotal /100\n76,50\nBulletin\nYao Laura\n2026-0014\n· 9e\n· Bien\n7,55/10\nAdmis(e)\nEXP TEXTE /30\n21,50\nEV MILIEU /30\n23,50\nDICTEE /10\n7,50\nMATH /30\n23,00\nTotal /100\n75,50\nBulletin\nToure Fatou\n2026-0018\n· 10e\n· Bien\n7,35/10\nAdmis(e)\nEXP TEXTE /30\n23,00\nEV MILIEU /30\n25,00\nDICTEE /10\n6,50\nMATH /30\n19,00\nTotal /100\n73,50\nBulletin\n1–10 sur 30 élève(s)\n10 par page\n‹\n1 / 3\n›"
+  },
+  {
+    "cle": "bilan-annuel",
+    "titre": "Le bilan annuel",
+    "chapitre": "Les notes",
+    "chemin": "/primary/annual-report",
+    "menu": [],
+    "url": "http://localhost:5173/app/primary/annual-report",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Bilan annuel",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Tableau de bord",
+        "id": null,
+        "titre": "Tableau de bord",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ma Classe",
+        "id": null,
+        "titre": "Ma Classe",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 138,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Élèves",
+        "id": null,
+        "titre": "Élèves",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 192,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Saisie de Notes",
+        "id": null,
+        "titre": "Saisie de Notes",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 246,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 300,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Bilan Annuel",
+        "id": null,
+        "titre": "Bilan Annuel",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 353,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Profil",
+        "id": null,
+        "titre": "Profil",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 407,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "DK Drissa Koné Enseignant",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1rcblah ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "DK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Bilan (PDF)",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary ds-btn-sm",
+        "rect": {
+          "x": 1258,
+          "y": 326,
+          "w": 115,
+          "h": 32
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 391,
+          "y": 326,
+          "w": 317,
+          "h": 32
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "RANG",
+          "Nom et Prénoms",
+          "COMPOSITION 1",
+          "COMPOSITION 2",
+          "COMPOSITION 3",
+          "COMPOSITION DE PASSAGE",
+          "MOY. ANNUELLE",
+          "MENTION",
+          "DÉCISION"
+        ],
+        "lignes": 31,
+        "premiereLigne": [
+          "RANG",
+          "Nom et Prénoms",
+          "COMPOSITION 1",
+          "COMPOSITION 2",
+          "COMPOSITION 3",
+          "COMPOSITION DE PASSAGE",
+          "MOY. ANNUELLE",
+          "MENTION",
+          "DÉCISION"
+        ],
+        "rect": {
+          "x": 371,
+          "y": 663,
+          "w": 1173,
+          "h": 1323
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 2062,
+    "texte": "Bilan annuel\n\nMoyennes, rangs et décisions de fin d'année, tels qu'ils seront lus au conseil des maîtres.\n\nCE1\nCE1\n30 élève(s)\n· Année 2025-2026\nAnnée scolaire\n2025-2026 (En cours)\nBilan (PDF)\nEffectif\n30\nMoyenne de la classe\n7,14\nAdmis\n29\nTaux de réussite\n96,67%\nDécisions de fin d'année\n29 admis\n0 à examiner\n1 redoublent\n\nAdmission à partir de 5,00/10 · redoublement en dessous de 4,00/10 · moyenne annuelle = moyenne des compositions composées.\n\nClassement annuel\n30\nRANG\tNom et Prénoms\tCOMPOSITION 1\tCOMPOSITION 2\tCOMPOSITION 3\tCOMPOSITION DE PASSAGE\tMOY. ANNUELLE\tMENTION\tDÉCISION\n\nRANG\n\t\nNom et Prénoms\n\t\nCOMPOSITION 1\n\t\nCOMPOSITION 2\n\t\nCOMPOSITION 3\n\t\nCOMPOSITION DE PASSAGE\n\t\nMOY. ANNUELLE\n\t\nMENTION\n\t\nDÉCISION\n\n1er\tKouassi Yannick\t9,30\t9,95\t10,00\t10,00\t9,81\tExcellent\t\nAdmis(e)\n2e\tEhui Kadiatou\t9,35\t10,00\t9,93\t9,70\t9,75\tExcellent\t\nAdmis(e)\n3e\tKouassi Marie\t8,35\t9,43\t9,35\t9,07\t9,05\tExcellent\t\nAdmis(e)\n4e\tZadi Junior\t5,95\t9,98\t9,95\t9,80\t8,92\tTrès Bien\t\nAdmis(e)\n5e\tKone Ismael\t8,85\t9,32\t8,90\t8,50\t8,89\tTrès Bien\t\nAdmis(e)\n6e\tAka Prince\t8,00\t9,28\t8,88\t8,48\t8,66\tTrès Bien\t\nAdmis(e)\n7e ex æquo\tOuattara Rachel\t6,55\t8,10\t8,48\t8,78\t7,98\tBien\t\nAdmis(e)\n7e ex æquo\tToure Emmanuel\t7,65\t7,65\t8,07\t8,53\t7,98\tBien\t\nAdmis(e)\n9e\tBakayoko Divine\t6,65\t8,40\t8,43\t8,32\t7,95\tBien\t\nAdmis(e)\n10e\tYao Laura\t7,55\t8,28\t7,88\t7,45\t7,79\tBien\t\nAdmis(e)\n11e\tGnagne Awa\t3,95\t8,73\t8,85\t8,78\t7,58\tBien\t\nAdmis(e)\n12e\tAssi Adama\t6,30\t8,20\t7,95\t7,58\t7,51\tBien\t\nAdmis(e)\n13e\tBamba Naomi\t7,00\t7,15\t7,60\t8,00\t7,44\tBien\t\nAdmis(e)\n14e\tToure Fatou\t7,35\t7,10\t7,33\t7,65\t7,36\tBien\t\nAdmis(e)\n15e\tBrou Sarah\t8,20\t6,48\t6,80\t7,20\t7,17\tBien\t\nAdmis(e)\n16e\tTraore Mariam\t6,20\t7,45\t7,10\t6,93\t6,92\tAssez Bien\t\nAdmis(e)\n17e\tCisse Estelle\t7,75\t6,35\t6,40\t6,63\t6,78\tAssez Bien\t\nAdmis(e)\n18e\tKouame Boubacar\t4,00\t7,88\t7,50\t7,10\t6,62\tAssez Bien\t\nAdmis(e)\n19e\tGnagne Franck\t4,70\t6,85\t7,20\t7,48\t6,56\tAssez Bien\t\nAdmis(e)\n20e\tKanga Ibrahim\t4,60\t6,73\t7,13\t7,58\t6,51\tAssez Bien\t\nAdmis(e)\n21e\tKoffi Chloe\t4,95\t6,48\t6,78\t7,13\t6,34\tAssez Bien\t\nAdmis(e)\n22e\tYao Olivier\t3,90\t7,38\t7,10\t6,68\t6,27\tAssez Bien\t\nAdmis(e)\n23e\tKone Grace\t6,35\t6,40\t6,13\t5,98\t6,22\tAssez Bien\t\nAdmis(e)\n24e\tBamba Cedric\t3,90\t6,60\t6,93\t7,15\t6,15\tAssez Bien\t\nAdmis(e)\n25e\tTraore Marc\t6,05\t6,15\t6,05\t6,15\t6,10\tAssez Bien\t\nAdmis(e)\n26e\tDiallo Serge\t4,50\t6,93\t6,55\t6,13\t6,03\tAssez Bien\t\nAdmis(e)\n27e\tDiallo Ines\t4,50\t6,53\t6,13\t5,80\t5,74\tPassable\t\nAdmis(e)\n28e\tDiaby Ali\t4,40\t6,05\t5,85\t5,78\t5,52\tPassable\t\nAdmis(e)\n29e\tKoffi Jean\t4,25\t5,78\t5,75\t5,93\t5,43\tPassable\t\nAdmis(e)\n30e\tAka Aicha\t3,60\t3,55\t3,15\t2,88\t3,30\tInsuffisant\t\nRedouble"
+  },
+  {
+    "cle": "profil",
+    "titre": "Mon profil",
+    "chapitre": "Mon compte",
+    "chemin": "/primary/profile",
+    "menu": [],
+    "url": "http://localhost:5173/app/primary/profile",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Profil",
+        "rect": {
+          "x": 434,
+          "y": 86,
+          "w": 896,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Tableau de bord",
+        "id": null,
+        "titre": "Tableau de bord",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ma Classe",
+        "id": null,
+        "titre": "Ma Classe",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 138,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Élèves",
+        "id": null,
+        "titre": "Élèves",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 192,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Saisie de Notes",
+        "id": null,
+        "titre": "Saisie de Notes",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 246,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 300,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Bilan Annuel",
+        "id": null,
+        "titre": "Bilan Annuel",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 353,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Profil",
+        "id": null,
+        "titre": "Profil",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 407,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "DK Drissa Koné Enseignant",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1rcblah ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "DK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Mot de passe",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-secondary w-full",
+        "rect": {
+          "x": 1164,
+          "y": 211,
+          "w": 145,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 950,
+    "texte": "Profil\n\nVos informations et votre affectation.\n\nDK\nKoné Drissa\n\ndrissa.kone@palmiers.edu.ci\n\nEnseignant\nTitulaire CE1\nCDI\nMot de passe\nMes informations\nAdresse email\ndrissa.kone@palmiers.edu.ci\nTéléphone\n+225 07 00 00 00 01\nType de contrat\nContrat à durée indéterminée\nDate d'embauche\n08 août 2026\nMon affectation\nClasse dont je suis titulaire\nCE1 · niveau CE1\nEffectif de ma classe\n30 élève(s)\nÉtablissement\nGroupe Scolaire les Palmiers\nÉcole primaire\nAnnée scolaire en cours\n2025-2026\nInformations gérées par l'école\n\nVos informations personnelles et votre affectation sont tenues par l'administration de l'établissement. Pour toute correction, adressez-vous au secrétariat."
+  }
+]

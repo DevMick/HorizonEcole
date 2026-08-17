@@ -83,6 +83,83 @@ export const MENU_CATALOG: MenuCatalogGroup[] = [
 ];
 
 /**
+ * Catalogue de l'espace Propriétaire, tenu **séparé** du précédent.
+ *
+ * Les deux jeux ne se mélangent jamais : proposer « Pilotage » à un comptable
+ * afficherait des cases sans effet — la navigation d'un compte ADMIN ou
+ * ACCOUNTANT ne comporte aucune entrée `/owner/*` — et verser les écrans de
+ * gestion dans le rôle Propriétaire contredirait sa raison d'être.
+ */
+export const OWNER_MENU_CATALOG: MenuCatalogGroup[] = [
+  {
+    key: 'owner',
+    label: 'Pilotage',
+    items: [
+      { key: '/owner', label: "Vue d'ensemble" },
+      { key: '/owner/effectifs', label: 'Effectifs' },
+      { key: '/owner/assiduite', label: 'Assiduité' },
+      { key: '/owner/resultats', label: 'Résultats' },
+      { key: '/owner/enseignants', label: 'Enseignants' },
+      { key: '/owner/finance', label: 'Finance' },
+    ],
+  },
+];
+
+/** Menu de l'espace Propriétaire qui ne se décoche pas : la page d'atterrissage. */
+export const OWNER_LOCKED_MENU_KEY = '/owner';
+
+/**
+ * Nom du rôle protégé qui porte ces menus.
+ *
+ * Recopié de `packages/types` plutôt qu'importé : le front tient déjà son
+ * propre catalogue de menus, par la même convention — le paquet `@school/types`
+ * sert le backend, et son bundle CommonJS ne se laisse pas analyser
+ * statiquement par le bundler du front. L'API reste l'autorité : elle refuse le
+ * renommage de ce rôle et filtre les clés reçues.
+ */
+export const OWNER_ROLE_NAME = 'Propriétaire';
+
+/** Nom du rôle protégé d'administration. Même convention de recopie. */
+export const ADMIN_ROLE_NAME = 'Administrateur';
+
+/**
+ * Menu que le rôle « Administrateur » ne peut pas perdre : c'est depuis l'écran
+ * des rôles qu'on répare une coche malheureuse. L'en priver enfermerait
+ * l'établissement dehors, sans retour possible par l'interface.
+ */
+export const ADMIN_LOCKED_MENU_KEY = '/people/roles';
+
+/**
+ * Clés que l'écran des rôles sait cocher/décocher.
+ *
+ * Le sidebar en comporte quelques autres — « Établissement » par exemple — qui
+ * ne figurent dans aucun catalogue : elles ne sont donc jamais *décochées*, et
+ * les retirer parce qu'elles sont absentes de la liste d'un rôle serait un
+ * contresens. Ce jeu sert à distinguer « non coché » de « non affectable ».
+ */
+export const ASSIGNABLE_MENU_KEYS = new Set(
+  MENU_CATALOG.flatMap((group) => group.items.map((item) => item.key)),
+);
+
+/**
+ * Catalogue Propriétaire restreint aux modules ouverts.
+ *
+ * L'assiduité suit la même règle qu'ailleurs : sans module secondaire, il n'y a
+ * ni séance ni note de conduite, et la proposer mènerait à un écran qui se
+ * referme sur lui-même.
+ */
+export function ownerMenuCatalogForModules(
+  modules?: { primary: boolean; secondary: boolean },
+): MenuCatalogGroup[] {
+  if (!modules || modules.secondary) return OWNER_MENU_CATALOG;
+
+  return OWNER_MENU_CATALOG.map((group) => ({
+    ...group,
+    items: group.items.filter((item) => item.key !== '/owner/assiduite'),
+  }));
+}
+
+/**
  * Catalogue restreint aux modules ouverts par le type d'établissement.
  *
  * L'écran des rôles ne doit proposer que des menus qui mènent quelque part :

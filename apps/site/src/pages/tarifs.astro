@@ -1,0 +1,211 @@
+---
+import Base from '@/layouts/Base.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import PricingCards from '@/components/PricingCards.astro';
+import Icone from '@/components/Icone.astro';
+import {
+  ACCOMPAGNEMENT,
+  MENTION_DEVISE,
+  MENTION_HEBERGEMENT,
+  SUR_MESURE,
+} from '@/lib/pricing';
+
+const inclus = [
+  {
+    titre: 'Espace Propriétaire',
+    classe: 'carte',
+    contenu: 'Vue d’ensemble et indicateurs clés · Effectifs et inscriptions · Assiduité et vie scolaire · Résultats, moyennes et classements · Corps enseignant · Finance et recouvrement · Emploi du temps et salles · Comparaison avec l’année précédente · Points d’attention · Consultation seule',
+  },
+  {
+    titre: 'Espace Administration',
+    classe: 'carte',
+    contenu: 'Élèves et parents · Inscriptions · Classes et matières · Années scolaires et périodes · Emploi du temps et salles · Absences et discipline · Frais de scolarité, échéanciers et reçus · Bulletins PDF · Utilisateurs, rôles et droits · Journal d’audit · Tableau de bord',
+  },
+  {
+    titre: 'Espace Enseignant',
+    classe: 'carte carte-craie',
+    contenu: 'Saisie des notes par évaluation · Coefficients et moyennes pondérées · Appel et feuille de présence · Notes de conduite · Suivi de classe et professeur principal · Bilan de période · Emploi du temps personnel · Documents pédagogiques',
+  },
+  {
+    titre: 'Espace Élève & Parent',
+    classe: 'carte carte-ambre',
+    contenu: 'Notes et moyennes en temps réel · Bulletins en ligne · Absences et retards · Emploi du temps de la classe · Situation des paiements · Comptes sécurisés individuels',
+  },
+];
+
+
+const faq = [
+  ['Les prix sont-ils hors taxes ?', 'Oui, en FCFA hors taxes. La TVA de 18 % s’ajoute si l’établissement y est assujetti.'],
+  ['La mise en service est-elle facturée ?', 'Non. Installation, paramétrage de l’année scolaire, reprise de vos données existantes, création des comptes et formation des équipes sont offerts la première année. Vous ne payez que votre abonnement.'],
+  ['Que paie-t-on la deuxième année ?', 'Le même abonnement. L’assistance courante, les correctifs et les mises à jour y restent compris. Seule une intervention que vous demandez — un développement particulier, une reprise exceptionnelle — donne lieu à un chiffrage, établi selon sa complexité et convenu avec vous avant d’être engagé.'],
+  ['Et si nous avons un besoin que le logiciel ne couvre pas ?', 'Nous le prenons en compte. Un calcul propre à votre établissement, un modèle de bulletin particulier, un état attendu par votre tutelle : le besoin est étudié, développé et intégré à votre installation.'],
+  ['L’hébergement est-il compris ?', 'Non, et c’est volontaire. Les prix affichés couvrent la solution logicielle. Le mode d’hébergement — notre infrastructure ou votre propre serveur — se choisit ensuite, en fonction de ce dont vous disposez déjà, et fait l’objet d’un chiffrage distinct.'],
+  ['Que se passe-t-il si l’effectif change en cours d’année ?', 'La tranche est figée pour l’année scolaire en cours. Le changement s’applique au renouvellement.'],
+  ['Peut-on résilier ?', 'Oui, à la fin de chaque année scolaire.'],
+  ['Le tarif solidaire, pour qui ?', 'Les établissements publics, confessionnels et associatifs : − 20 % sur l’abonnement.'],
+  ['Le prix peut-il augmenter en cours de contrat ?', 'Le prix est ferme pour l’année scolaire en cours.'],
+  ['Que se passe-t-il si nous arrêtons ?', 'Vous obtenez un export complet de vos données, en base et en PDF, sans frais. Elles vous appartiennent.'],
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q, r]) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: r },
+  })),
+};
+---
+
+<Base
+  titre="Nos tarifs, en clair"
+  description="Grille tarifaire publique d’HorizonEcole en FCFA : abonnement annuel par cycle et par taille d’établissement, mise en service offerte. Primaire, collège et lycée."
+  canonique="/tarifs"
+  jsonLd={jsonLd}
+>
+  <section class="border-b border-ardoise-200 bg-ink-50/50">
+    <div class="conteneur py-14 md:py-20">
+      <h1 class="text-display-xl">Nos tarifs, en clair</h1>
+      <div class="mt-3 h-[3px] w-16 rounded bg-ambre-600" aria-hidden="true"></div>
+      <p class="mt-6 max-w-2xl text-chapo text-ardoise-600">
+        Abonnement annuel, résiliable à la fin de chaque année scolaire. Mises à jour,
+        support et évolutions compris.
+      </p>
+      <p class="mt-4 max-w-2xl rounded-carte border border-ambre-100 bg-ambre-50 p-4 text-legende text-ardoise-700">
+        <strong class="text-ambre-800">Périmètre :</strong> {MENTION_HEBERGEMENT}
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Ce que comprend l’abonnement, quel que soit le module"
+        chapo="Sans supplément et sans palier : toutes les fonctionnalités sont ouvertes dès la première année."
+      />
+      <div class="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        {inclus.map((bloc) => (
+          <article class={bloc.classe}>
+            <h3 class="text-[1.05rem] font-bold text-ink-900">{bloc.titre}</h3>
+            <p class="mt-3 text-legende leading-relaxed text-ardoise-600">{bloc.contenu}</p>
+          </article>
+        ))}
+      </div>
+      <p class="mt-6 max-w-3xl text-legende text-ardoise-500">
+        Sécurité et exploitation comprises dans tous les cas : comptes protégés par mot de
+        passe chiffré, séparation stricte des données entre établissements, journal des accès,
+        connexion chiffrée HTTPS, mises à jour fonctionnelles de l’année en cours.
+      </p>
+    </div>
+  </section>
+
+  <section class="section bg-ardoise-0">
+    <div class="conteneur">
+      <SectionHeader
+        titre="La grille complète"
+        chapo="Choisissez votre cycle, puis la taille de votre établissement. Un seul montant : l’abonnement annuel — la mise en service ne s’y ajoute pas, elle est offerte."
+        centre
+      />
+      <div class="mt-12">
+        <PricingCards />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="L’accompagnement dans le temps"
+        chapo="Pas de forfait à souscrire, pas de palier de service : ce qui est courant est compris, ce qui est exceptionnel se convient avec vous."
+      />
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="carte carte-craie">
+          <span class="badge-craie">Première année</span>
+          <h3 class="mt-3 text-display-md">{ACCOMPAGNEMENT.premiereAnnee.titre}</h3>
+          <p class="mt-3 text-ardoise-600">{ACCOMPAGNEMENT.premiereAnnee.contenu}</p>
+        </article>
+        <article class="carte">
+          <span class="badge-ink">Années suivantes</span>
+          <h3 class="mt-3 text-display-md">{ACCOMPAGNEMENT.suivantes.titre}</h3>
+          <p class="mt-3 text-ardoise-600">{ACCOMPAGNEMENT.suivantes.contenu}</p>
+          <ul class="mt-5 space-y-2 border-t border-ardoise-200 pt-4">
+            {ACCOMPAGNEMENT.compris.map((point) => (
+              <li class="flex gap-2.5 text-legende text-ardoise-700">
+                <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"
+                     class="mt-1 shrink-0 text-craie-500">
+                  <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Développement spécifique : on affirme la prise en charge du besoin propre
+       à l'établissement, sans se prononcer sur son chiffrage. -->
+  <section class="section bg-ink-900 text-white">
+    <div class="conteneur">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+        <div>
+          <h2 class="text-display-lg !text-white">{SUR_MESURE.titre}</h2>
+          <div class="mt-3 h-[3px] w-16 rounded bg-ambre-500" aria-hidden="true"></div>
+          <p class="mt-6 text-chapo text-ink-100">{SUR_MESURE.chapo}</p>
+          <p class="mt-4 text-ink-200">{SUR_MESURE.contenu}</p>
+          <a href="/contact" class="btn-sombre mt-8">
+            Nous exposer votre besoin
+            <Icone nom="fleche" taille={15} classe="fleche" />
+          </a>
+        </div>
+        <ul class="space-y-3">
+          {SUR_MESURE.exemples.map((exemple) => (
+            <li class="flex items-start gap-3 rounded-carte bg-white/5 p-4">
+              <span class="mt-0.5 shrink-0 text-ambre-500">
+                <Icone nom="fleche" taille={16} />
+              </span>
+              <span class="text-legende text-ink-100">{exemple}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-ardoise-0">
+    <div class="conteneur max-w-3xl">
+      <SectionHeader titre="Questions sur les tarifs" />
+      <div class="mt-8 divide-y divide-ardoise-200 border-y border-ardoise-200">
+        {faq.map(([q, r]) => (
+          <details class="group py-4">
+            <summary class="flex cursor-pointer list-none items-start justify-between gap-4 font-display font-bold text-ink-900">
+              {q}
+              <span class="mt-1 shrink-0 text-ambre-600 transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
+            </summary>
+            <p class="mt-3 text-ardoise-600">{r}</p>
+          </details>
+        ))}
+      </div>
+      <p class="mt-8 text-legende text-ardoise-500">{MENTION_DEVISE}</p>
+    </div>
+  </section>
+
+  <section class="bg-ink-900 py-16 text-white">
+    <div class="conteneur text-center">
+      <h2 class="text-display-lg !text-white">Obtenez un devis précis</h2>
+      <p class="mx-auto mt-5 max-w-xl text-chapo text-ink-100">
+        Nous reprenons votre simulation et l’ajustons à votre situation réelle :
+        effectifs exacts, reprise de données, calendrier de mise en service.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/demonstration" class="btn-sombre">Demander une démonstration</a>
+        <a href="/demonstration" class="btn border border-white/30 text-white hover:bg-white/10">
+          Demander une démonstration
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

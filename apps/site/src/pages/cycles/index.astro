@@ -1,0 +1,230 @@
+---
+import Base from '@/layouts/Base.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import Icone from '@/components/Icone.astro';
+import { CYCLES, MODULES, type Cycle } from '@/lib/pricing';
+
+/*
+ * Page unique : les trois cycles tiennent ici, sans sous-pages.
+ *
+ * Les tarifs n'y figurent pas. Ils vivent sur /tarifs, qui les présente pour
+ * les trois modules à la fois, pour toutes les tailles d’établissement —
+ * les répéter ici obligerait à les tenir à jour à deux endroits, et à choisir
+ * lequel fait foi le jour où ils divergeraient.
+ */
+const specificites: Record<Cycle, { titre: string; texte: string }[]> = {
+  primaire: [
+    { titre: 'Compositions et moyennes', texte: 'Les compositions sont saisies par période, les moyennes et les rangs calculés automatiquement, matière par matière.' },
+    { titre: 'Une interface pensée pour la classe unique', texte: 'L’enseignant du primaire suit une seule classe : sa page d’accueil est sa classe, pas un menu à explorer.' },
+    { titre: 'Bilan annuel et passage', texte: 'Le bilan de fin d’année consolide les trois périodes et prépare la décision de passage en classe supérieure.' },
+    { titre: 'Du CP1 au CM2', texte: 'La nomenclature des classes est celle du système ivoirien, sans adaptation à faire.' },
+  ],
+  college: [
+    { titre: 'Notes trimestrielles', texte: 'Types d’évaluation paramétrables : interrogations, devoirs, compositions, avec leurs propres coefficients.' },
+    { titre: 'Coefficients par matière', texte: 'Chaque matière porte son coefficient, ajustable par classe. Les moyennes pondérées suivent.' },
+    { titre: 'Conseil de classe', texte: 'Le bilan de période rassemble notes, absences et conduite pour préparer le conseil.' },
+    { titre: 'Préparation au BEPC', texte: 'Suivi des classes de 3e et des résultats par matière tout au long de l’année.' },
+  ],
+  lycee: [
+    { titre: 'Séries A, C et D', texte: 'Chaque série porte sa propre grille de coefficients ; un élève change de série sans perdre son historique.' },
+    { titre: 'De la 6e à la Terminale', texte: 'Le suivi se poursuit d’une année sur l’autre, sans ressaisie du dossier : un élève entré en 6e garde son dossier jusqu’au BAC.' },
+    { titre: 'Orientation', texte: 'Les résultats par matière et par série éclairent les décisions d’orientation en fin de seconde.' },
+    { titre: 'Préparation au BAC', texte: 'Moyennes, rangs et bilans par période pour les classes de Terminale.' },
+  ],
+};
+
+const titres: Record<Cycle, string> = {
+  primaire: 'Du CP1 au CM2, chaque composition à sa place',
+  college: 'De la 6e à la 3e, jusqu’au BEPC',
+  lycee: 'De la 6e à la Terminale, séries A, C et D',
+};
+
+const ACCENTS: Record<Cycle, { carte: string; pastille: string; bouton: string }> = {
+  primaire: { carte: '', pastille: 'pastille-ink', bouton: '' },
+  college: { carte: 'carte-craie', pastille: 'pastille-craie', bouton: 'btn-tertiaire-craie' },
+  lycee: { carte: 'carte-ambre', pastille: 'pastille-ambre', bouton: 'btn-tertiaire-ambre' },
+};
+
+/*
+ * Encart de levée d'ambiguïté, sur le seul cycle où la question se pose : les
+ * modules Collège et Lycée se recouvrent sur la 6e–3e, et un visiteur dont
+ * l'établissement accueille les deux ne sait pas lequel le concerne.
+ */
+const precisions: Partial<Record<Cycle, { titre: string; texte: string; lien: string; libelleLien: string }>> = {
+  lycee: {
+    titre: 'Votre établissement accueille les deux cycles ?',
+    texte:
+      'Le module Lycée les couvre tous les deux, de la 6e à la Terminale : un seul abonnement, un seul paramétrage, et le dossier de l’élève le suit du premier cycle au BAC, sans ressaisie au passage en seconde. Le module Collège s’adresse aux établissements qui s’arrêtent à la 3e.',
+    lien: '#college',
+    libelleLien: 'Voir le module Collège',
+  },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://horizonecole.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Cycles', item: 'https://horizonecole.com/cycles' },
+  ],
+};
+---
+
+<Base
+  titre="Les trois cycles"
+  description="HorizonEcole couvre l’école primaire (CP1 à CM2), le collège (6e à 3e, BEPC) et le lycée (6e à Terminale, séries A, C et D, BAC)."
+  canonique="/cycles"
+  jsonLd={jsonLd}
+>
+  <section class="fond-papier relative overflow-hidden border-b border-ardoise-200">
+    <div
+      class="pointer-events-none absolute -right-52 -top-44 h-[38rem] w-[38rem] rounded-full
+             bg-[radial-gradient(circle,rgba(52,71,143,.10),transparent_65%)]"
+      aria-hidden="true"
+    ></div>
+
+    <div class="conteneur relative py-14 md:py-20">
+      <nav aria-label="Fil d’ariane" class="mb-6 text-legende text-ardoise-500">
+        <a href="/" class="hover:text-ink-600">Accueil</a>
+        <span class="mx-2" aria-hidden="true">›</span>
+        <span aria-current="page">Cycles</span>
+      </nav>
+
+      <h1 class="max-w-4xl text-[2.15rem] leading-[1.12] tracking-tight sm:text-[2.6rem] lg:text-display-xl">
+        Le logiciel parle la langue de votre cycle
+      </h1>
+      <div class="mt-4 h-[3px] w-16 rounded bg-ambre-600" aria-hidden="true"></div>
+      <p class="mt-6 max-w-2xl text-chapo text-ardoise-600">
+        Compositions, coefficients par série, conseil de classe, BEPC et BAC : la
+        nomenclature et les règles sont celles du système ivoirien, sans adaptation à faire.
+      </p>
+
+      <!-- Sommaire : les onglets de dossier, motif signature du système. -->
+      <nav class="mt-10" aria-label="Choisir un cycle">
+        <ul class="grid gap-3 sm:grid-cols-3">
+          {CYCLES.map((cycle) => {
+            const module = MODULES[cycle];
+            return (
+              <li>
+                <a
+                  href={`#${cycle}`}
+                  class="group relative flex h-full flex-col justify-center gap-1 rounded-carte
+                         border border-ardoise-200 bg-white/80 px-5 py-5 backdrop-blur-sm
+                         transition-all duration-300 hover:-translate-y-1 hover:border-ink-300
+                         hover:bg-white hover:shadow-levee"
+                >
+                  <span
+                    class="absolute left-5 top-0 h-1 w-10 rounded-b bg-ink-600
+                           transition-[width] duration-300 group-hover:w-20"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="font-display text-[1.05rem] font-bold text-ink-900">
+                    {module.nom}
+                  </span>
+                  <span class="text-legende text-ardoise-500">{module.niveaux}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  {CYCLES.map((cycle, index) => {
+    const module = MODULES[cycle];
+    const accent = ACCENTS[cycle];
+    const precision = precisions[cycle];
+    return (
+      <section id={cycle} class={`section scroll-mt-20 ${index % 2 ? 'bg-ardoise-0' : ''}`}>
+        <div class="conteneur">
+          <header class="flex flex-wrap items-center gap-4">
+            <span class={`pastille ${accent.pastille}`}>
+              <Icone nom="bulletin" taille={22} />
+            </span>
+            <div>
+              <p class="text-legende font-semibold text-ambre-800">{module.niveaux}</p>
+              <h2 class="text-display-lg">{module.nom}</h2>
+            </div>
+          </header>
+
+          <p class="mt-5 max-w-3xl text-chapo text-ardoise-600">{titres[cycle]}</p>
+          <p class="mt-3 max-w-3xl text-ardoise-600">{module.sousTitre}</p>
+
+          <div class="mt-9 grid gap-5 md:grid-cols-2">
+            {specificites[cycle].map((s, i) => (
+              <article class={`carte reveal ${accent.carte}`} data-retard={(i % 2) + 1}>
+                <h3 class="text-[1.02rem] font-bold text-ink-900">{s.titre}</h3>
+                <p class="mt-2.5 text-legende leading-relaxed text-ardoise-600">{s.texte}</p>
+              </article>
+            ))}
+          </div>
+
+          {precision && (
+            <aside
+              class="relative mt-8 overflow-hidden rounded-carte border border-ambre-100
+                     bg-ambre-50 p-6 md:flex md:items-center md:justify-between md:gap-8 md:p-7"
+            >
+              <span class="absolute left-6 top-0 h-1 w-16 rounded-b bg-ambre-600" aria-hidden="true"></span>
+              <div class="max-w-3xl">
+                <h3 class="text-display-md">{precision.titre}</h3>
+                <p class="mt-3 text-ardoise-700">{precision.texte}</p>
+              </div>
+              <a href={precision.lien} class="btn-tertiaire btn-tertiaire-ambre mt-4 shrink-0 md:mt-0">
+                <span class="etiquette">{precision.libelleLien}</span>
+                <span class="puce-fleche"><Icone nom="fleche" taille={13} /></span>
+              </a>
+            </aside>
+          )}
+
+          <a href="/demonstration" class={`btn-tertiaire mt-8 ${accent.bouton}`}>
+            <span class="etiquette">Voir le module {module.nomCourt} en démonstration</span>
+            <span class="puce-fleche"><Icone nom="fleche" taille={13} /></span>
+          </a>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Vous gérez plusieurs cycles ?"
+        chapo="Un groupe scolaire pilote le primaire, le collège et le lycée depuis la même direction, avec un seul paramétrage."
+      />
+      <div class="mt-8">
+        <a href="/tarifs" class="btn-tertiaire">
+          <span class="etiquette">Voir les tarifs et les remises multi-cycles</span>
+          <span class="puce-fleche"><Icone nom="fleche" taille={13} /></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-0">
+    <div class="conteneur">
+      <div
+        class="reveal relative overflow-hidden rounded-[20px] bg-ink-900 px-6 py-14
+               text-center text-white sm:px-10 md:py-16"
+      >
+        <div
+          class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full
+                 bg-[radial-gradient(circle,rgba(204,135,34,.22),transparent_65%)]"
+          aria-hidden="true"
+        ></div>
+        <div class="relative">
+          <h2 class="mx-auto max-w-2xl text-display-lg !text-white">
+            Une démonstration adaptée à votre cycle
+          </h2>
+          <p class="mx-auto mt-5 max-w-xl text-chapo text-ink-100">
+            Nous travaillons sur vos propres classes et vos propres coefficients.
+          </p>
+          <a href="/demonstration" class="btn-sombre mt-9">
+            Demander une démonstration
+            <Icone nom="fleche" taille={15} classe="fleche" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,22 @@
+{
+  "name": "horizonecole-guide-utilisateur",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chaîne de production des guides utilisateur HorizonEcole : session, reconnaissance, captures, annotations, Word.",
+  "type": "commonjs",
+  "scripts": {
+    "session": "node scripts/1-session.js",
+    "session:locale": "node scripts/1-session-locale.js",
+    "recon": "node scripts/2-recon.js",
+    "captures": "node scripts/3-captures.js",
+    "word": "node scripts/5-word.js",
+    "verifier": "node scripts/6-verifier.js",
+    "apercu": "node scripts/pdf-en-images.js",
+    "tout": "node scripts/tout.js"
+  },
+  "dependencies": {
+    "docx": "^9.0.2",
+    "pdfjs-dist": "^6.2.108",
+    "playwright-core": "^1.49.0"
+  }
+}

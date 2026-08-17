@@ -1,0 +1,46 @@
+---
+import Base from '@/layouts/Base.astro';
+import LeadForm from '@/components/LeadForm.tsx';
+
+// En production, le site et l'API partagent le domaine : un chemin relatif
+// suffit et évite toute question de CORS. En développement ils sont sur deux
+// ports distincts, d'où la variable d'environnement.
+const endpoint = import.meta.env.PUBLIC_API_URL
+  ? `${String(import.meta.env.PUBLIC_API_URL).replace(/\/$/, '')}/public/leads`
+  : '/api/public/leads';
+---
+
+<Base
+  titre="Demander une démonstration"
+  description="Une démonstration de quarante minutes, sur vos propres classes, vos coefficients et vos frais de scolarité. Réponse sous 48 h ouvrées."
+  canonique="/demonstration"
+>
+  <section class="section">
+    <div class="conteneur grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <div>
+        <h1 class="text-display-xl">Voyons votre établissement dans HorizonEcole</h1>
+        <div class="mt-3 h-[3px] w-16 rounded bg-ambre-600" aria-hidden="true"></div>
+        <p class="mt-6 text-chapo text-ardoise-600">
+          Nous préparons la démonstration avec vos propres cas : vos classes,
+          vos coefficients, votre grille de frais.
+        </p>
+        <ul class="mt-8 space-y-4">
+          {[
+            ['Sur vos données, pas sur un jeu d’exemple', 'Vous voyez vos classes et vos matières, pas celles d’une école fictive.'],
+            ['Avec les bonnes personnes', 'Nous conseillons d’y associer le secrétariat et un enseignant : ce sont eux qui utiliseront l’outil.'],
+            ['Sans engagement', 'À l’issue, vous recevez un compte rendu et un devis. Rien de plus.'],
+          ].map(([titre, texte]) => (
+            <li class="flex gap-4">
+              <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-ambre-600" aria-hidden="true"></span>
+              <div>
+                <p class="font-semibold text-ink-900">{titre}</p>
+                <p class="text-legende text-ardoise-600">{texte}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <LeadForm variante="demonstration" endpoint={endpoint} client:load />
+    </div>
+  </section>
+</Base>

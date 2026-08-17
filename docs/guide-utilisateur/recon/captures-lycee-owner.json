@@ -1,0 +1,93 @@
+[
+  {
+    "cle": "connexion",
+    "titre": "Se connecter",
+    "url": "http://localhost:5173/app/login",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 4,
+    "posees": 4,
+    "manquees": []
+  },
+  {
+    "cle": "vue-ensemble",
+    "titre": "La vue d’ensemble",
+    "url": "http://localhost:5173/app/owner?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": true,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "effectifs",
+    "titre": "Les effectifs",
+    "url": "http://localhost:5173/app/owner/effectifs?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "hauteurDocument": 1681,
+    "hauteurCapture": 1681,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": true,
+    "pastilles": 6,
+    "posees": 6,
+    "manquees": []
+  },
+  {
+    "cle": "assiduite",
+    "titre": "L’assiduité",
+    "url": "http://localhost:5173/app/owner/assiduite?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "hauteurDocument": 2255,
+    "hauteurCapture": 1800,
+    "decalage": 0,
+    "tronquee": true,
+    "cadrageVoulu": true,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "resultats",
+    "titre": "Les résultats",
+    "url": "http://localhost:5173/app/owner/resultats?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "hauteurDocument": 2663,
+    "hauteurCapture": 1800,
+    "decalage": 0,
+    "tronquee": true,
+    "cadrageVoulu": true,
+    "pastilles": 6,
+    "posees": 6,
+    "manquees": []
+  },
+  {
+    "cle": "enseignants",
+    "titre": "Les enseignants",
+    "url": "http://localhost:5173/app/owner/enseignants?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "hauteurDocument": 1943,
+    "hauteurCapture": 1800,
+    "decalage": 0,
+    "tronquee": true,
+    "cadrageVoulu": true,
+    "pastilles": 6,
+    "posees": 6,
+    "manquees": []
+  },
+  {
+    "cle": "finance",
+    "titre": "La finance",
+    "url": "http://localhost:5173/app/owner/finance?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "hauteurDocument": 3022,
+    "hauteurCapture": 1800,
+    "decalage": 0,
+    "tronquee": true,
+    "cadrageVoulu": true,
+    "pastilles": 6,
+    "posees": 6,
+    "manquees": []
+  }
+]

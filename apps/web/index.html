@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <base href="/" />
+    <base href="/app/" />
     <script>
       (function () {
         try {
@@ -15,7 +15,10 @@
         } catch (e) {}
       })();
     </script>
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- Chemins relatifs : l'application est servie sous /app/, et une barre
+         oblique initiale les ferait pointer vers le site vitrine. -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="favicon-180.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HorizonEcole - Gestion Scolaire</title>
   </head>

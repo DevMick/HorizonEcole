@@ -1,0 +1,80 @@
+[
+  {
+    "cle": "connexion",
+    "titre": "Se connecter",
+    "url": "http://localhost:5173/app/login",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 4,
+    "posees": 4,
+    "manquees": []
+  },
+  {
+    "cle": "ma-scolarite",
+    "titre": "Ma Scolarité",
+    "url": "http://localhost:5173/app/student",
+    "hauteurDocument": 1388,
+    "hauteurCapture": 1388,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "mon-emploi-du-temps",
+    "titre": "Mon emploi du temps",
+    "url": "http://localhost:5173/app/student/timetable",
+    "hauteurDocument": 980,
+    "hauteurCapture": 980,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": true,
+    "pastilles": 4,
+    "posees": 4,
+    "manquees": []
+  },
+  {
+    "cle": "mes-presences",
+    "titre": "Mes présences",
+    "url": "http://localhost:5173/app/student/attendance",
+    "hauteurDocument": 1229,
+    "hauteurCapture": 1229,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "mes-notes",
+    "titre": "Mes notes",
+    "url": "http://localhost:5173/app/student/grades",
+    "hauteurDocument": 3419,
+    "hauteurCapture": 1800,
+    "decalage": 0,
+    "tronquee": true,
+    "cadrageVoulu": true,
+    "pastilles": 5,
+    "posees": 5,
+    "manquees": []
+  },
+  {
+    "cle": "mes-bulletins",
+    "titre": "Mes bulletins",
+    "url": "http://localhost:5173/app/student/bulletins",
+    "hauteurDocument": 950,
+    "hauteurCapture": 950,
+    "decalage": 0,
+    "tronquee": false,
+    "cadrageVoulu": false,
+    "pastilles": 4,
+    "posees": 4,
+    "manquees": []
+  }
+]

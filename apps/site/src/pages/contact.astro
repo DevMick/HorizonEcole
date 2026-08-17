@@ -1,0 +1,48 @@
+---
+import Base from '@/layouts/Base.astro';
+import LeadForm from '@/components/LeadForm.astro';
+import { CONTACT } from '@/lib/navigation';
+---
+
+<Base
+  titre="Contact"
+  description="Contacter l’équipe HorizonEcole à Abidjan : téléphone, WhatsApp, e-mail. Réponse sous 48 h ouvrées."
+  canonique="/contact"
+>
+  <section class="section">
+    <div class="conteneur grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <div>
+        <h1 class="text-display-xl">Nous écrire</h1>
+        <div class="mt-3 h-[3px] w-16 rounded bg-ambre-600" aria-hidden="true"></div>
+        <p class="mt-6 text-chapo text-ardoise-600">
+          Une question sur le produit, les tarifs ou un déploiement en cours ?
+        </p>
+        <dl class="mt-8 space-y-5">
+          <div>
+            <dt class="text-legende font-semibold text-ink-900">Téléphone et WhatsApp</dt>
+            {CONTACT.telephones.map((tel) => (
+              <dd class="mt-1"><a href={tel.lien} class="lien">{tel.affichage}</a></dd>
+            ))}
+          </div>
+          <div>
+            <dt class="text-legende font-semibold text-ink-900">E-mail</dt>
+            <dd class="mt-1"><a href={`mailto:${CONTACT.email}`} class="lien">{CONTACT.email}</a></dd>
+          </div>
+          <div>
+            <dt class="text-legende font-semibold text-ink-900">Horaires</dt>
+            <dd class="mt-1 text-ardoise-600">{CONTACT.horaires}</dd>
+          </div>
+          <div>
+            <dt class="text-legende font-semibold text-ink-900">Adresse</dt>
+            <dd class="mt-1 text-ardoise-600">{CONTACT.ville}</dd>
+          </div>
+        </dl>
+        <p class="mt-8 rounded-carte border border-ardoise-200 bg-ardoise-0 p-4 text-legende text-ardoise-600">
+          Vous êtes déjà utilisateur et cherchez à vous connecter ?
+          <a href="/app/login" class="lien">Accéder à votre espace</a>.
+        </p>
+      </div>
+      <LeadForm variante="contact" />
+    </div>
+  </section>
+</Base>

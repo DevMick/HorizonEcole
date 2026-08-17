@@ -274,6 +274,12 @@ model attendance_records {
 
   @@unique([session_id, student_id])
   @@index([student_id])
+  /// I3 — taux de présence, d'absence et de retard (ASS-01 → ASS-04).
+  ///
+  /// La table ne porte pas d'établissement : son cloisonnement est transitif,
+  /// par la session. L'index part donc de `session_id`, à la fois clé de
+  /// jointure et porteur de l'isolation.
+  @@index([session_id, status], map: "attendance_records_session_status_idx")
   @@map("attendance_records")
 }
 
@@ -492,6 +498,12 @@ model SchoolClass {
   id    String  @id
   name  String  @db.VarChar(50)
   level String? @db.VarChar(50)
+
+  /// Effectif maximal visé pour la classe. Null = non renseigné : les
+  /// indicateurs de remplissage affichent alors « Capacité non renseignée »
+  /// plutôt qu'un taux calculé sur une base inconnue, qui se lirait comme un
+  /// sous-effectif.
+  capacity Int? @map("capacity")
   /// Cycle d'enseignement de la classe. `SECONDAIRE` (6e → Tle) est la valeur
   /// historique et reste le défaut : toutes les classes existantes la portent.
   /// `PRIMAIRE` (CP1 → CM2) bascule la classe sur le module primaire, qui a sa
@@ -606,6 +618,10 @@ model expenses {
   establishment    Establishment? @relation(fields: [establishment_id], references: [id], onDelete: Cascade)
 
   @@index([establishment_id])
+  /// I4 — dépenses totales et saisonnalité des charges (FIN-27, FIN-30).
+  /// `expenses` n'a pas d'année scolaire : le filtrage se fait par intervalle
+  /// de dates, d'où la date en second terme.
+  @@index([establishment_id, date], map: "expenses_estab_date_idx")
 }
 
 model inscriptions {
@@ -637,6 +653,9 @@ model inscriptions {
   establishment    Establishment? @relation(fields: [establishment_id], references: [id], onDelete: Cascade)
 
   @@index([establishment_id])
+  /// I8 — effectifs par année et par classe (EFF-01 → EFF-03). Remplace
+  /// avantageusement trois index séparés dans le plan d'exécution.
+  @@index([establishment_id, academic_year_id, class_id], map: "inscriptions_estab_year_class_idx")
 }
 
 model parents {
@@ -944,6 +963,8 @@ model Student {
   establishment    Establishment? @relation(fields: [establishment_id], references: [id], onDelete: Cascade)
 
   @@index([establishment_id])
+  /// I6 — sorties par statut et taux d'abandon (EFF-12, EFF-13).
+  @@index([establishment_id, status], map: "students_estab_status_idx")
   @@unique([establishment_id, studentNumber])
 }
 
@@ -1230,6 +1251,15 @@ enum UserRole {
   ACCOUNTANT
   STUDENT
   PARENT
+  /// Propriétaire de l'établissement : accès en lecture seule aux tableaux de
+  /// bord analytiques (/api/owner/*). Ne dispose d'aucun droit d'écriture et ne
+  /// voit aucun écran de gestion. Un propriétaire est rattaché à un seul
+  /// établissement, comme tout autre compte.
+  ///
+  /// Ajouté en fin d'énumération : PostgreSQL affecte un ordre de tri aux
+  /// valeurs d'enum, et une insertion en milieu de liste imposerait un
+  /// BEFORE/AFTER inutile ici.
+  OWNER
 }
 
 /// Rôle personnalisé du personnel, contrôlant uniquement les menus visibles
@@ -1546,8 +1576,12 @@ model class_main_teachers {
 }
 
 model classrooms {
-  id         String             @id @default(uuid())
-  name       String             @db.VarChar(100)
+  id   String @id @default(uuid())
+  name String @db.VarChar(100)
+
+  /// Nombre de places assises de la salle. Null = non renseigné.
+  capacity Int? @map("capacity")
+
   created_at DateTime           @default(now())
   updated_at DateTime           @default(now()) @updatedAt
   timetables class_timetables[]
@@ -1650,6 +1684,8 @@ model class_timetables {
   establishment    Establishment? @relation(fields: [establishment_id], references: [id], onDelete: Cascade)
 
   @@index([establishment_id])
+  /// I7 — occupation des salles et conflits de salle (RES-01, RES-09).
+  @@index([establishment_id, academic_year_id, classroom_id], map: "class_timetables_estab_year_classroom_idx")
 }
 
 model semesters {
@@ -1776,6 +1812,12 @@ model grades {
   @@index([class_id])
   @@index([evaluation_type_id])
   @@index([academic_year_id, teacher_id, subject_id, semester_id])
+  /// I1 — moyennes par classe, distribution et écart-type (SEC-03, SEC-13, SEC-14).
+  /// Le filtre d'établissement ouvre l'index : c'est la colonne que l'extension
+  /// Prisma injecte dans toutes les requêtes cloisonnées.
+  @@index([establishment_id, academic_year_id, class_id], map: "grades_estab_year_class_idx")
+  /// I2 — moyennes par matière, meilleures et plus faibles (SEC-04 → SEC-06).
+  @@index([establishment_id, academic_year_id, subject_id], map: "grades_estab_year_subject_idx")
   @@map("grades")
 
   /// Établissement propriétaire — cloisonnement multi-établissements.
@@ -2530,6 +2572,9 @@ model monthly_payrolls {
   establishment    Establishment? @relation(fields: [establishment_id], references: [id], onDelete: Cascade)
 
   @@index([establishment_id])
+  /// I5 — masse salariale et décomposition de la paie (ENS-16 → ENS-22).
+  /// La fenêtre de l'année scolaire s'exprime en couples (année, mois) civils.
+  @@index([establishment_id, year, month], map: "monthly_payrolls_estab_year_month_idx")
 }
 
 // Lignes de détail de paie

@@ -62,6 +62,10 @@ export const config = {
     user: process.env.EMAIL_USER || '',
     password: process.env.EMAIL_PASSWORD || '',
     fromName: process.env.EMAIL_FROM_NAME || 'HorizonEcole',
+    // Destinataire des demandes issues du site vitrine (démonstration, devis,
+    // contact). À défaut, on retombe sur le compte SMTP lui-même : mieux vaut
+    // que la demande arrive dans la boîte d'envoi que nulle part.
+    leadsTo: process.env.LEADS_EMAIL_TO || process.env.EMAIL_USER || '',
   },
 
   // URL publique du frontend (liens de connexion dans les emails, etc.)

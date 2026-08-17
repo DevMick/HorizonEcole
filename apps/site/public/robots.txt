@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# L'application authentifiée n'a pas à être indexée.
+Disallow: /app/
+
+Sitemap: https://horizonecole.com/sitemap.xml

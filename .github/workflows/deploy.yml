@@ -25,17 +25,30 @@ jobs:
             echo "=== [1/5] Pulling latest code ==="
             git pull origin main
 
-            echo "=== [2/5] Installing dependencies ==="
+            echo "=== [2/7] Installing dependencies ==="
             pnpm install --no-frozen-lockfile
 
-            echo "=== [3/5] Building application ==="
+            echo "=== [3/7] Installing marketing site dependencies ==="
+            # apps/site possède sa propre racine pnpm (le lockfile du monorepo
+            # est d'une version incompatible) : il n'est pas couvert par le
+            # `pnpm install` ci-dessus et doit être installé séparément.
+            pnpm --dir apps/site install --no-frozen-lockfile
+
+            echo "=== [4/7] Building application ==="
             pnpm db:generate
             pnpm run build
 
-            echo "=== [4/5] Applying database migrations ==="
+            echo "=== [5/7] Building marketing site ==="
+            pnpm run build:site
+            # nginx sert la racine du domaine depuis ce répertoire : s'il est
+            # absent, tout le site public renvoie 404. On échoue ici plutôt que
+            # de laisser passer un déploiement silencieusement cassé.
+            test -f apps/site/dist/index.html || { echo "✗ apps/site/dist/index.html introuvable"; exit 1; }
+
+            echo "=== [6/7] Applying database migrations ==="
             pnpm db:migrate:deploy
 
-            echo "=== [5/5] Restarting API ==="
+            echo "=== [7/7] Restarting API ==="
             pm2 restart horizonecole-api || pm2 start ecosystem.config.cjs --env production
             pm2 save
 

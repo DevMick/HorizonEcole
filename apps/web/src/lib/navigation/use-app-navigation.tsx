@@ -31,6 +31,11 @@ import {
   Wallet,
   Banknote,
 } from 'lucide-react';
+import {
+  ADMIN_LOCKED_MENU_KEY,
+  ASSIGNABLE_MENU_KEYS,
+  OWNER_LOCKED_MENU_KEY,
+} from './menu-catalog';
 import { useAuthStore } from '../store';
 import { useEstablishment } from '../hooks/useEstablishment';
 
@@ -45,17 +50,26 @@ function LucideIcon({ icon: Icon, className }: { icon: typeof LayoutDashboard, c
  * items dont la clé figure dans `allowedKeys` (un groupe parent est gardé
  * s'il lui reste au moins un enfant visible). Utilisé pour les rôles
  * personnalisés (page Rôles) qui restreignent le sidebar par compte.
+ *
+ * `subjectKeys`, s'il est fourni, limite le filtre aux clés qu'il contient :
+ * une entrée hors de ce jeu passe telle quelle. C'est ainsi qu'on distingue un
+ * menu volontairement décoché d'un menu que l'écran des rôles ne propose pas.
  */
-function filterMenuByKeys(items: MenuProps['items'], allowedKeys: Set<string>): MenuProps['items'] {
+function filterMenuByKeys(
+  items: MenuProps['items'],
+  allowedKeys: Set<string>,
+  subjectKeys?: Set<string>,
+): MenuProps['items'] {
   if (!items) return items;
   return items.reduce<NonNullable<MenuProps['items']>>((acc, item: any) => {
     if (!item) return acc;
     if (item.children) {
-      const children = filterMenuByKeys(item.children, allowedKeys);
+      const children = filterMenuByKeys(item.children, allowedKeys, subjectKeys);
       if (children && children.length > 0) acc.push({ ...item, children });
       return acc;
     }
-    if (allowedKeys.has(String(item.key))) acc.push(item);
+    const key = String(item.key);
+    if (allowedKeys.has(key) || (subjectKeys && !subjectKeys.has(key))) acc.push(item);
     return acc;
   }, []);
 }
@@ -84,6 +98,70 @@ export function useAppNavigation(onAfterNavigate?: () => void) {
 
   const menuItems: MenuProps['items'] = useMemo(() => {
     const role = String(user?.role || '').toUpperCase();
+
+    // Espace Propriétaire — tableaux de bord analytiques, en lecture seule.
+    // Comme pour les espaces Famille et Élève, le menu est construit à part :
+    // il ne « filtre » pas le menu d'administration, dont aucune entrée n'a de
+    // raison d'apparaître ici. L'assiduité suit la navigation, pas le
+    // catalogue : elle n'existe que si le module secondaire est actif.
+    if (role === 'OWNER') {
+      const ownerItems: NonNullable<MenuProps['items']> = [
+        {
+          key: '/owner',
+          icon: <LucideIcon icon={LayoutDashboard} />,
+          label: "Vue d'ensemble",
+          onClick: () => go('/owner'),
+        },
+        {
+          key: 'steering',
+          icon: <LucideIcon icon={Gauge} />,
+          label: 'Pilotage',
+          children: [
+            {
+              key: '/owner/effectifs',
+              icon: <LucideIcon icon={Users} />,
+              label: 'Effectifs',
+              onClick: () => go('/owner/effectifs'),
+            },
+            ...(showSecondary ? [{
+              key: '/owner/assiduite',
+              icon: <LucideIcon icon={ClipboardCheck} />,
+              label: 'Assiduité',
+              onClick: () => go('/owner/assiduite'),
+            }] : []),
+            {
+              key: '/owner/resultats',
+              icon: <LucideIcon icon={Trophy} />,
+              label: 'Résultats',
+              onClick: () => go('/owner/resultats'),
+            },
+            {
+              key: '/owner/enseignants',
+              icon: <LucideIcon icon={GraduationCap} />,
+              label: 'Enseignants',
+              onClick: () => go('/owner/enseignants'),
+            },
+          ],
+        },
+        {
+          key: '/owner/finance',
+          icon: <LucideIcon icon={Wallet} />,
+          label: 'Finance',
+          onClick: () => go('/owner/finance'),
+        },
+      ];
+
+      // Les menus cochés sur le rôle « Propriétaire » retranchent de cette
+      // liste. Sans rôle personnalisé — un compte créé par le seul champ
+      // `systemRole` —, l'espace reste entier : l'absence de rôle n'est pas
+      // une restriction, c'est une absence de consigne.
+      const ownerKeys = user?.customRole?.menuKeys;
+      if (!ownerKeys || ownerKeys.length === 0) return ownerItems;
+
+      // « Vue d'ensemble » ne se retire jamais : c'est la page d'atterrissage,
+      // et la cible de toute adresse inconnue.
+      return filterMenuByKeys(ownerItems, new Set([OWNER_LOCKED_MENU_KEY, ...ownerKeys])) || [];
+    }
 
     // Espace Famille — lecture seule sur ses propres enfants. Aucune entrée
     // d'administration n'y apparaît : le menu est construit à part, il ne
@@ -404,13 +482,19 @@ export function useAppNavigation(onAfterNavigate?: () => void) {
       },
     ];
 
-    if (String(user?.role || '').toUpperCase() === 'ADMIN') return defaultItems;
-
     const allowedMenuKeys: string[] | undefined = user?.customRole?.menuKeys;
-    if (allowedMenuKeys && allowedMenuKeys.length > 0) {
-      return filterMenuByKeys(defaultItems, new Set(allowedMenuKeys)) || [];
-    }
-    return defaultItems;
+    if (!allowedMenuKeys || allowedMenuKeys.length === 0) return defaultItems;
+
+    // Les menus du rôle valent aussi pour les administrateurs : décocher un
+    // écran sur « Administrateur » doit le retirer de leur sidebar, sans quoi
+    // l'écran des rôles promettrait un réglage sans effet.
+    //
+    // Deux garde-fous. « Rôles » reste toujours visible : c'est de là qu'on
+    // répare une coche malheureuse — l'API pose le même plancher. Et les
+    // entrées absentes du catalogue (« Établissement ») traversent le filtre :
+    // on ne peut pas les décocher, les faire disparaître serait un contresens.
+    const allowed = new Set([ADMIN_LOCKED_MENU_KEY, ...allowedMenuKeys]);
+    return filterMenuByKeys(defaultItems, allowed, ASSIGNABLE_MENU_KEYS) || [];
   }, [user?.role, user?.roleId, user?.customRole, go, showPrimary, showSecondary]);
 
   const selectedKey = location.pathname.startsWith('/academic/')
@@ -452,6 +536,14 @@ export function useAppNavigation(onAfterNavigate?: () => void) {
       path.startsWith('/people/users') ||
       path.startsWith('/etablissement')
     ) keys.push('administration');
+    if (
+      path.startsWith('/owner/effectifs') ||
+      path.startsWith('/owner/assiduite') ||
+      path.startsWith('/owner/resultats') ||
+      path.startsWith('/owner/enseignants')
+    ) {
+      keys.push('steering');
+    }
     if (path.startsWith('/primary/')) keys.push('primary');
     if (path.startsWith('/finance/')) keys.push('finance');
     if (path.startsWith('/teacher/')) keys.push('academic');

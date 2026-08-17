@@ -5,7 +5,9 @@ import type { MenuProps } from 'antd';
 import { Bell, Building2, ChevronDown, Lock, LogOut, UserRound } from 'lucide-react';
 import { useAuthStore } from '../../lib/store';
 import { useAppNavigation } from '../../lib/navigation/use-app-navigation';
+import { isOwnerRole } from '../../lib/navigation/role-home';
 import { useEstablishment } from '../../lib/hooks/useEstablishment';
+import { AcademicYearPicker } from '../owner';
 import { AppShell, adaptMenu, getTabbarItems } from '../ds/nav';
 import { ThemeToggle } from '../theme/ThemeToggle';
 import { ChangePasswordModal } from './ChangePasswordModal';
@@ -21,6 +23,7 @@ const ROLE_LABEL: Record<string, string> = {
   ACCOUNTANT: 'Comptable',
   STUDENT: 'Élève',
   PARENT: 'Parent',
+  OWNER: 'Propriétaire',
 };
 
 export default function Layout({ children }: LayoutProps) {
@@ -46,23 +49,32 @@ export default function Layout({ children }: LayoutProps) {
   };
 
   const isTeacher = String(user?.role || '').toUpperCase() === 'TEACHER';
+  const isOwner = isOwnerRole(user?.role);
 
   const userMenuItems: MenuProps['items'] = [
-    // Le titulaire du primaire a sa propre fiche ; le profil de l'établissement
-    // relève de l'administration et lui est fermé.
-    isPrimaryOnly && isTeacher
-      ? {
-          key: 'profile',
-          icon: <UserRound className="h-4 w-4" aria-hidden="true" />,
-          label: 'Mon profil',
-          onClick: () => navigate('/primary/profile'),
-        }
-      : {
-          key: 'establishment',
-          icon: <Building2 className="h-4 w-4" aria-hidden="true" />,
-          label: "Profil de l'établissement",
-          onClick: () => navigate('/etablissement'),
-        },
+    // Le propriétaire n'a pas d'entrée de tête : « Profil de l'établissement »
+    // mène à un écran d'administration, et sa fiche enseignant n'existe pas.
+    // Restent le mot de passe — action sur son propre compte — et la
+    // déconnexion.
+    ...(isOwner
+      ? []
+      : [
+          // Le titulaire du primaire a sa propre fiche ; le profil de
+          // l'établissement relève de l'administration et lui est fermé.
+          isPrimaryOnly && isTeacher
+            ? {
+                key: 'profile',
+                icon: <UserRound className="h-4 w-4" aria-hidden="true" />,
+                label: 'Mon profil',
+                onClick: () => navigate('/primary/profile'),
+              }
+            : {
+                key: 'establishment',
+                icon: <Building2 className="h-4 w-4" aria-hidden="true" />,
+                label: "Profil de l'établissement",
+                onClick: () => navigate('/etablissement'),
+              },
+        ]),
     {
       key: 'change-password',
       icon: <Lock className="h-4 w-4" aria-hidden="true" />,
@@ -96,6 +108,9 @@ export default function Layout({ children }: LayoutProps) {
 
   const topbarActions = (
     <>
+      {/* Le sélecteur d'année pilote tous les écrans du propriétaire : sa place
+          est dans le topbar, au-dessus du contenu qu'il gouverne. */}
+      {isOwner && <AcademicYearPicker />}
       <ThemeToggle />
       <button type="button" className="ds-icon-btn" aria-label="Notifications">
         <Bell aria-hidden />
@@ -117,6 +132,10 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <AppShell
+        // Le nom de l'école, sous la marque : tant qu'il n'était pas transmis,
+        // la barre latérale affichait le repli d'AppShell — le nom d'une autre
+        // école — sur tous les écrans de tous les établissements.
+        brandSubtitle={establishment?.name}
         sections={sections}
         selectedKey={selectedKey}
         tabbarItems={tabbarItems}

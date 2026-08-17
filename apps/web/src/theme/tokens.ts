@@ -72,11 +72,19 @@ export const lightTokens: SemanticTokens = {
 
 /**
  * Accent de rôle du design system « Encre & Craie » (§11 / §12.2).
- * Admin = Bleu-Encre (ink-600), Enseignant = Vert-Tableau (green-600).
+ * Admin = Bleu-Encre (ink-700), Enseignant = Vert-Tableau (green-700),
+ * Propriétaire = Ardoise (steel-700).
  * Les rôles hors périmètre (comptable/élève/parent) retombent sur l'accent Admin.
  */
 export function getRoleAccent(role?: string | null): string {
-  return String(role).toUpperCase() === 'TEACHER' ? '#217A54' : '#34478F';
+  switch (String(role).toUpperCase()) {
+    case 'TEACHER':
+      return '#217A54';
+    case 'OWNER':
+      return '#374255';
+    default:
+      return '#34478F';
+  }
 }
 
 export function getAntdTheme(mode: ThemeMode, role?: string | null): ThemeConfig {

@@ -1,0 +1,57 @@
+---
+import Base from '@/layouts/Base.astro';
+import LeadForm from '@/components/LeadForm.astro';
+import { CYCLES, MODULES, formaterFcfa, type Cycle } from '@/lib/pricing';
+
+// La simulation est transmise par l'URL depuis /tarifs. On ne fait que la
+// relire pour l'afficher : aucun recalcul ici, la source reste le module pricing.
+const p = Astro.url.searchParams;
+const recap: { libelle: string; valeur: string }[] = [];
+
+for (const cycle of CYCLES) {
+  const effectif = Number(p.get(cycle));
+  if (Number.isFinite(effectif) && effectif > 0) {
+    recap.push({ libelle: MODULES[cycle as Cycle].nom, valeur: `${effectif} élèves` });
+  }
+}
+const abonnement = Number(p.get('abonnement'));
+const premiere = Number(p.get('premiere'));
+if (Number.isFinite(premiere) && premiere > 0) {
+  recap.push({ libelle: 'Budget 1re année', valeur: formaterFcfa(premiere) });
+}
+if (Number.isFinite(abonnement) && abonnement > 0) {
+  recap.push({ libelle: 'Puis, chaque année', valeur: formaterFcfa(abonnement) });
+}
+---
+
+<Base
+  titre="Obtenir un devis"
+  description="Recevez un devis HorizonEcole ajusté à votre établissement : effectifs exacts, reprise de données, calendrier de mise en service."
+  canonique="/devis"
+>
+  <section class="section">
+    <div class="conteneur grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:items-start">
+      <div>
+        <h1 class="text-display-xl">Obtenir un devis</h1>
+        <div class="mt-3 h-[3px] w-16 rounded bg-ambre-600" aria-hidden="true"></div>
+        <p class="mt-6 text-chapo text-ardoise-600">
+          {recap.length > 0
+            ? 'Nous reprenons votre simulation et l’ajustons à votre situation réelle.'
+            : 'Indiquez-nous votre situation : nous établissons un devis sous 48 h ouvrées.'}
+        </p>
+        {recap.length === 0 && (
+          <p class="mt-6 rounded-carte border border-ink-200 bg-ink-50 p-4 text-legende text-ardoise-700">
+            Vous pouvez d’abord consulter les tarifs par cycle et par taille
+            d’établissement : <a href="/tarifs" class="lien">voir la grille</a>.
+          </p>
+        )}
+        <p class="mt-8 text-legende text-ardoise-500">
+          Le devis précise l’abonnement, la mise en service et l’échéancier de paiement.
+          L’hébergement, s’il est nécessaire, fait l’objet d’un chiffrage distinct, établi
+          après un point sur votre infrastructure existante.
+        </p>
+      </div>
+      <LeadForm variante="devis" recap={recap} />
+    </div>
+  </section>
+</Base>

@@ -29,6 +29,7 @@ import attendanceMakeupRoutes from './routes/attendance-makeup';
 import disciplineRoutes from './routes/discipline';
 import documentsRoutes from './routes/documents';
 import settingsRoutes from './routes/settings';
+import publicLeadsRoutes from './routes/public-leads';
 import classRoutes from './routes/classes';
 import subjectRoutes from './routes/subjects';
 import dashboardRoutes from './routes/dashboard';
@@ -56,6 +57,7 @@ import studentAbsencesRoutes from './routes/studentAbsences';
 import classMainTeachersRoutes from './routes/classMainTeachers';
 import parentSpaceRoutes from './routes/parent-space';
 import studentSpaceRoutes from './routes/student-space';
+import ownerRoutes from './routes/owner';
 import schoolFeeRatesRoutes from './routes/schoolFeeRates';
 import paymentTypesRoutes from './routes/paymentTypes';
 import paymentConditionsRoutes from './routes/paymentConditions';
@@ -229,6 +231,10 @@ app.use((req, res, next) => {
 });
 
 // Other API routes
+// Demandes du site vitrine. Monté sous /api/public pour que le préfixe dise
+// lui-même qu'aucune authentification n'est attendue ici.
+app.use('/api/public', publicLeadsRoutes);
+
 app.use('/api/users', userRoutes);
 app.use('/api/roles', rolesRoutes);
 app.use('/api/students', studentRoutes);
@@ -264,6 +270,8 @@ app.use('/api/student-absences', studentAbsencesRoutes);
 app.use('/api/class-main-teachers', classMainTeachersRoutes);
 app.use('/api/parent', parentSpaceRoutes);
 app.use('/api/student', studentSpaceRoutes);
+// Espace Propriétaire : tableaux de bord analytiques, en lecture seule.
+app.use('/api/owner', ownerRoutes);
 app.use('/api/classes', classRoutes);
 app.use('/api/subjects', subjectRoutes);
 app.use('/api/dashboard', dashboardRoutes);

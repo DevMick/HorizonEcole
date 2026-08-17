@@ -2,6 +2,12 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4001/api';
 
+// L'application est servie sous un préfixe (« /app/ », cf. vite.config.ts) alors
+// que l'API reste à la racine du domaine. Les redirections ci-dessous sortent du
+// routeur React : elles doivent porter le préfixe elles-mêmes, sous peine
+// d'envoyer l'utilisateur sur le site vitrine. BASE_URL se termine par « / ».
+const LOGIN_PATH = `${import.meta.env.BASE_URL}login`;
+
 // Create axios instance
 export const api = axios.create({
   baseURL: API_URL,
@@ -76,7 +82,7 @@ api.interceptors.response.use(
   (error) => {
     // Don't redirect on 401 for login endpoint - let the login page handle the error
     const isLoginRequest = error.config?.url?.includes('/auth/login');
-    const isOnLoginPage = window.location.pathname === '/login';
+    const isOnLoginPage = window.location.pathname === LOGIN_PATH;
     
     // Only handle 401 once to avoid redirect loops, and skip if it's a login request
     if (error.response?.status === 401 && !isRedirecting && !isLoginRequest && !isOnLoginPage) {
@@ -89,7 +95,7 @@ api.interceptors.response.use(
       
       // Redirect to login after a short delay
       setTimeout(() => {
-        window.location.href = '/login';
+        window.location.href = LOGIN_PATH;
         isRedirecting = false;
       }, 100);
     }

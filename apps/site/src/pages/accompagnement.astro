@@ -1,0 +1,437 @@
+---
+import Base from '@/layouts/Base.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import Icone from '@/components/Icone.astro';
+import { ACCOMPAGNEMENT, MISE_EN_SERVICE, SUR_MESURE } from '@/lib/pricing';
+
+/*
+ * Aucun montant sur cette page. Les tarifs vivent sur /tarifs, qui les présente
+ * pour les trois modules et toutes les tailles d’établissement ; les répéter ici
+ * obligerait à les tenir à jour à deux endroits.
+ *
+ * Ce qui reste de MISE_EN_SERVICE est le contenu des prestations — combien de
+ * journées de formation, quelle étendue de reprise — car c'est une information
+ * de service, pas de prix.
+ */
+
+const reperes = [
+  { chiffre: '2 à 4', unite: 'semaines', texte: 'entre la signature et la première utilisation réelle' },
+  { chiffre: '1 à 5', unite: 'journées', texte: 'de formation sur site, selon la taille de l’établissement' },
+  { chiffre: '1er', unite: 'trimestre', texte: 'accompagné jusqu’à l’édition des premiers bulletins' },
+];
+
+const etapes = [
+  {
+    icone: 'dossier' as const,
+    titre: 'Paramétrage',
+    texte: 'Année scolaire, périodes, classes, matières, coefficients et grille de frais. Nous partons de votre organisation existante, pas d’un modèle générique.',
+    livrable: 'Votre structure scolaire, prête à recevoir les élèves',
+  },
+  {
+    icone: 'papiers' as const,
+    titre: 'Reprise des données',
+    texte: 'Vos élèves, vos parents et vos paiements en cours sont importés depuis vos fichiers actuels — tableurs, listes, registres. Nous vous soumettons un contrôle avant validation.',
+    livrable: 'Vos dossiers en base, vérifiés avec vous',
+  },
+  {
+    icone: 'bouclier' as const,
+    titre: 'Création des comptes',
+    texte: 'Direction et secrétariat d’abord, enseignants ensuite, familles en dernier — dans cet ordre, pour que personne ne reçoive un accès à un outil encore vide.',
+    livrable: 'Chaque profil avec ses droits',
+  },
+  {
+    icone: 'enseignant' as const,
+    titre: 'Formation',
+    texte: 'Sur site, par groupe de métier. Chacun apprend ce qu’il utilisera, pas l’ensemble du logiciel.',
+    livrable: 'Des équipes autonomes sur leurs gestes quotidiens',
+  },
+];
+
+const calendrier = [
+  { jalon: 'Signature', texte: 'Nous convenons du calendrier et de la liste des données à rassembler.' },
+  { jalon: 'Semaine 1', texte: 'Paramétrage de l’année scolaire et de la structure des classes.' },
+  { jalon: 'Semaine 2', texte: 'Import de vos données, contrôle et corrections avec votre secrétariat.' },
+  { jalon: 'Semaine 3', texte: 'Formation sur site, groupe par groupe. Ouverture des comptes.' },
+  { jalon: 'Rentrée', texte: 'Vous démarrez. Nous restons joignables sur les gestes du quotidien.' },
+  { jalon: 'Fin du 1er trimestre', texte: 'Accompagnement de la première clôture et des premiers bulletins.' },
+];
+
+const publics = [
+  {
+    icone: 'proprietaire' as const,
+    pastille: 'pastille-ink',
+    titre: 'Direction',
+    points: ['Lecture des indicateurs', 'Suivi du recouvrement', 'Attribution des rôles et des droits'],
+  },
+  {
+    icone: 'administration' as const,
+    pastille: 'pastille-ink',
+    titre: 'Secrétariat',
+    points: ['Inscriptions et dossiers', 'Encaissements et reçus', 'Édition des bulletins'],
+  },
+  {
+    icone: 'enseignant' as const,
+    pastille: 'pastille-craie',
+    titre: 'Enseignants',
+    points: ['Saisie des notes', 'Appel et absences', 'Bilan de période'],
+  },
+];
+
+const repartition = {
+  nous: [
+    'Installation et paramétrage complet',
+    'Import et contrôle de vos données',
+    'Création des comptes et des rôles',
+    'Formation des équipes sur site',
+    'Assistance pendant le premier trimestre',
+  ],
+  vous: [
+    'Rassembler vos fichiers existants (élèves, parents, paiements)',
+    'Désigner un interlocuteur pour la reprise des données',
+    'Réunir vos équipes pour les journées de formation',
+    'Valider la structure de l’année scolaire',
+  ],
+};
+
+const faq = [
+  ['Faut-il tout arrêter pendant la mise en service ?', 'Non. Le paramétrage et la reprise des données se font en parallèle de votre fonctionnement habituel. Vous ne basculez qu’une fois les données contrôlées.'],
+  ['Nos fichiers sont incomplets ou mal tenus. Est-ce bloquant ?', 'C’est le cas le plus fréquent. Nous procédons à un contrôle avant import et vous soumettons les anomalies — doublons, dates manquantes, classes incohérentes — pour que vous arbitriez.'],
+  ['Que se passe-t-il si un agent formé quitte l’établissement ?', 'L’assistance courante couvre la prise en main d’un nouvel arrivant sur les gestes du quotidien. Une session de formation complète pour une nouvelle équipe se convient à part.'],
+  ['Peut-on démarrer en cours d’année ?', 'Oui. La reprise porte alors sur l’année en cours : élèves inscrits, notes déjà saisies, paiements déjà encaissés.'],
+  ['La formation se fait-elle en dehors d’Abidjan ?', 'Oui. Les frais de déplacement à l’intérieur du pays se conviennent avec vous.'],
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faq.map(([q, r]) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: r },
+  })),
+};
+---
+
+<Base
+  titre="Accompagnement"
+  description="Mise en service offerte la première année : paramétrage, reprise de vos données, création des comptes et formation des équipes sur site. Puis un accompagnement à la demande."
+  canonique="/accompagnement"
+  jsonLd={jsonLd}
+>
+  <!-- ─────────────────────────────── Héros ─────────────────────────────── -->
+  <section class="fond-papier relative overflow-hidden border-b border-ardoise-200">
+    <div
+      class="pointer-events-none absolute -right-52 -top-44 h-[38rem] w-[38rem] rounded-full
+             bg-[radial-gradient(circle,rgba(47,148,104,.12),transparent_65%)]"
+      aria-hidden="true"
+    ></div>
+
+    <div class="conteneur relative py-14 md:py-20">
+      <nav aria-label="Fil d’ariane" class="mb-6 text-legende text-ardoise-500">
+        <a href="/" class="hover:text-ink-600">Accueil</a>
+        <span class="mx-2" aria-hidden="true">›</span>
+        <span aria-current="page">Accompagnement</span>
+      </nav>
+
+      <p class="badge-craie">Mise en service offerte</p>
+      <h1 class="mt-4 max-w-4xl text-[2.15rem] leading-[1.12] tracking-tight sm:text-[2.6rem] lg:text-display-xl">
+        Une école mise en service, pas un logiciel livré
+      </h1>
+      <div class="mt-4 h-[3px] w-16 rounded bg-ambre-600" aria-hidden="true"></div>
+      <p class="mt-6 max-w-2xl text-chapo text-ardoise-600">
+        Un logiciel de gestion scolaire ne vaut que par ce que les équipes en font. C’est
+        pourquoi l’installation, la reprise de vos données et la formation ne vous sont
+        pas facturées : elles font partie de l’engagement, pas du devis.
+      </p>
+
+      <dl class="mt-10 grid gap-6 sm:grid-cols-3">
+        {reperes.map((r) => (
+          <div class="border-t-2 border-ardoise-200 pt-4">
+            <dt class="sr-only">{r.texte}</dt>
+            <dd>
+              <span class="chiffre text-[1.9rem] leading-none">{r.chiffre}</span>
+              <span class="ml-1.5 text-legende font-semibold text-ardoise-700">{r.unite}</span>
+              <span class="mt-2 block text-legende text-ardoise-500">{r.texte}</span>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────── Les étapes ─────────────────────────── -->
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Quatre étapes, dans cet ordre"
+        chapo="Chacune produit quelque chose de vérifiable. Vous savez à tout moment où en est la mise en service."
+      />
+      <ol class="mt-10 space-y-5">
+        {etapes.map((etape, i) => (
+          <li class="carte reveal md:grid md:grid-cols-[auto_1fr_16rem] md:items-start md:gap-8">
+            <div class="flex items-center gap-4">
+              <span
+                class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-ambre-50
+                       font-mono text-[0.95rem] font-semibold text-ambre-800"
+              >{i + 1}</span>
+              <span class="pastille pastille-ink md:hidden">
+                <Icone nom={etape.icone} taille={20} />
+              </span>
+            </div>
+            <div class="mt-4 md:mt-0">
+              <h3 class="text-display-md">{etape.titre}</h3>
+              <p class="mt-2.5 text-ardoise-600">{etape.texte}</p>
+            </div>
+            <div class="mt-4 rounded-carte bg-craie-50 p-4 md:mt-0">
+              <p class="text-[0.7rem] font-bold uppercase tracking-[0.08em] text-craie-700">
+                Ce que vous obtenez
+              </p>
+              <p class="mt-1.5 text-legende text-ardoise-700">{etape.livrable}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────── Calendrier ─────────────────────────── -->
+  <section class="section bg-ardoise-0">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Un calendrier type"
+        chapo="Celui d’un établissement moyen qui démarre à la rentrée. Il s’ajuste à votre situation."
+      />
+      <ol class="mt-10 border-l-2 border-ardoise-200 pl-6 sm:pl-8">
+        {calendrier.map((jalon) => (
+          <li class="reveal relative pb-8 last:pb-0">
+            <span
+              class="absolute -left-[calc(1.5rem+5px)] top-1.5 h-2.5 w-2.5 rounded-full
+                     bg-ink-600 ring-4 ring-ardoise-0 sm:-left-[calc(2rem+5px)]"
+              aria-hidden="true"
+            ></span>
+            <p class="text-legende font-bold uppercase tracking-[0.06em] text-ink-600">
+              {jalon.jalon}
+            </p>
+            <p class="mt-1.5 max-w-2xl text-ardoise-700">{jalon.texte}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── Contenu de la formation ─────────────────── -->
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="La formation, par métier"
+        chapo="Chacun apprend ce qu’il utilisera. Former un enseignant au module de paie serait du temps perdu pour lui comme pour nous."
+      />
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {publics.map((p, i) => (
+          <article class="carte reveal" data-retard={i + 1}>
+            <span class={`pastille ${p.pastille}`}><Icone nom={p.icone} taille={22} /></span>
+            <h3 class="mt-4 text-display-md">{p.titre}</h3>
+            <ul class="mt-4 space-y-2.5">
+              {p.points.map((point) => (
+                <li class="flex gap-2.5 text-legende text-ardoise-700">
+                  <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"
+                       class="mt-1 shrink-0 text-craie-500">
+                    <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+
+      <div class="mt-10">
+        <p class="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-ardoise-500">
+          L’ampleur suit la taille de l’établissement
+        </p>
+        <div class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {Object.values(MISE_EN_SERVICE).map((m) => (
+            <div class="carte carte-nue reveal">
+              <p class="font-semibold text-ink-900">{m.nom}</p>
+              <p class="mt-0.5 text-[0.78rem] text-ardoise-500">{m.effectifs}</p>
+              <p class="mt-3 border-t border-ardoise-200 pt-3 text-legende text-ardoise-700">
+                {m.prestations}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────── Qui fait quoi ───────────────────────── -->
+  <section class="section bg-ardoise-0">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Qui fait quoi"
+        chapo="Une mise en service réussie demande peu de choses de votre côté, mais elle en demande."
+      />
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="carte carte-craie reveal">
+          <span class="badge-craie">Nous</span>
+          <h3 class="mt-3 text-display-md">Ce dont nous nous chargeons</h3>
+          <ul class="mt-5 space-y-2.5">
+            {repartition.nous.map((point) => (
+              <li class="flex gap-2.5 text-ardoise-700">
+                <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"
+                     class="mt-1.5 shrink-0 text-craie-500">
+                  <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </article>
+        <article class="carte carte-ambre reveal" data-retard="1">
+          <span class="badge-ambre">Vous</span>
+          <h3 class="mt-3 text-display-md">Ce que nous attendons de vous</h3>
+          <ul class="mt-5 space-y-2.5">
+            {repartition.vous.map((point) => (
+              <li class="flex gap-2.5 text-ardoise-700">
+                <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"
+                     class="mt-1.5 shrink-0 text-ambre-800">
+                  <path d="M8 3.5v9M3.5 8h9" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────── Après la première année ───────────────────── -->
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Et après la première année ?"
+        chapo="Pas de forfait à souscrire, pas de palier de service : ce qui est courant est compris, ce qui est exceptionnel se convient avec vous."
+      />
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="carte carte-craie reveal">
+          <span class="badge-craie">Première année</span>
+          <h3 class="mt-3 text-display-md">{ACCOMPAGNEMENT.premiereAnnee.titre}</h3>
+          <p class="mt-3 text-ardoise-600">{ACCOMPAGNEMENT.premiereAnnee.contenu}</p>
+        </article>
+        <article class="carte reveal" data-retard="1">
+          <span class="badge-ink">Années suivantes</span>
+          <h3 class="mt-3 text-display-md">{ACCOMPAGNEMENT.suivantes.titre}</h3>
+          <p class="mt-3 text-ardoise-600">{ACCOMPAGNEMENT.suivantes.contenu}</p>
+          <ul class="mt-5 space-y-2 border-t border-ardoise-200 pt-4">
+            {ACCOMPAGNEMENT.compris.map((point) => (
+              <li class="flex gap-2.5 text-legende text-ardoise-700">
+                <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"
+                     class="mt-1 shrink-0 text-craie-500">
+                  <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────── Développement spécifique ─────────────────── -->
+  <section class="section bg-ink-900 text-white">
+    <div class="conteneur">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
+        <div>
+          <h2 class="text-display-lg !text-white">{SUR_MESURE.titre}</h2>
+          <div class="mt-3 h-[3px] w-16 rounded bg-ambre-500" aria-hidden="true"></div>
+          <p class="mt-6 text-chapo text-ink-100">{SUR_MESURE.chapo}</p>
+          <p class="mt-4 text-ink-200">{SUR_MESURE.contenu}</p>
+          <a href="/contact" class="btn-sombre mt-8">
+            Nous exposer votre besoin
+            <Icone nom="fleche" taille={15} classe="fleche" />
+          </a>
+        </div>
+        <ul class="space-y-3">
+          {SUR_MESURE.exemples.map((exemple) => (
+            <li class="flex items-start gap-3 rounded-carte bg-white/5 p-4">
+              <span class="mt-0.5 shrink-0 text-ambre-500"><Icone nom="fleche" taille={16} /></span>
+              <span class="text-legende text-ink-100">{exemple}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── FAQ ───────────────────────────────── -->
+  <section class="section bg-ardoise-0">
+    <div class="conteneur max-w-3xl">
+      <SectionHeader titre="Questions sur la mise en service" />
+      <div class="reveal mt-8 space-y-3">
+        {faq.map(([q, r]) => (
+          <details
+            class="group rounded-carte border border-ardoise-200 bg-white px-5
+                   transition-[border-color,box-shadow] duration-300
+                   hover:border-ardoise-300 open:shadow-douce"
+          >
+            <summary
+              class="flex min-h-[56px] cursor-pointer list-none items-center justify-between
+                     gap-4 py-4 font-display font-bold text-ink-900"
+            >
+              {q}
+              <span
+                class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-ambre-50
+                       text-ambre-800 transition-transform duration-300 group-open:rotate-45"
+                aria-hidden="true"
+              >
+                <svg width="14" height="14" viewBox="0 0 16 16">
+                  <path d="M8 3.5v9M3.5 8h9" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" />
+                </svg>
+              </span>
+            </summary>
+            <p class="pb-5 pr-10 text-ardoise-600">{r}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────── Appel ─────────────────────────────── -->
+  <section class="section">
+    <div class="conteneur">
+      <div
+        class="reveal relative overflow-hidden rounded-[20px] bg-ink-900 px-6 py-14
+               text-center text-white sm:px-10 md:py-16"
+      >
+        <div
+          class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full
+                 bg-[radial-gradient(circle,rgba(47,148,104,.25),transparent_65%)]"
+          aria-hidden="true"
+        ></div>
+        <div class="relative">
+          <h2 class="mx-auto max-w-2xl text-display-lg !text-white">
+            Planifier une mise en service
+          </h2>
+          <p class="mx-auto mt-5 max-w-xl text-chapo text-ink-100">
+            Nous partons de votre calendrier scolaire, pas du nôtre.
+          </p>
+          <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+            <a href="/demonstration" class="btn-sombre">
+              Demander une démonstration
+              <Icone nom="fleche" taille={15} classe="fleche" />
+            </a>
+            <a href="/contact" class="btn-contour-clair">Nous écrire</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

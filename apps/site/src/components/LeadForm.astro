@@ -1,0 +1,293 @@
+---
+import { CONTACT } from '@/lib/navigation';
+
+interface Props {
+  variante: 'demonstration' | 'devis' | 'contact';
+  /** Récapitulatif de simulation, transmis par /tarifs. */
+  recap?: { libelle: string; valeur: string }[];
+}
+const { variante, recap = [] } = Astro.props;
+
+const intitules = {
+  demonstration: { bouton: 'Demander une démonstration', sujet: 'Demande de démonstration' },
+  devis: { bouton: 'Recevoir mon devis', sujet: 'Demande de devis' },
+  contact: { bouton: 'Envoyer le message', sujet: 'Message' },
+}[variante];
+
+const fonctions = ['Fondateur ou promoteur', 'Directeur ou chef d’établissement', 'Économe ou responsable financier', 'Responsable informatique', 'Autre'];
+const tranches = ['Moins de 150 élèves', '150 à 400 élèves', '400 à 800 élèves', '800 à 1 500 élèves', 'Plus de 1 500 élèves'];
+
+// En production, le site et l'API partagent le domaine : un chemin relatif
+// suffit et évite toute question de CORS. En développement ils sont sur deux
+// ports distincts, d'où la variable d'environnement.
+const endpoint = import.meta.env.PUBLIC_API_URL
+  ? `${String(import.meta.env.PUBLIC_API_URL).replace(/\/$/, '')}/public/leads`
+  : '/api/public/leads';
+---
+
+<form
+  class="carte carte-nue"
+  method="post"
+  action={endpoint}
+  data-lead-form
+  data-endpoint={endpoint}
+  novalidate
+>
+  <input type="hidden" name="variante" value={variante} />
+  <!-- Anti-spam sans friction : champ leurre invisible + horodatage d'ouverture.
+       Pas de CAPTCHA, qui dégrade la conversion et pénalise les connexions lentes. -->
+  <div class="absolute left-[-9999px]" aria-hidden="true">
+    <label>Ne pas remplir<input type="text" name="site_web" tabindex="-1" autocomplete="off" /></label>
+  </div>
+  <input type="hidden" name="ouvert_a" data-horodatage />
+
+  {recap.length > 0 && (
+    <div class="mb-6 rounded-carte border border-ink-200 bg-ink-50 p-4">
+      <p class="text-[0.72rem] font-bold uppercase tracking-wide text-ink-700">Votre simulation</p>
+      <dl class="mt-3 space-y-1 text-legende">
+        {recap.map((ligne) => (
+          <div class="flex justify-between gap-3">
+            <dt class="text-ardoise-600">{ligne.libelle}</dt>
+            <dd class="font-mono tabular-nums text-ink-900">{ligne.valeur}</dd>
+          </div>
+        ))}
+      </dl>
+      <a href="/tarifs" class="lien mt-3 inline-block text-legende">Modifier ma simulation</a>
+      <input type="hidden" name="simulation" value={JSON.stringify(recap)} />
+    </div>
+  )}
+
+  <div class="grid gap-5 sm:grid-cols-2">
+    <div class="sm:col-span-2">
+      <label for="nom" class="block text-legende font-semibold text-ink-900">
+        Nom et prénoms <span class="text-danger-600" aria-hidden="true">*</span>
+      </label>
+      <input id="nom" name="nom" type="text" required autocomplete="name"
+        class="mt-1.5 w-full rounded-bouton border border-ardoise-300 px-3 py-2.5 focus:border-ink-600" />
+    </div>
+
+    <div>
+      <label for="fonction" class="block text-legende font-semibold text-ink-900">
+        Fonction <span class="text-danger-600" aria-hidden="true">*</span>
+      </label>
+      <select id="fonction" name="fonction" required
+        class="mt-1.5 w-full rounded-bouton border border-ardoise-300 bg-white px-3 py-2.5 focus:border-ink-600">
+        <option value="">Choisir…</option>
+        {fonctions.map((f) => <option value={f}>{f}</option>)}
+      </select>
+    </div>
+
+    <div>
+      <label for="etablissement" class="block text-legende font-semibold text-ink-900">
+        Établissement <span class="text-danger-600" aria-hidden="true">*</span>
+      </label>
+      <input id="etablissement" name="etablissement" type="text" required
+        class="mt-1.5 w-full rounded-bouton border border-ardoise-300 px-3 py-2.5 focus:border-ink-600" />
+    </div>
+
+    <div>
+      <label for="ville" class="block text-legende font-semibold text-ink-900">
+        Ville <span class="text-danger-600" aria-hidden="true">*</span>
+      </label>
+      <input id="ville" name="ville" type="text" required autocomplete="address-level2"
+        class="mt-1.5 w-full rounded-bouton border border-ardoise-300 px-3 py-2.5 focus:border-ink-600" />
+    </div>
+
+    <div>
+      <label for="telephone" class="block text-legende font-semibold text-ink-900">
+        Téléphone ou WhatsApp <span class="text-danger-600" aria-hidden="true">*</span>
+      </label>
+      <input id="telephone" name="telephone" type="tel" required value="+225 " autocomplete="tel"
+        class="mt-1.5 w-full rounded-bouton border border-ardoise-300 px-3 py-2.5 focus:border-ink-600" />
+    </div>
+
+    <div class="sm:col-span-2">
+      <label for="email" class="block text-legende font-semibold text-ink-900">
+        E-mail <span class="text-danger-600" aria-hidden="true">*</span>
+      </label>
+      <input id="email" name="email" type="email" required autocomplete="email"
+        class="mt-1.5 w-full rounded-bouton border border-ardoise-300 px-3 py-2.5 focus:border-ink-600" />
+    </div>
+
+    {variante !== 'contact' && (
+      <>
+        <fieldset class="sm:col-span-2">
+          <legend class="text-legende font-semibold text-ink-900">
+            Cycles concernés <span class="text-danger-600" aria-hidden="true">*</span>
+          </legend>
+          <div class="mt-2 flex flex-wrap gap-4">
+            {['Primaire', 'Collège', 'Lycée'].map((cycle) => (
+              <label class="flex items-center gap-2 text-ardoise-700">
+                <input type="checkbox" name="cycles" value={cycle} class="h-4 w-4 accent-ink-600" />
+                {cycle}
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <div>
+          <label for="effectif" class="block text-legende font-semibold text-ink-900">
+            Effectif approximatif <span class="text-danger-600" aria-hidden="true">*</span>
+          </label>
+          <select id="effectif" name="effectif" required
+            class="mt-1.5 w-full rounded-bouton border border-ardoise-300 bg-white px-3 py-2.5 focus:border-ink-600">
+            <option value="">Choisir…</option>
+            {tranches.map((t) => <option value={t}>{t}</option>)}
+          </select>
+        </div>
+      </>
+    )}
+
+    {variante === 'demonstration' && (
+      <div>
+        <label for="creneau" class="block text-legende font-semibold text-ink-900">Créneau souhaité</label>
+        <select id="creneau" name="creneau"
+          class="mt-1.5 w-full rounded-bouton border border-ardoise-300 bg-white px-3 py-2.5 focus:border-ink-600">
+          <option value="Indifférent">Indifférent</option>
+          <option value="Matin">Matin</option>
+          <option value="Après-midi">Après-midi</option>
+        </select>
+      </div>
+    )}
+
+    <div class="sm:col-span-2">
+      <label for="message" class="block text-legende font-semibold text-ink-900">
+        Message {variante === 'contact' && <span class="text-danger-600" aria-hidden="true">*</span>}
+      </label>
+      <textarea id="message" name="message" rows="4" required={variante === 'contact'}
+        class="mt-1.5 w-full rounded-bouton border border-ardoise-300 px-3 py-2.5 focus:border-ink-600"></textarea>
+    </div>
+
+    <div class="sm:col-span-2">
+      <label class="flex items-start gap-3 text-legende text-ardoise-600">
+        <input type="checkbox" name="consentement" required class="mt-1 h-4 w-4 accent-ink-600" />
+        <span>
+          J’accepte que ces informations soient utilisées pour répondre à ma demande,
+          conformément à la <a href="/confidentialite" class="lien">politique de confidentialité</a>.
+          <span class="text-danger-600" aria-hidden="true">*</span>
+        </span>
+      </label>
+    </div>
+  </div>
+
+  <div class="mt-6 flex flex-wrap items-center gap-4">
+    <button type="submit" class="btn-primaire">{intitules.bouton}</button>
+    <p class="text-legende text-ardoise-500">Réponse sous 48 h ouvrées.</p>
+  </div>
+
+  <p data-erreur-global class="mt-4 hidden text-legende text-danger-600" role="alert"></p>
+
+  <p class="mt-6 border-t border-ardoise-200 pt-4 text-legende text-ardoise-500">
+    Vous préférez le téléphone ?
+    {CONTACT.telephones.map((tel) => (
+      <><a href={tel.lien} class="lien">{tel.affichage}</a>{' · '}</>
+    ))}
+    <a href={CONTACT.whatsapp} class="lien" rel="noopener">WhatsApp</a> ·
+    <a href={`mailto:${CONTACT.email}`} class="lien">{CONTACT.email}</a>
+  </p>
+</form>
+
+<div class="carte carte-craie hidden" data-confirmation tabindex="-1" role="status">
+  <h2 class="text-display-md">Votre demande est bien partie</h2>
+  <p class="mt-3 text-ardoise-600">
+    Nous vous répondons sous 48 heures ouvrées. Un accusé de réception vient de vous être
+    envoyé par e-mail — pensez à vérifier vos indésirables s’il n’apparaît pas.
+  </p>
+  <p class="mt-4 text-legende text-ardoise-500">
+    Besoin d’une réponse plus rapide ?
+    {CONTACT.telephones.map((tel) => (
+      <><a href={tel.lien} class="lien">{tel.affichage}</a>{' · '}</>
+    ))}
+    <a href={CONTACT.whatsapp} class="lien" rel="noopener">WhatsApp</a>
+  </p>
+  <a href="/" class="btn-secondaire mt-6">Retour à l’accueil</a>
+</div>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-lead-form]');
+  const erreur = document.querySelector<HTMLParagraphElement>('[data-erreur-global]');
+  const confirmation = document.querySelector<HTMLElement>('[data-confirmation]');
+  const bouton = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+
+  // Horodatage d'ouverture : une soumission en moins de trois secondes n'a pas
+  // été remplie par un humain. Le serveur applique le même seuil.
+  form?.querySelector<HTMLInputElement>('[data-horodatage]')?.setAttribute(
+    'value',
+    String(Date.now()),
+  );
+
+  function afficherErreur(texte: string) {
+    if (!erreur) return;
+    erreur.textContent = texte;
+    erreur.classList.remove('hidden');
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form) return;
+
+    // Validation native, mais message affiché dans le flux plutôt qu'en bulle.
+    if (!form.checkValidity()) {
+      form.querySelector<HTMLElement>(':invalid')?.focus();
+      afficherErreur('Merci de compléter les champs obligatoires signalés.');
+      return;
+    }
+    erreur?.classList.add('hidden');
+
+    const data = new FormData(form);
+    const charge: Record<string, unknown> = {
+      // Les cases à cocher multiples ne survivent pas à Object.fromEntries.
+      cycles: data.getAll('cycles').map(String),
+      consentement: data.get('consentement') === 'on',
+      ouvert_a: Number(data.get('ouvert_a')),
+    };
+    for (const [cle, valeur] of data.entries()) {
+      if (cle === 'cycles' || cle === 'consentement' || cle === 'ouvert_a') continue;
+      if (cle === 'simulation') {
+        try {
+          charge.simulation = JSON.parse(String(valeur));
+        } catch {
+          /* Récapitulatif illisible : la demande part sans lui. */
+        }
+        continue;
+      }
+      const texte = String(valeur).trim();
+      if (texte) charge[cle] = texte;
+    }
+    if (!(charge.cycles as string[]).length) delete charge.cycles;
+
+    bouton?.setAttribute('disabled', '');
+    const libelleInitial = bouton?.textContent ?? '';
+    if (bouton) bouton.textContent = 'Envoi en cours…';
+
+    try {
+      const reponse = await fetch(form.dataset.endpoint ?? form.action, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(charge),
+      });
+      const corps = await reponse.json().catch(() => ({}));
+
+      if (!reponse.ok || !corps?.success) {
+        afficherErreur(
+          corps?.message ??
+            "Votre demande n'a pas pu être transmise. Merci de nous appeler directement.",
+        );
+        return;
+      }
+
+      // Le formulaire cède la place à la confirmation : le visiteur doit voir
+      // sans ambiguïté que sa demande est partie.
+      form.classList.add('hidden');
+      confirmation?.classList.remove('hidden');
+      confirmation?.focus();
+    } catch {
+      afficherErreur(
+        'La connexion a échoué. Vérifiez votre réseau, ou appelez-nous directement.',
+      );
+    } finally {
+      bouton?.removeAttribute('disabled');
+      if (bouton) bouton.textContent = libelleInitial;
+    }
+  });
+</script>

@@ -1,0 +1,168 @@
+---
+import Icone from '@/components/Icone.astro';
+import { CYCLES, MISE_EN_SERVICE, MODULES, formaterMontant } from '@/lib/pricing';
+
+/*
+ * Cartes tarifaires, un palier par taille d'établissement.
+ *
+ * Le sélecteur de cycle fonctionne sans JavaScript : trois boutons radio
+ * masqués pilotent l'affichage par sélecteur CSS. Un composant à onglets en JS
+ * aurait laissé la page vide le temps du chargement du script — sur une
+ * connexion lente, c'est précisément la page qu'on ne peut pas se permettre de
+ * perdre. Les radios apportent en outre la navigation au clavier par les
+ * flèches, sans qu'on ait à l'implémenter.
+ *
+ * Attention à ne pas laisser croire à des paliers de fonctionnalités : les
+ * quatre cartes offrent le MÊME logiciel. Seule l'ampleur de la mise en service
+ * change. D'où la ligne « Toutes les fonctionnalités de gestion scolaire »
+ * répétée sur chacune, et la note sous les cartes.
+ */
+
+const MISE_EN_AVANT: Record<string, boolean> = { moyen: true };
+---
+
+<div class="selecteur-tarifs">
+  {CYCLES.map((cycle, i) => (
+    <input
+      type="radio"
+      name="cycle-tarif"
+      id={`tarif-${cycle}`}
+      class="sr-only"
+      checked={i === 1}
+    />
+  ))}
+
+  <div role="tablist" aria-label="Choisir un cycle" class="onglets mx-auto flex w-fit gap-1 rounded-[12px] border border-ardoise-200 bg-ardoise-0 p-1">
+    {CYCLES.map((cycle) => (
+      <label
+        for={`tarif-${cycle}`}
+        class="cursor-pointer rounded-[9px] px-4 py-2.5 text-[0.93rem] font-semibold
+               text-ardoise-600 transition-colors duration-200 hover:text-ink-700"
+      >
+        {MODULES[cycle].nomCourt}
+      </label>
+    ))}
+  </div>
+
+  <div class="panneaux mt-10">
+    {CYCLES.map((cycle) => {
+      const module = MODULES[cycle];
+      return (
+        <!-- Les quatre paliers tiennent sur une ligne dès le grand écran : les
+             comparer suppose de les voir ensemble. En dessous, deux colonnes
+             puis une seule. -->
+        <div data-panneau={cycle} class="gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:gap-5">
+          {module.tranches.map((tranche) => {
+            const enAvant = MISE_EN_AVANT[tranche.id];
+            const mes = MISE_EN_SERVICE[tranche.id];
+            return (
+              <article
+                class={`relative flex flex-col rounded-carte border bg-white p-5 xl:p-6
+                        transition-[transform,box-shadow,border-color] duration-300
+                        hover:-translate-y-1 hover:shadow-levee ${
+                          enAvant
+                            ? 'border-ink-600 shadow-levee ring-1 ring-ink-600'
+                            : 'border-ardoise-200 shadow-douce'
+                        }`}
+              >
+                {enAvant && (
+                  <span
+                    class="absolute -top-3 left-6 rounded-badge bg-ink-600 px-2.5 py-1
+                           text-[0.7rem] font-bold uppercase tracking-[0.06em] text-white"
+                  >Le plus courant</span>
+                )}
+
+                <h3 class="font-display text-[1.15rem] font-bold text-ink-900">{tranche.nom}</h3>
+                <p class="mt-1 text-legende text-ardoise-500">{tranche.libelleEffectif}</p>
+
+                {/* Unité sous le montant, et non à côté : à quatre colonnes, la
+                    carte fait environ 230 px et « 1 300 000 FCFA HT / an » sur
+                    une seule ligne déborderait. */}
+                <p class="mt-6">
+                  <span class="chiffre block text-[1.85rem] leading-none xl:text-[2rem]">
+                    {formaterMontant(tranche.abonnement)}
+                  </span>
+                  <span class="mt-1.5 block text-legende text-ardoise-500">FCFA HT / an</span>
+                </p>
+
+                <p
+                  class="mt-4 inline-flex items-center gap-1.5 self-start rounded-badge
+                         bg-craie-50 px-2.5 py-1 text-[0.78rem] font-semibold text-craie-700"
+                >
+                  <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.9"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Mise en service offerte
+                </p>
+
+                <a
+                  href="/demonstration"
+                  class={`mt-6 w-full px-3 text-center ${enAvant ? 'btn-primaire' : 'btn-secondaire'}`}
+                >
+                  Demander une démo
+                </a>
+
+                <ul class="mt-6 space-y-2.5 border-t border-ardoise-200 pt-5">
+                  {[
+                    'Toutes les fonctionnalités de gestion scolaire',
+                    'Les cinq espaces utilisateurs',
+                    mes.prestations,
+                    'Assistance, correctifs et mises à jour',
+                    'Résiliable à la fin de chaque année scolaire',
+                  ].map((point) => (
+                    <li class="flex gap-2.5 text-legende text-ardoise-700">
+                      <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"
+                           class="mt-1 shrink-0 text-craie-500">
+                        <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8"
+                              stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
+        </div>
+      );
+    })}
+  </div>
+
+  <p class="mx-auto mt-8 max-w-3xl text-center text-legende text-ardoise-500">
+    Les quatre paliers donnent accès au <strong class="text-ardoise-700">même logiciel</strong> :
+    aucune fonctionnalité n’est réservée à un palier supérieur. Seuls l’effectif couvert et
+    l’ampleur de la mise en service varient.
+  </p>
+</div>
+
+<style>
+  /* Le panneau du cycle sélectionné, et lui seul. */
+  .panneaux > [data-panneau] { display: none; }
+
+  #tarif-primaire:checked ~ .panneaux > [data-panneau='primaire'],
+  #tarif-college:checked ~ .panneaux > [data-panneau='college'],
+  #tarif-lycee:checked ~ .panneaux > [data-panneau='lycee'] {
+    display: grid;
+  }
+
+  /* Onglet actif. Le style vit ici plutôt qu'en classes utilitaires : il dépend
+     de l'état d'un frère, ce que Tailwind ne sait exprimer qu'au prix d'une
+     lisibilité moindre. */
+  #tarif-primaire:checked ~ [role='tablist'] label[for='tarif-primaire'],
+  #tarif-college:checked ~ [role='tablist'] label[for='tarif-college'],
+  #tarif-lycee:checked ~ [role='tablist'] label[for='tarif-lycee'] {
+    background: #ffffff;
+    color: theme('colors.ink.900');
+    box-shadow: 0 1px 2px rgba(23, 31, 63, 0.1);
+  }
+
+  /* Le focus clavier porte sur l'input masqué : on le rend visible sur
+     l'étiquette, sans quoi la navigation aux flèches serait aveugle. */
+  #tarif-primaire:focus-visible ~ [role='tablist'] label[for='tarif-primaire'],
+  #tarif-college:focus-visible ~ [role='tablist'] label[for='tarif-college'],
+  #tarif-lycee:focus-visible ~ [role='tablist'] label[for='tarif-lycee'] {
+    outline: 2px solid theme('colors.ink.600');
+    outline-offset: 2px;
+  }
+</style>

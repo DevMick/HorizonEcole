@@ -12,7 +12,6 @@ import { requireRole } from '../middleware/rbac';
 import { validate } from '../middleware/validate';
 import { TokenService } from '../services/token.service';
 import { AuditService } from '../services/audit.service';
-import { syncProtectedRoleMenus } from '../services/role-sync.service';
 
 const router = Router();
 
@@ -36,7 +35,7 @@ const registerSchema = z.object({
     password: z.string().min(8, 'Password must be at least 8 characters'),
     firstName: z.string().min(2, 'First name must be at least 2 characters'),
     lastName: z.string().min(2, 'Last name must be at least 2 characters'),
-    role: z.enum(['ADMIN', 'TEACHER', 'ACCOUNTANT', 'STUDENT', 'PARENT']),
+    role: z.enum(['ADMIN', 'TEACHER', 'ACCOUNTANT', 'STUDENT', 'PARENT', 'OWNER']),
     phone: z.string().optional(),
   }),
 });
@@ -69,16 +68,21 @@ const customRoleSelect = {
 } as const;
 
 /**
- * Si le rôle personnalisé de l'utilisateur est protégé (« Administrateur »),
- * on le resynchronise avec la liste canonique des menus avant de répondre —
- * c'est ce qui garantit qu'il reçoit toujours les nouveaux menus créés dans
- * l'application, sans jamais pouvoir être édité manuellement.
+ * Relit les menus du rôle personnalisé au moment de répondre.
+ *
+ * Il n'y a plus de resynchronisation : les menus de tous les rôles, protégés
+ * compris, sont choisis par l'administrateur. Les remettre d'office à leur
+ * valeur par défaut annulerait ses modifications à la première reconnexion de
+ * l'utilisateur concerné — sans que rien ne le signale.
+ *
+ * La relecture, elle, reste utile : elle garantit que le jeton et le menu
+ * reflètent l'état courant du rôle, et non celui d'une session ouverte avant la
+ * modification.
  */
 async function withFreshCustomRole<T extends { customRole: { id: string; isProtected: boolean; menus: { menuKey: string }[] } | null }>(
   user: T,
 ): Promise<T> {
-  if (!user.customRole?.isProtected) return user;
-  await syncProtectedRoleMenus(user.customRole.id);
+  if (!user.customRole) return user;
   const menus = await prisma.roleMenu.findMany({ where: { roleId: user.customRole.id }, select: { menuKey: true } });
   return { ...user, customRole: { ...user.customRole, menus } };
 }

@@ -1,0 +1,151 @@
+---
+import { MENU_PRINCIPAL } from '@/lib/navigation';
+---
+
+<header
+  id="entete"
+  class="entete"
+>
+  <div class="conteneur flex h-16 items-center gap-3 md:h-[4.5rem]">
+    <a href="/" class="group flex shrink-0 items-center gap-2.5" aria-label="HorizonEcole, accueil">
+      {/* Dimensions déclarées : sans elles, la ligne de l'en-tête se réajuste
+          quand l'image arrive, et tout le premier écran sursaute. */}
+      <img
+        src="/logo-horizonecole.png"
+        alt=""
+        width="36"
+        height="36"
+        decoding="async"
+        class="h-9 w-9 shrink-0 transition-transform duration-300 group-hover:-rotate-3"
+      />
+      {/* Le nom se lit en deux temps, aux deux couleurs de la marque. */}
+      <span class="font-display text-[1.05rem] font-bold tracking-tight">
+        <span class="text-ink-900">Horizon</span><span class="text-ambre-500">Ecole</span>
+      </span>
+    </a>
+
+    <!-- Navigation desktop : uniquement des liens directs. Fonctionnalités et
+         Cycles tiennent chacun sur une page unique, un déroulant obligerait à
+         choisir avant d'avoir lu. -->
+    <nav class="ml-auto hidden items-center gap-0.5 lg:flex" aria-label="Navigation principale">
+      {MENU_PRINCIPAL.map((lien) => (
+        <a href={lien.href} class="btn-fantome">{lien.libelle}</a>
+      ))}
+    </nav>
+
+    <div class="ml-auto flex items-center gap-2 lg:ml-3">
+      <a href="/demonstration" class="btn-primaire px-4 py-2.5 text-[0.9rem]">
+        Demander une démo
+        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true" class="fleche">
+          <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor"
+                stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <button
+        type="button"
+        class="btn-fantome -mr-1 lg:hidden"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="tiroir-mobile"
+        data-ouvrir-tiroir
+      >
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Tiroir mobile. Fermé par défaut ; sans JavaScript il reste hors du flux,
+     la navigation de secours étant celle du pied de page. -->
+<div
+  id="tiroir-mobile"
+  class="fixed inset-0 z-[60] hidden lg:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu"
+>
+  <div class="absolute inset-0 bg-ink-900/25 backdrop-blur-sm" data-fermer-tiroir></div>
+
+  <div
+    class="absolute inset-y-0 right-0 flex w-full max-w-sm translate-x-full flex-col bg-white
+           shadow-levee transition-transform duration-300 ease-out"
+    data-panneau-tiroir
+  >
+    <div class="flex h-16 shrink-0 items-center justify-between border-b border-ardoise-200 px-4">
+      <span class="font-display font-bold text-ink-900">Menu</span>
+      <button type="button" class="btn-fantome -mr-1" aria-label="Fermer le menu" data-fermer-tiroir>
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M5 5l12 12M17 5L5 17" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto overscroll-contain px-4 py-5" aria-label="Navigation mobile">
+      {MENU_PRINCIPAL.map((lien) => (
+        <a
+          href={lien.href}
+          class="flex min-h-[52px] items-center border-b border-ardoise-200
+                 font-display font-bold text-ink-900"
+        >
+          {lien.libelle}
+        </a>
+      ))}
+    </nav>
+
+    <div class="shrink-0 border-t border-ardoise-200 bg-ardoise-0 p-4">
+      <a href="/demonstration" class="btn-primaire w-full">Demander une démonstration</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const entete = document.getElementById('entete');
+  const ouvrir = document.querySelector<HTMLButtonElement>('[data-ouvrir-tiroir]');
+  const tiroir = document.getElementById('tiroir-mobile');
+  const panneau = document.querySelector<HTMLElement>('[data-panneau-tiroir]');
+
+  /* En-tête : passe en état « défilé » dès les premiers pixels. Écouteur passif
+     pour ne pas retarder le défilement sur mobile. */
+  const majEntete = () => {
+    entete?.classList.toggle('entete-defile', window.scrollY > 8);
+  };
+  majEntete();
+  window.addEventListener('scroll', majEntete, { passive: true });
+
+  /* Tiroir : le panneau glisse, d'où le décalage entre l'affichage du conteneur
+     et le retrait de la translation (sans quoi il apparaîtrait déjà en place). */
+  function basculer(ouvert: boolean) {
+    if (!tiroir || !ouvrir || !panneau) return;
+    ouvrir.setAttribute('aria-expanded', String(ouvert));
+    document.body.style.overflow = ouvert ? 'hidden' : '';
+
+    if (ouvert) {
+      tiroir.classList.remove('hidden');
+      requestAnimationFrame(() => panneau.classList.remove('translate-x-full'));
+      panneau.querySelector<HTMLElement>('a, button')?.focus();
+    } else {
+      panneau.classList.add('translate-x-full');
+      const fin = () => {
+        tiroir.classList.add('hidden');
+        panneau.removeEventListener('transitionend', fin);
+      };
+      panneau.addEventListener('transitionend', fin);
+      ouvrir.focus();
+    }
+  }
+
+  ouvrir?.addEventListener('click', () => basculer(true));
+  document.querySelectorAll('[data-fermer-tiroir]').forEach((el) =>
+    el.addEventListener('click', () => basculer(false)),
+  );
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !tiroir?.classList.contains('hidden')) basculer(false);
+  });
+  /* Un lien suivi doit refermer le tiroir : sur une ancre de la même page,
+     aucune navigation ne se produit et le menu resterait ouvert par-dessus. */
+  panneau?.querySelectorAll('a[href]').forEach((lien) =>
+    lien.addEventListener('click', () => basculer(false)),
+  );
+</script>

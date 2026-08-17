@@ -4,9 +4,10 @@
  * - ADMIN / ACCOUNTANT / TEACHER : tableau de bord (le menu adapte le contenu).
  * - PARENT : Espace Famille (`/parent/*`).
  * - STUDENT : Ma Scolarité (`/student/*`).
+ * - OWNER : Espace Propriétaire (`/owner/*`).
  *
- * Parent et Élève ont chacun leur propre jeu de routes, sans aucune page
- * d'administration montée — voir App.tsx.
+ * Parent, Élève et Propriétaire ont chacun leur propre jeu de routes, sans
+ * aucune page d'administration montée — voir App.tsx.
  *
  * Utilisé après la connexion et pour les redirections « catch-all ».
  */
@@ -16,6 +17,8 @@ export function roleHome(role?: string | null): string {
       return '/parent';
     case 'STUDENT':
       return '/student';
+    case 'OWNER':
+      return '/owner';
     default:
       return '/dashboard';
   }
@@ -29,4 +32,9 @@ export function isParentRole(role?: string | null): boolean {
 /** Vrai pour le rôle Élève, qui dispose de son propre jeu de routes `/student/*`. */
 export function isStudentRole(role?: string | null): boolean {
   return String(role).toUpperCase() === 'STUDENT';
+}
+
+/** Vrai pour le rôle Propriétaire, qui dispose de son propre jeu de routes `/owner/*`. */
+export function isOwnerRole(role?: string | null): boolean {
+  return String(role).toUpperCase() === 'OWNER';
 }

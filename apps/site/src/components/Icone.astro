@@ -1,0 +1,53 @@
+---
+/**
+ * Icônes en SVG intégré, tracées sur une grille de 24 px, trait 1.6.
+ *
+ * Intégrées plutôt que chargées depuis une bibliothèque : le site vise zéro
+ * JavaScript sur les pages de contenu, et une police d'icônes ou un sprite
+ * ajouterait une requête bloquante au premier écran pour une dizaine de formes.
+ */
+interface Props {
+  nom: keyof typeof TRACES;
+  taille?: number;
+  classe?: string;
+}
+
+const TRACES = {
+  // Espaces
+  proprietaire: '<path d="M3.5 19.5h17"/><path d="M6 19.5V11"/><path d="M11 19.5V7"/><path d="M16 19.5v-5"/><path d="m4.5 8.5 5-4 4.5 3 5.5-5"/>',
+  administration: '<path d="M4 20V7l8-3 8 3v13"/><path d="M9 20v-5h6v5"/><path d="M4 20h16"/>',
+  enseignant: '<path d="M3 7.5 12 4l9 3.5-9 3.5-9-3.5Z"/><path d="M7 9.7V15c0 1.4 2.2 2.5 5 2.5s5-1.1 5-2.5V9.7"/><path d="M21 7.5V13"/>',
+  eleve: '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.3 3.1-5.5 7-5.5s7 2.2 7 5.5"/>',
+  parent: '<circle cx="8.5" cy="8" r="3"/><circle cx="16.5" cy="9.5" r="2.4"/><path d="M2.5 19c0-2.9 2.7-4.8 6-4.8s6 1.9 6 4.8"/><path d="M15 14.6c3 .2 5.5 1.9 5.5 4.4"/>',
+
+  // Fonctionnalités
+  dossier: '<path d="M3 7a2 2 0 0 1 2-2h4l2 2.5h8a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/>',
+  bulletin: '<rect x="4.5" y="3" width="15" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/>',
+  presence: '<rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/><path d="m9 15 2 2 4-4"/>',
+  horloge: '<circle cx="12" cy="12" r="8.5"/><path d="M12 7v5.2l3.4 2"/>',
+  paiement: '<rect x="2.8" y="5.5" width="18.4" height="13" rx="2"/><path d="M2.8 10h18.4"/><path d="M6.5 14.8h3"/>',
+  bouclier: '<path d="M12 3.2 5 6v5.6c0 4.2 2.9 7.6 7 9.2 4.1-1.6 7-5 7-9.2V6Z"/><path d="m9 12 2 2 4-4"/>',
+
+  // Divers
+  alerte: '<path d="M12 4.5 2.8 20h18.4L12 4.5Z"/><path d="M12 10v4"/><circle cx="12" cy="17" r=".8" fill="currentColor" stroke="none"/>',
+  papiers: '<path d="M8 4h8l4 4v12a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 6 20V5.5"/><path d="M16 4v4h4"/><path d="M4 8v10.5A1.5 1.5 0 0 0 5.5 20"/>',
+  calculatrice: '<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 7h7"/><path d="M9 12h.01M12 12h.01M15 12h.01M9 16h.01M12 16h.01M15 16h.01"/>',
+  fleche: '<path d="M4 12h15M13.5 6.5 20 12l-6.5 5.5"/>',
+} as const;
+
+const { nom, taille = 20, classe = '' } = Astro.props;
+---
+
+<svg
+  width={taille}
+  height={taille}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={classe}
+  aria-hidden="true"
+  set:html={TRACES[nom]}
+/>

@@ -1,0 +1,1902 @@
+[
+  {
+    "cle": "connexion",
+    "titre": "Se connecter",
+    "chapitre": "Prise en main",
+    "chemin": "/login",
+    "menu": [],
+    "sansSession": true,
+    "attendre": "input",
+    "url": "http://localhost:5173/app/login",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "HorizonEcole",
+        "rect": {
+          "x": 550,
+          "y": 239,
+          "w": 400,
+          "h": 48
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1438,
+          "y": 20,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "HE",
+        "id": null,
+        "titre": "Accueil HorizonEcole",
+        "classe": "login-he-logo",
+        "rect": {
+          "x": 720,
+          "y": 165,
+          "w": 60,
+          "h": 60
+        }
+      },
+      {
+        "texte": "Se connecter",
+        "id": null,
+        "titre": null,
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-primary",
+        "rect": {
+          "x": 579,
+          "y": 607,
+          "w": 342,
+          "h": 48
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "text",
+        "id": "login_email",
+        "nom": null,
+        "libelle": "Email",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 619,
+          "y": 443,
+          "w": 290,
+          "h": 24
+        }
+      },
+      {
+        "balise": "input",
+        "type": "password",
+        "id": "login_password",
+        "nom": null,
+        "libelle": "Mot de passe",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 619,
+          "y": 549,
+          "w": 270,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [
+      "login",
+      "login_email",
+      "login_password"
+    ],
+    "hauteurDocument": 950,
+    "texte": "HE\nHorizonEcole\n\nConnectez-vous à votre espace de gestion\n\nEmail\nMot de passe\nSe connecter\n\nVotre école n'est pas encore enregistrée ? Configurer un établissement\n\nGestion scolaire · Primaire, Collège et Lycée"
+  },
+  {
+    "cle": "vue-ensemble",
+    "titre": "La vue d’ensemble",
+    "chapitre": "Prise en main",
+    "chemin": "/owner",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/owner?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Vue d'ensemble",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 1152,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Vue d'ensemble",
+        "id": null,
+        "titre": "Vue d'ensemble",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Effectifs",
+        "id": null,
+        "titre": "Effectifs",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Assiduité",
+        "id": null,
+        "titre": "Assiduité",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 207,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats",
+        "id": null,
+        "titre": "Résultats",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 247,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Enseignants",
+        "id": null,
+        "titre": "Enseignants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 287,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Finance",
+        "id": null,
+        "titre": "Finance",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 340,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ressources",
+        "id": null,
+        "titre": "Ressources",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 394,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "SK Séraphin Kouassi Propriétaire",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1qjzpyn ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "SK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Finance",
+        "id": null,
+        "titre": null,
+        "classe": "ds-owner-alert-link",
+        "rect": {
+          "x": 1344,
+          "y": 952,
+          "w": 80,
+          "h": 28
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Année scolaire",
+        "valeur": "2025-2026",
+        "requis": false,
+        "rect": {
+          "x": 1194,
+          "y": 20,
+          "w": 120,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1072,
+    "texte": "Vue d'ensemble\n\nLycée Moderne de Cocody — Lycée — 2025-2026\n\nÉlèves inscrits\n25\nEFF-01\nNouveaux élèves\n25\nEFF-08\nTaux de réinscription\n—\nEFF-10\nEnseignants\n8\nENS-01\nTaux de recouvrement\n79 %\nFIN-04\nImpayés\n1 800 000 FCFA\nFIN-03\nChiffre d'affaires facturé\n8 750 000 FCFA\nFIN-01\nTaux de réussite\n72 %\nSEC-11\nTaux de présence\n94 %\nASS-01\nEffectifs sur 5 ans\nInscrits et nouveaux élèves, par année.\n\nUne seule mesure disponible (2025-2026) : l’évolution apparaîtra dès la période suivante.\n\nEncaissements mensuels\nDe septembre à août, avec l'année de comparaison en surimpression.\n0\n1275000\n2550000\nseptembre\noctobre\nnovembre\ndécembre\njanvier\nfévrier\nmars\navril\nmai\njuin\njuillet\naoût\nEncaissé\nAnnée de comparaison\nPoints d'attention\nCe qui mérite un regard — chaque ligne mène à l'écran où vérifier.\n1 800 000 FCFA restent à recouvrer\nFinance"
+  },
+  {
+    "cle": "effectifs",
+    "titre": "Les effectifs",
+    "chapitre": "Pilotage",
+    "chemin": "/owner/effectifs",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/owner/effectifs?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Effectifs",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 1152,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Vue d'ensemble",
+        "id": null,
+        "titre": "Vue d'ensemble",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Effectifs",
+        "id": null,
+        "titre": "Effectifs",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Assiduité",
+        "id": null,
+        "titre": "Assiduité",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 207,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats",
+        "id": null,
+        "titre": "Résultats",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 247,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Enseignants",
+        "id": null,
+        "titre": "Enseignants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 287,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Finance",
+        "id": null,
+        "titre": "Finance",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 340,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ressources",
+        "id": null,
+        "titre": "Ressources",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 394,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "SK Séraphin Kouassi Propriétaire",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1qjzpyn ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "SK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Année scolaire",
+        "valeur": "2025-2026",
+        "requis": false,
+        "rect": {
+          "x": 1194,
+          "y": 20,
+          "w": 120,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par niveau",
+        "valeur": "Tous",
+        "requis": false,
+        "rect": {
+          "x": 359,
+          "y": 168,
+          "w": 130,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par classe",
+        "valeur": "Toutes",
+        "requis": false,
+        "rect": {
+          "x": 556,
+          "y": 168,
+          "w": 140,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par sexe",
+        "valeur": "Tous",
+        "requis": false,
+        "rect": {
+          "x": 748,
+          "y": 168,
+          "w": 110,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "CLASSE",
+          "NIVEAU",
+          "EFFECTIF",
+          "Δ N-1",
+          "F / G",
+          "ÂGE MOYEN",
+          "OCCUPATION",
+          "STATUT"
+        ],
+        "lignes": 1,
+        "premiereLigne": [
+          "6ème A",
+          "6EME",
+          "25",
+          "",
+          "13 / 12",
+          "11,7 ans",
+          "83,3 %",
+          "Équilibrée"
+        ],
+        "rect": {
+          "x": 327,
+          "y": 838,
+          "w": 1110,
+          "h": 77
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1610,
+    "texte": "Effectifs\n\nInscriptions, répartition et fidélisation — 2025-2026\n\nNIVEAU\nTous\nCLASSE\nToutes\nSEXE\nTous\nInscrits\n25\nNouveaux\n25\nDéparts\n—\nEffectif moyen / classe\n25\nEffectif par niveau\nLe filet sous chaque barre situe l'année de comparaison.\n6EME\n25\nRépartition par sexe\nPart des filles et des garçons inscrits.\n25\ninscrits\nF\n52 %\n13\nM\n48 %\n12\nNouveaux et réinscrits par niveau\nLa part sombre représente les élèves déjà présents l'an dernier.\n6EME\nN 25 · R 0\nDétail par classe\nEffectif, parité, âge moyen et remplissage, classe par classe.\nOccupation moyenne 83 %\nCLASSE\tNIVEAU\tEFFECTIF\tΔ N-1\tF / G\tÂGE MOYEN\tOCCUPATION\tSTATUT\n6ème A\t6EME\t25\t\t13 / 12\t11,7 ans\t83,3 %\t\nÉquilibrée\nÉvolution sur 5 ans\nInscrits et nouveaux élèves, par année scolaire.\n\nUne seule mesure disponible (2025-2026) : l’évolution apparaîtra dès la période suivante.\n\nPyramide des âges\nÂge atteint dans l'année de début du cycle scolaire.\n11\n12\n\nâge\n\nStatuts et fidélisation\nCe que deviennent les élèves inscrits, et ce que l'école retient d'une année sur l'autre.\n25\nélèves\nACTIVE\n100 %\n25\nTaux de réinscription\n—\nTaux d'abandon\n0 %\nAffectés par l'État\n20 %"
+  },
+  {
+    "cle": "assiduite",
+    "titre": "L’assiduité",
+    "chapitre": "Pilotage",
+    "chemin": "/owner/assiduite",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/owner/assiduite?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Assiduité",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 1152,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Vue d'ensemble",
+        "id": null,
+        "titre": "Vue d'ensemble",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Effectifs",
+        "id": null,
+        "titre": "Effectifs",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Assiduité",
+        "id": null,
+        "titre": "Assiduité",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 207,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats",
+        "id": null,
+        "titre": "Résultats",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 247,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Enseignants",
+        "id": null,
+        "titre": "Enseignants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 287,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Finance",
+        "id": null,
+        "titre": "Finance",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 340,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ressources",
+        "id": null,
+        "titre": "Ressources",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 394,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "SK Séraphin Kouassi Propriétaire",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1qjzpyn ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "SK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Année scolaire",
+        "valeur": "2025-2026",
+        "requis": false,
+        "rect": {
+          "x": 1194,
+          "y": 20,
+          "w": 120,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par classe",
+        "valeur": "Toutes",
+        "requis": false,
+        "rect": {
+          "x": 360,
+          "y": 168,
+          "w": 140,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par matière",
+        "valeur": "Toutes",
+        "requis": false,
+        "rect": {
+          "x": 573,
+          "y": 168,
+          "w": 140,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "ENSEIGNANT",
+          "TENUES",
+          "NON TENUES",
+          "COUVERTURE"
+        ],
+        "lignes": 8,
+        "premiereLigne": [
+          "N. Y.",
+          "16",
+          "66",
+          "19,5 %"
+        ],
+        "rect": {
+          "x": 327,
+          "y": 799,
+          "w": 1110,
+          "h": 351
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 2255,
+    "texte": "Assiduité\n\nPrésence, absences et vie scolaire — 2025-2026\n\nCLASSE\nToutes\nMATIÈRE\nToutes\nTaux de présence\n94 %\nTaux d'absence\n4 %\nTaux de retard\n2 %\nAbsences justifiées\n54 %\nAbsences par classe\nPart des relevés « absent » ou « excusé », classe par classe.\n6ème A\n4,1 %\nAbsences par matière\nLes matières les plus désertées, en heures cumulées.\nMathématiques\n93 h\nPhysique-Chimie\n48 h\nÉducation Physique et Sportive\n32 h\nHistoire-Géographie\n29 h\nAnglais\n22 h\nSciences de la Vie et de la Terre\n20 h\nÉducation Civique et Morale\n18 h\nFrançais\n10 h\nCouverture de l'appel\nSéances tenues rapportées aux créneaux de l'emploi du temps.\n20 % de couverture\nSéances tenues\n264\nSéances non tenues\n1 089\nTaux de couverture\n20 %\nENSEIGNANT\tTENUES\tNON TENUES\tCOUVERTURE\nN. Y.\t16\t66\t19,5 %\nK. N.\t56\t231\t19,5 %\nJ. A.\t24\t99\t19,5 %\nM. C.\t32\t132\t19,5 %\nS. B.\t40\t165\t19,5 %\nF. D.\t24\t99\t19,5 %\nI. O.\t16\t66\t19,5 %\nA. S.\t56\t231\t19,5 %\n\nEnseignants désignés par leurs initiales : le pilotage n'exige pas de nommer.\n\nConduite\nNote de base 20, moins un point par tranche de 2 h d'absence.\nNote moyenne\n18,45\nPénalité moyenne\n1,55\nÉlèves sous 10\n0 %\nCorrections manuelles\n0\n0–2\n2–4\n4–6\n6–8\n8–10\n10–12\n12–14\n14–16\n16–18\n18–20\n\nnote de conduite\n\nIncidents disciplinaires\nVolume par gravité.\nAucun incident enregistré\nLe registre disciplinaire n'a pas d'écran de saisie monté : il peut rester vide.\nAbsences des enseignants\nHeures déclarées et part couverte par un motif.\nAucune absence enseignant déclarée\nL'écran de saisie des absences enseignants n'est pas déployé : la table peut rester vide, ce qui n'est pas la même chose que zéro heure d'absence.\nAssiduité demi-journée\nRelevé historique, conservé comme repli de l'appel par séance.\nAucun appel demi-journée enregistré."
+  },
+  {
+    "cle": "resultats",
+    "titre": "Les résultats",
+    "chapitre": "Pilotage",
+    "chemin": "/owner/resultats",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/owner/resultats?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Résultats",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 1152,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Vue d'ensemble",
+        "id": null,
+        "titre": "Vue d'ensemble",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Effectifs",
+        "id": null,
+        "titre": "Effectifs",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Assiduité",
+        "id": null,
+        "titre": "Assiduité",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 207,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats",
+        "id": null,
+        "titre": "Résultats",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 247,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Enseignants",
+        "id": null,
+        "titre": "Enseignants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 287,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Finance",
+        "id": null,
+        "titre": "Finance",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 340,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ressources",
+        "id": null,
+        "titre": "Ressources",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 394,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "SK Séraphin Kouassi Propriétaire",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1qjzpyn ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "SK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Année scolaire",
+        "valeur": "2025-2026",
+        "requis": false,
+        "rect": {
+          "x": 1194,
+          "y": 20,
+          "w": 120,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par trimestre",
+        "valeur": "Tous",
+        "requis": false,
+        "rect": {
+          "x": 381,
+          "y": 168,
+          "w": 130,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par niveau",
+        "valeur": "Tous",
+        "requis": false,
+        "rect": {
+          "x": 578,
+          "y": 168,
+          "w": 130,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par classe",
+        "valeur": "Toutes",
+        "requis": false,
+        "rect": {
+          "x": 775,
+          "y": 168,
+          "w": 130,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par matière",
+        "valeur": "Toutes",
+        "requis": false,
+        "rect": {
+          "x": 978,
+          "y": 168,
+          "w": 130,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "#",
+          "CLASSE",
+          "NIVEAU",
+          "MOYENNE",
+          "Δ N-1",
+          "RÉUSSITE",
+          "ÉCART-TYPE",
+          "ÉLÈVES"
+        ],
+        "lignes": 1,
+        "premiereLigne": [
+          "1",
+          "6ème A",
+          "6EME",
+          "11,44",
+          "",
+          "72 %",
+          "1,98",
+          "25"
+        ],
+        "rect": {
+          "x": 327,
+          "y": 1818,
+          "w": 1110,
+          "h": 74
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 2624,
+    "texte": "Résultats\n\nMoyennes, réussite et classements — 2025-2026\n\nTRIMESTRE\nTous\nNIVEAU\nTous\nCLASSE\nToutes\nMATIÈRE\nToutes\nMoyenne générale\n11,44\nTaux de réussite\n72 %\nÉcart-type\n1,98\nBulletins publiés\n67 %\nMoyenne par matière\nNotes ramenées sur 20 ; un barème sur 10 compte à demi-poids.\nAnglais\n11,56\nPhysique-Chimie\n11,52\nFrançais\n11,5\nMathématiques\n11,48\nÉducation Physique et Sportive\n11,45\nÉducation Civique et Morale\n11,4\nSciences de la Vie et de la Terre\n11,38\nHistoire-Géographie\n11,15\nDistribution des moyennes\nRépartition des moyennes générales, par tranche d'un point.\n0\n2\n4\n6\n8\n10\n12\n14\n16\n18\n\nmoyenne générale\n\nÉvolution par trimestre\nMoyenne générale, trimestre après trimestre.\n0\n6\n12\n1er Trimestre\n2e Trimestre\n3e Trimestre\nAnnée observée\nComparaison\nÉvolution pluriannuelle\nMoyenne générale de l'établissement.\n\nUne seule mesure disponible (2025-2026) : l’évolution apparaîtra dès la période suivante.\n\nÉvolution par matière\nLes cinq matières dont la moyenne a le plus bougé entre le premier et le dernier trimestre.\n0\n6\n12\n1er Trimestre\n2e Trimestre\n3e Trimestre\nMathématiques\nPhysique-Chimie\nÉducation Physique et Sportive\nAnglais\nFrançais\n\nMathématiques\n\n+1\n\nPhysique-Chimie\n\n+0,5\n\nÉducation Physique et Sportive\n\n+0,3\n\nAnglais\n\n+0,3\n\nFrançais\n\n−0,1\nClassement des classes\nLes classes à égalité partagent leur rang.\n#\tCLASSE\tNIVEAU\tMOYENNE\tΔ N-1\tRÉUSSITE\tÉCART-TYPE\tÉLÈVES\n1\t6ème A\t6EME\t11,44\t\t72 %\t1,98\t25\nMentions\nRépartition des moyennes générales par mention.\nélèves notés\nPassable\n32 %\n8\nAssez Bien\n32 %\n8\nInsuffisant\n28 %\n7\nBien\n8 %\n2\nPoids des matières\nPart de chaque matière dans la décision de passage, coefficients à l'appui.\nFrançais\n22,2 %\nMathématiques\n22,2 %\nAnglais\n11,1 %\nHistoire-Géographie\n11,1 %\nSciences de la Vie et de la Terre\n11,1 %\nPhysique-Chimie\n11,1 %\nÉducation Civique et Morale\n5,6 %\nÉducation Physique et Sportive\n5,6 %\nTypes d'évaluation\nCe que recouvrent les notes saisies.\n1 800\nnotes\nDevoir 2\n33,3 %\n75\nComposition\n33,3 %\n75\nDevoir 1\n33,3 %\n75\nDistribution des notes\nToutes notes confondues, ramenées sur 20, par tranche de deux points.\n0–2\n2–4\n4–6\n6–8\n8–10\n10–12\n12–14\n14–16\n16–18\n18–20\n\nnote sur 20"
+  },
+  {
+    "cle": "enseignants",
+    "titre": "Les enseignants",
+    "chapitre": "Pilotage",
+    "chemin": "/owner/enseignants",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/owner/enseignants?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Enseignants",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 1152,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Vue d'ensemble",
+        "id": null,
+        "titre": "Vue d'ensemble",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Effectifs",
+        "id": null,
+        "titre": "Effectifs",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Assiduité",
+        "id": null,
+        "titre": "Assiduité",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 207,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats",
+        "id": null,
+        "titre": "Résultats",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 247,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Enseignants",
+        "id": null,
+        "titre": "Enseignants",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 287,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Finance",
+        "id": null,
+        "titre": "Finance",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 340,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ressources",
+        "id": null,
+        "titre": "Ressources",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 394,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "SK Séraphin Kouassi Propriétaire",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1qjzpyn ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "SK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Année scolaire",
+        "valeur": "2025-2026",
+        "requis": false,
+        "rect": {
+          "x": 1194,
+          "y": 20,
+          "w": 120,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "ENSEIGNANT",
+          "HEURES / SEMAINE",
+          "CIBLE",
+          "ÉCART"
+        ],
+        "lignes": 8,
+        "premiereLigne": [
+          "K. N.",
+          "5,81 h",
+          "—",
+          "—"
+        ],
+        "rect": {
+          "x": 327,
+          "y": 1273,
+          "w": 1110,
+          "h": 351
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1903,
+    "texte": "Enseignants\n\nEffectif, charge et couverture des matières — 2025-2026\n\nEffectif enseignant\n8\nAncienneté moyenne (années)\n0\nCharge hebdomadaire moyenne\n3,42 h\nCouverture des matières\n100 %\n\nLe schéma ne modélise que le corps enseignant : le personnel administratif et de service n'y figure pas, et n'est donc pas compté ici.\n\nTypes de contrat\nCDI, CDD et vacataires.\n8\nenseignants\nCDI\n62,5 %\n5\nCDD\n25 %\n2\nVACATAIRE\n12,5 %\n1\nPolyvalence\nNombre de matières enseignées, enseignant par enseignant.\n1 matière\n\nmatières par enseignant\n\nCouverture des affectations\nMatières pourvues, professeurs principaux et comptes applicatifs.\nMatières pourvues\n100 %\nClasses avec professeur principal\n100 %\nComptes applicatifs actifs\n100 %\nCréneaux sans enseignant\n0\nAffectations formalisées\n8\nContrats arrivant à échéance\nCDD dont le terme tombe dans l'année scolaire observée.\nAucun contrat n'arrive à échéance cette année.\nCharge horaire hebdomadaire\nHeures d'emploi du temps par enseignant, comparées à la bande cible déclarée.\nAucune bande cible déclarée\nSans heures hebdomadaires de référence, la surcharge n'est pas mesurable : elle n'est pas nulle.\nENSEIGNANT\tHEURES / SEMAINE\tCIBLE\tÉCART\nK. N.\t5,81 h\t—\t—\nA. S.\t5,81 h\t—\t—\nS. B.\t4,15 h\t—\t—\nM. C.\t3,32 h\t—\t—\nJ. A.\t2,49 h\t—\t—\nF. D.\t2,49 h\t—\t—\nN. Y.\t1,66 h\t—\t—\nI. O.\t1,66 h\t—\t—\nMasse salariale\nBrut, net, charges et coût par élève sur l'année scolaire.\nAucun bulletin de paie\nLe module de paie n'est pas alimenté pour cette année : les montants restent vides plutôt que d'être affichés à zéro."
+  },
+  {
+    "cle": "finance",
+    "titre": "La finance",
+    "chapitre": "Ressources",
+    "chemin": "/owner/finance",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/owner/finance?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Finance",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 1152,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Vue d'ensemble",
+        "id": null,
+        "titre": "Vue d'ensemble",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Effectifs",
+        "id": null,
+        "titre": "Effectifs",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Assiduité",
+        "id": null,
+        "titre": "Assiduité",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 207,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats",
+        "id": null,
+        "titre": "Résultats",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 247,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Enseignants",
+        "id": null,
+        "titre": "Enseignants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 287,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Finance",
+        "id": null,
+        "titre": "Finance",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 340,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ressources",
+        "id": null,
+        "titre": "Ressources",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 394,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "SK Séraphin Kouassi Propriétaire",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1qjzpyn ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "SK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Année scolaire",
+        "valeur": "2025-2026",
+        "requis": false,
+        "rect": {
+          "x": 1194,
+          "y": 20,
+          "w": 120,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par niveau",
+        "valeur": "Tous",
+        "requis": false,
+        "rect": {
+          "x": 359,
+          "y": 168,
+          "w": 140,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par classe",
+        "valeur": "Toutes",
+        "requis": false,
+        "rect": {
+          "x": 566,
+          "y": 168,
+          "w": 140,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par type de frais",
+        "valeur": "Tous",
+        "requis": false,
+        "rect": {
+          "x": 816,
+          "y": 168,
+          "w": 140,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "ÉCHÉANCIER",
+          "TRANCHES",
+          "ÉTALEMENT"
+        ],
+        "lignes": 1,
+        "premiereLigne": [
+          "Scolarité 6ème — 3 versements",
+          "3",
+          "0 j"
+        ],
+        "rect": {
+          "x": 327,
+          "y": 2245,
+          "w": 1110,
+          "h": 74
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 3022,
+    "texte": "Finance\n\nFacturation, recouvrement et dépenses — 2025-2026\n\nNIVEAU\nTous\nCLASSE\nToutes\nTYPE DE FRAIS\nTous\nFacturé\n8 750 000 FCFA\nEncaissé\n6 950 000 FCFA\nImpayés\n1 800 000 FCFA\nRecouvrement\n79 %\nRecouvrement à échéance\nL'encaissé rapporté à ce qui était exigible à ce jour — le taux à lire en cours d'année.\nRecouvrement brut\n79 %\nRecouvrement à échéance\n79 %\nTaux de facturation\n100 %\nAttendu échu\n8 750 000 FCFA\nRecette moyenne / élève\n350 000 FCFA\nVieillissement de la créance\nUne créance de six millions ne dit rien tant qu'on ignore son ancienneté.\n0 à 30 jours\n0 FCFA\n0 %\n31 à 60 jours\n0 FCFA\n0 %\n61 à 90 jours\n0 FCFA\n0 %\nplus de 90 jours\n1 800 000 FCFA\n100 %\nRetards de paiement\nTranches échues non soldées, par numéro de tranche.\nRetard moyen 211 j\nTranches en retard\n16\nMontant en retard\n1 800 000 FCFA\nÉlèves à jour\n72 %\nTranche 1\n600 000 FCFA\nTranche 2\n500 000 FCFA\nTranche 3\n700 000 FCFA\nRecettes par type de frais\nCe que recouvre le montant facturé.\n8 750 000 FCFA\nfacturé\nFrais d’inscription\n42,9 %\n3 750 000 FCFA\nScolarité — 2e versement\n28,6 %\n2 500 000 FCFA\nScolarité — 3e versement\n28,6 %\n2 500 000 FCFA\nEncaissé par mode de paiement\nEspèces, chèque, virement, mobile money.\nencaissé\nMobile Money\n32,4 %\n2 250 000 FCFA\nEspèces\n28,8 %\n2 000 000 FCFA\nChèque\n24,5 %\n1 700 000 FCFA\nVirement\n14,4 %\n1 000 000 FCFA\nSaisonnalité des encaissements\nDouze mois, de septembre à août, avec l'année de comparaison en surimpression.\n0\n1275000\n2550000\nseptembre\noctobre\nnovembre\ndécembre\njanvier\nfévrier\nmars\navril\nmai\njuin\njuillet\naoût\nEncaissé\nAnnée de comparaison\nDépenses\nCréance par classe\nAgrégée par classe — un impayé ne désigne jamais une famille.\n3 classes concentrent 100 %\n6ème A\n1 800 000 FCFA\nRecettes par niveau\nFacturé par niveau de classe.\n6EME\n8 750 000 FCFA\nGrille tarifaire et écarts\nTarif de référence par niveau, et écart avec le montant réellement facturé.\nAucune grille tarifaire\nSans tarif de référence, l'écart entre tarif et facturé n'est pas calculable.\nStructure des échéanciers\nNombre de tranches et étalement, par condition de paiement.\nÉCHÉANCIER\tTRANCHES\tÉTALEMENT\nScolarité 6ème — 3 versements\t3\t0 j\nDépenses et marge\nCharges approuvées, exécution budgétaire et résultat d'exploitation.\nModules non alimentés\nAucune donnée pour : paie, budgets. Ces écrans de saisie ne sont pas encore déployés — les montants restent vides plutôt que d'être affichés à zéro.\nDépenses\n8 752 000 FCFA\nEn attente d'approbation\n0 FCFA\nMarge\n—\nPoids de la masse salariale\n—\n\nLa marge exige que les dépenses et la paie soient alimentées : sans les deux, un résultat calculé serait flatteur et faux.\n\ndépenses\nSALAIRES\n84,6 %\n7 400 000 FCFA\nFOURNITURES\n3,7 %\n320 000 FCFA\nENERGIE\n3,5 %\n307 000 FCFA\nASSURANCES\n2,7 %\n240 000 FCFA\nMAINTENANCE\n2,4 %\n210 000 FCFA\nACTIVITES\n2,1 %\n180 000 FCFA\nTRANSPORT\n1,1 %\n95 000 FCFA\nÉvolution pluriannuelle\nFacturé et encaissé sur les cinq dernières années.\n\nUne seule mesure disponible (2025-2026) : l’évolution apparaîtra dès la période suivante."
+  },
+  {
+    "cle": "ressources",
+    "titre": "Les ressources",
+    "chapitre": "Ressources",
+    "chemin": "/owner/ressources",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/owner/ressources?y=8539a0e6-8fbc-4edb-a4a1-ccb68aca947f",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Ressources",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 1152,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Vue d'ensemble",
+        "id": null,
+        "titre": "Vue d'ensemble",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Effectifs",
+        "id": null,
+        "titre": "Effectifs",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Assiduité",
+        "id": null,
+        "titre": "Assiduité",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 207,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats",
+        "id": null,
+        "titre": "Résultats",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 247,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Enseignants",
+        "id": null,
+        "titre": "Enseignants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 287,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Finance",
+        "id": null,
+        "titre": "Finance",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 340,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Ressources",
+        "id": null,
+        "titre": "Ressources",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 394,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "SK Séraphin Kouassi Propriétaire",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-1qjzpyn ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "SK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Année scolaire",
+        "valeur": "2025-2026",
+        "requis": false,
+        "rect": {
+          "x": 1194,
+          "y": 20,
+          "w": 120,
+          "h": 24
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "Filtrer par classe",
+        "valeur": "Toutes",
+        "requis": false,
+        "rect": {
+          "x": 360,
+          "y": 168,
+          "w": 140,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "",
+          "07:30–08:20",
+          "08:20–09:10",
+          "09:10–10:00",
+          "10:15–11:05",
+          "11:05–11:55",
+          "14:00–14:50",
+          "14:50–15:40"
+        ],
+        "lignes": 6,
+        "premiereLigne": [
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1",
+          "1"
+        ],
+        "rect": {
+          "x": 327,
+          "y": 539,
+          "w": 675,
+          "h": 226
+        }
+      },
+      {
+        "colonnes": [
+          "SALLE",
+          "CLASSE",
+          "ÉLÈVES",
+          "PLACES",
+          "OCCUPATION"
+        ],
+        "lignes": 1,
+        "premiereLigne": [
+          "Salle 12",
+          "6ème A",
+          "25",
+          "35",
+          "71,4 %"
+        ],
+        "rect": {
+          "x": 911,
+          "y": 884,
+          "w": 526,
+          "h": 74
+        }
+      },
+      {
+        "colonnes": [
+          "JOUR",
+          "DÉBUT",
+          "FIN"
+        ],
+        "lignes": 5,
+        "premiereLigne": [
+          "lundi",
+          "07:30",
+          "15:40"
+        ],
+        "rect": {
+          "x": 911,
+          "y": 1413,
+          "w": 526,
+          "h": 232
+        }
+      },
+      {
+        "colonnes": [
+          "CLASSE ET MATIÈRE",
+          "PRÉVU",
+          "RÉEL",
+          "ÉCART"
+        ],
+        "lignes": 8,
+        "premiereLigne": [
+          "6ème A — Éducation Physique et Sportive",
+          "2 h",
+          "1,66 h",
+          "-0,34 h"
+        ],
+        "rect": {
+          "x": 327,
+          "y": 1765,
+          "w": 1110,
+          "h": 351
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 2918,
+    "texte": "Ressources\n\nSalles, volumes horaires et conflits — 2025-2026\n\nCLASSE\nToutes\nSalles par classe\n1\nCréneaux sans salle\n0\nConflits détectés\n0\nSalles sous-utilisées\n0\nOccupation des salles\nCréneaux occupés rapportés aux créneaux ouvrables de la semaine.\nSalle 12\n78,6 %\nQuand les salles sont-elles occupées ?\nNombre de salles occupées, jour par jour et créneau par créneau.\n\t07:30–08:20\t08:20–09:10\t09:10–10:00\t10:15–11:05\t11:05–11:55\t14:00–14:50\t14:50–15:40\nLUNDI\t1\t1\t1\t1\t1\t1\t1\nMARDI\t1\t1\t1\t1\t1\t1\t1\nMERCREDI\t1\t1\t1\t1\t1\t\t\nJEUDI\t1\t1\t1\t1\t1\t1\t1\nVENDREDI\t1\t1\t1\t1\t1\t1\t1\nSAMEDI\t\t\t\t\t\t\t\nSalles sous-utilisées\nEn deçà de 25 % d'occupation — un actif immobilisé qui ne sert pas.\nAucune salle sous le seuil.\nOccupation en places assises\nEffectif de la classe rapporté à la capacité de sa salle principale.\nSALLE\tCLASSE\tÉLÈVES\tPLACES\tOCCUPATION\nSalle 12\t6ème A\t25\t35\t71,4 %\nVolume horaire par matière\nHeures hebdomadaires enseignées.\nFrançais\n5,81 h\nMathématiques\n5,81 h\nAnglais\n4,15 h\nHistoire-Géographie\n3,32 h\nSciences de la Vie et de la Terre\n2,49 h\nPhysique-Chimie\n2,49 h\nÉducation Physique et Sportive\n1,66 h\nÉducation Civique et Morale\n1,66 h\nVolume horaire par classe\nCharge hebdomadaire, classe par classe.\n6ème A\n27,39 h\nCharge par jour de la semaine\nDu lundi au samedi.\nlundi\n5,81 h\nmardi\n5,81 h\nmercredi\n4,15 h\njeudi\n5,81 h\nvendredi\n5,81 h\nAmplitude horaire\nPremier et dernier créneau réellement occupés, jour par jour.\nJOUR\tDÉBUT\tFIN\nlundi\t07:30\t15:40\nmardi\t07:30\t15:40\nmercredi\t07:30\t11:55\njeudi\t07:30\t15:40\nvendredi\t07:30\t15:40\nÉcart entre volume réel et volume prévu\nHeures d'emploi du temps comparées aux heures déclarées dans la grille des matières.\nCLASSE ET MATIÈRE\tPRÉVU\tRÉEL\tÉCART\n6ème A — Éducation Physique et Sportive\t2 h\t1,66 h\t-0,34 h\n6ème A — Anglais\t4 h\t4,15 h\t+0,15 h\n6ème A — Histoire-Géographie\t3 h\t3,32 h\t+0,32 h\n6ème A — Sciences de la Vie et de la Terre\t2 h\t2,49 h\t+0,49 h\n6ème A — Physique-Chimie\t2 h\t2,49 h\t+0,49 h\n6ème A — Éducation Civique et Morale\t1 h\t1,66 h\t+0,66 h\n6ème A — Français\t5 h\t5,81 h\t+0,81 h\n6ème A — Mathématiques\t5 h\t5,81 h\t+0,81 h\nDensité d'emploi du temps\nCréneaux occupés sur créneaux disponibles, classe par classe.\n6ème A\n78,6 %\nConflits d'enseignant\nUn enseignant attendu dans deux classes au même moment.\nAucun conflit détecté.\nConflits de salle\nDeux classes dans la même salle au même créneau.\nAucun conflit détecté.\nRéférentiel horaire\nCréneaux déclarés par l'établissement, par type.\nPAUSE\n1\nCOURS\n7\nRECREATION\n1"
+  }
+]

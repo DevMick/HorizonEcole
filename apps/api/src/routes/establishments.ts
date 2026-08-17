@@ -12,18 +12,13 @@ import {
   LEVEL_CATALOG,
   levelGroupsForSchoolType,
   levelsForSchoolType,
+  SCHOOL_TYPE_LABELS,
   type SchoolTypeValue,
 } from '../services/establishment.service';
 
 const router = Router();
 
 const SCHOOL_TYPES = ['PRIMAIRE', 'COLLEGE', 'LYCEE'] as const;
-
-const SCHOOL_TYPE_LABELS: Record<(typeof SCHOOL_TYPES)[number], string> = {
-  PRIMAIRE: 'École primaire',
-  COLLEGE: 'Collège',
-  LYCEE: 'Lycée',
-};
 
 const SCHOOL_TYPE_DESCRIPTIONS: Record<(typeof SCHOOL_TYPES)[number], string> = {
   PRIMAIRE: 'Du CP1 au CM2. Compositions et moyenne calculée par diviseur de niveau.',

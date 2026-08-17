@@ -103,15 +103,21 @@ export default function LoginPage() {
       <div className="login-he-panel">
         {/* En-tête : logo, marque, sous-titre */}
         <header className="login-he-header">
-          <button
-            type="button"
-            className="login-he-logo"
-            onClick={() => navigate('/')}
-            aria-label="Accueil HorizonEcole"
-          >
-            HE
-          </button>
-          <h1 className="login-he-title">HorizonEcole</h1>
+          {/* Logo et nom sur une seule ligne, comme dans l'en-tête du site. */}
+          <div className="login-he-marque">
+            <button
+              type="button"
+              className="login-he-logo"
+              onClick={() => navigate('/')}
+              aria-label="Accueil HorizonEcole"
+            >
+              <img src={`${import.meta.env.BASE_URL}favicon-180.png`} alt="" width="52" height="52" />
+            </button>
+            <h1 className="login-he-title">
+              <span className="login-he-title-ink">Horizon</span>
+              <span className="login-he-title-ambre">Ecole</span>
+            </h1>
+          </div>
           <p className="login-he-subtitle">Connectez-vous à votre espace de gestion</p>
           <span className="login-he-accent-bar" aria-hidden="true" />
         </header>

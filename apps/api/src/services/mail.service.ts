@@ -166,7 +166,10 @@ export async function sendAccountCredentialsEmail(params: {
   const transport = getTransporter();
   if (!transport) return false;
 
-  const loginUrl = `${config.app.frontendUrl.replace(/\/$/, '')}/login`;
+  // L'application est servie sous /app/ depuis la mise en place du site vitrine
+  // (cf. apps/web/vite.config.ts et nginx/horizonecole.conf). Sans ce préfixe,
+  // le lien tomberait sur la page d'accueil marketing.
+  const loginUrl = `${config.app.frontendUrl.replace(/\/$/, '')}/app/login`;
 
   try {
     await transport.sendMail({
@@ -179,5 +182,165 @@ export async function sendAccountCredentialsEmail(params: {
   } catch (err) {
     console.warn(`[mail] Échec de l'envoi des identifiants à ${params.to} :`, (err as Error).message);
     return false;
+  }
+}
+
+/* ───────────────────── Demandes issues du site vitrine ────────────────────── */
+
+export type TypeDemande = 'demonstration' | 'devis' | 'contact';
+
+export interface DemandeCommerciale {
+  variante: TypeDemande;
+  nom: string;
+  fonction?: string;
+  etablissement?: string;
+  ville?: string;
+  telephone: string;
+  email: string;
+  cycles?: string[];
+  effectif?: string;
+  creneau?: string;
+  message?: string;
+  /** Récapitulatif de simulation transmis par la page /tarifs. */
+  simulation?: { libelle: string; valeur: string }[];
+}
+
+const INTITULE_DEMANDE: Record<TypeDemande, string> = {
+  demonstration: 'Demande de démonstration',
+  devis: 'Demande de devis',
+  contact: 'Message depuis le site',
+};
+
+function ligne(libelle: string, valeur?: string | null): string {
+  if (!valeur) return '';
+  return `<tr>
+    <td style="padding:6px 12px 6px 0;font-size:13px;color:#6B7280;white-space:nowrap;vertical-align:top;">${escapeHtml(libelle)}</td>
+    <td style="padding:6px 0;font-size:14px;color:#171F3F;font-weight:600;">${escapeHtml(valeur)}</td>
+  </tr>`;
+}
+
+function renderDemandeHtml(d: DemandeCommerciale): string {
+  const recap = (d.simulation ?? [])
+    .map((l) => ligne(l.libelle, l.valeur))
+    .join('');
+
+  return `<!doctype html>
+<html lang="fr">
+  <body style="margin:0;padding:0;background:#F3F4F8;font-family:'Segoe UI',Helvetica,Arial,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F4F8;padding:32px 16px;">
+      <tr><td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#FFFFFF;border-radius:12px;overflow:hidden;">
+          <tr>
+            <td style="background:#171F3F;padding:24px 32px;border-bottom:3px solid #CC8722;">
+              <span style="color:#FFFFFF;font-size:18px;font-weight:700;">${INTITULE_DEMANDE[d.variante]}</span>
+              <div style="color:#A9B4DC;font-size:13px;margin-top:2px;">Site horizonecole.com</div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:28px 32px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" width="100%">
+                ${ligne('Nom', d.nom)}
+                ${ligne('Fonction', d.fonction)}
+                ${ligne('Établissement', d.etablissement)}
+                ${ligne('Ville', d.ville)}
+                ${ligne('Téléphone', d.telephone)}
+                ${ligne('E-mail', d.email)}
+                ${ligne('Cycles', d.cycles?.join(', '))}
+                ${ligne('Effectif', d.effectif)}
+                ${ligne('Créneau souhaité', d.creneau)}
+              </table>
+
+              ${
+                recap
+                  ? `<div style="margin-top:24px;padding:16px 20px;background:#EEF1FA;border-radius:10px;">
+                       <p style="margin:0 0 8px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#34478F;font-weight:700;">Simulation du visiteur</p>
+                       <table role="presentation" cellpadding="0" cellspacing="0" width="100%">${recap}</table>
+                     </div>`
+                  : ''
+              }
+
+              ${
+                d.message
+                  ? `<div style="margin-top:24px;">
+                       <p style="margin:0 0 6px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#6B7280;font-weight:700;">Message</p>
+                       <p style="margin:0;font-size:14px;line-height:1.6;color:#3C4257;white-space:pre-wrap;">${escapeHtml(d.message)}</p>
+                     </div>`
+                  : ''
+              }
+
+              <p style="margin:24px 0 0;font-size:13px;color:#6B7280;">
+                Répondre directement à cet email écrit à ${escapeHtml(d.email)}.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td></tr>
+    </table>
+  </body>
+</html>`;
+}
+
+/**
+ * Transmet une demande du site vitrine à l'équipe commerciale.
+ *
+ * Contrairement à l'envoi d'identifiants, l'échec n'est PAS absorbé
+ * silencieusement : si le message ne part pas, le visiteur doit en être informé
+ * et pouvoir se rabattre sur le téléphone. Une demande commerciale perdue sans
+ * que personne ne le sache est pire qu'une erreur affichée.
+ */
+export async function sendLeadEmail(demande: DemandeCommerciale): Promise<void> {
+  const transport = getTransporter();
+  if (!transport) throw new Error('SMTP non configuré');
+
+  const destinataire = config.email.leadsTo;
+  if (!destinataire) throw new Error('Aucun destinataire configuré (LEADS_EMAIL_TO)');
+
+  await transport.sendMail({
+    from: `"${config.email.fromName}" <${config.email.user}>`,
+    to: destinataire,
+    // Permet de répondre au prospect d'un simple « Répondre ».
+    replyTo: `"${demande.nom}" <${demande.email}>`,
+    subject: `${INTITULE_DEMANDE[demande.variante]} — ${demande.etablissement || demande.nom}`,
+    html: renderDemandeHtml(demande),
+  });
+}
+
+/** Accusé de réception au prospect. Best-effort : son échec ne doit rien casser. */
+export async function sendLeadAcknowledgement(demande: DemandeCommerciale): Promise<void> {
+  const transport = getTransporter();
+  if (!transport) return;
+
+  try {
+    await transport.sendMail({
+      from: `"${config.email.fromName}" <${config.email.user}>`,
+      to: demande.email,
+      subject: 'Nous avons bien reçu votre demande — HorizonEcole',
+      html: `<!doctype html>
+<html lang="fr">
+  <body style="margin:0;padding:0;background:#F3F4F8;font-family:'Segoe UI',Helvetica,Arial,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F4F8;padding:32px 16px;">
+      <tr><td align="center">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#FFFFFF;border-radius:12px;overflow:hidden;">
+          <tr><td style="background:#171F3F;padding:24px 32px;border-bottom:3px solid #CC8722;">
+            <span style="color:#FFFFFF;font-size:18px;font-weight:700;">HorizonEcole</span>
+          </td></tr>
+          <tr><td style="padding:32px;">
+            <p style="margin:0 0 16px;font-size:15px;color:#171F3F;">Bonjour ${escapeHtml(demande.nom)},</p>
+            <p style="margin:0 0 16px;font-size:14px;line-height:1.6;color:#3C4257;">
+              Nous avons bien reçu votre demande et nous vous répondons sous 48 heures ouvrées.
+            </p>
+            <p style="margin:0;font-size:14px;line-height:1.6;color:#3C4257;">
+              Si votre demande est urgente, vous pouvez nous joindre directement par téléphone
+              ou sur WhatsApp, du lundi au vendredi de 8 h à 18 h.
+            </p>
+          </td></tr>
+        </table>
+      </td></tr>
+    </table>
+  </body>
+</html>`,
+    });
+  } catch (err) {
+    console.warn(`[mail] Accusé de réception non envoyé à ${demande.email} :`, (err as Error).message);
   }
 }

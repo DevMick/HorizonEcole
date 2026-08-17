@@ -8,14 +8,16 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "concurrently \"pnpm --filter api dev\" \"pnpm --filter web dev\"",
+    "dev": "concurrently -n api,app,site -c blue,green,yellow \"pnpm --filter api dev\" \"pnpm --filter web dev\" \"pnpm run dev:site\"",
+    "_comment_dev_site": "apps/site a sa propre racine pnpm (lockfile du monorepo incompatible) : il n'est pas atteignable via --filter, d'où l'appel direct au binaire.",
+    "dev:site": "node apps/site/node_modules/astro/astro.js dev --root apps/site --port 5173",
+    "build:site": "node apps/site/node_modules/astro/astro.js build --root apps/site",
     "build": "pnpm --filter types build && pnpm --filter config build && pnpm --filter database build && pnpm --filter api build && pnpm --filter web build",
     "clean": "pnpm --recursive clean && rm -rf node_modules",
     "db:generate": "pnpm --filter database generate",
     "db:migrate": "pnpm --filter database migrate",
     "db:migrate:deploy": "pnpm --filter database migrate:deploy",
     "db:apply-payroll": "pnpm --filter database run apply-payroll-migration",
-    "db:seed": "pnpm --filter database seed",
     "db:studio": "pnpm --filter database studio",
     "db:convert-inscriptions": "pnpm --filter database convert-inscriptions",
     "lint": "pnpm --recursive lint",

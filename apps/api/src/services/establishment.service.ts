@@ -1,14 +1,25 @@
 import bcrypt from 'bcryptjs';
 import { randomBytes, randomUUID } from 'crypto';
 import { prisma, unscopedPrisma, runWithEstablishment } from '@school/database';
-import { menuKeysForSchoolType } from '@school/types';
+import {
+  descriptionRoleAdmin,
+  menuKeysForSchoolType,
+  ownerMenuKeysForSchoolType,
+  PROTECTED_OWNER_ROLE_NAME,
+  SCHOOL_TYPE_LABELS,
+} from '@school/types';
+
+// Réexportés pour les routes, qui les affichaient depuis leur propre copie.
+export { descriptionRoleAdmin, SCHOOL_TYPE_LABELS };
 import { PRIMARY_LEVELS } from './primary/class-profiles';
 import { provisionClass } from './primary/primary-class.service';
 
 /**
- * Nom du rôle protégé créé avec chaque établissement. Le caractère protégé —
- * et non le nom — est ce qui lui vaut tous les menus et le rôle système ADMIN ;
- * ce libellé n'est donc qu'un affichage.
+ * Nom du rôle protégé créé avec chaque établissement.
+ *
+ * Depuis l'ajout du profil Propriétaire, deux rôles protégés cohabitent : c'est
+ * donc bien le **nom** qui décide des menus reçus et du rôle système dérivé,
+ * plus le seul caractère protégé (cf. `routes/users.ts`).
  */
 const ADMIN_ROLE_NAME = 'Administrateur';
 
@@ -316,10 +327,34 @@ export async function createEstablishment(input: CreateEstablishmentInput) {
         id: randomUUID(),
         establishment_id: establishmentId,
         name: ADMIN_ROLE_NAME,
-        description: `Accès complet aux menus d'un établissement de type ${input.schoolType.toLowerCase()}.`,
+        description: descriptionRoleAdmin(input.schoolType),
         isProtected: true,
         menus: {
           create: menuKeysForSchoolType(input.schoolType).map((menuKey) => ({
+            id: randomUUID(),
+            menuKey,
+          })),
+        },
+      },
+    });
+
+    // Rôle « Propriétaire », protégé lui aussi : il porte les menus de l'espace
+    // analytique ouverts par le type d'école — l'assiduité, par exemple, n'est
+    // pas affectée à une école primaire pure.
+    //
+    // Il est créé vide de tout utilisateur : c'est l'administrateur qui, depuis
+    // l'écran Utilisateurs, l'attribuera au financeur de l'école. Le créer
+    // d'avance évite qu'il ait à deviner quels menus cocher, et garantit que
+    // deux écoles n'aient pas deux définitions différentes du même profil.
+    await tx.role.create({
+      data: {
+        id: randomUUID(),
+        establishment_id: establishmentId,
+        name: PROTECTED_OWNER_ROLE_NAME,
+        description: "Accès en lecture seule aux tableaux de bord analytiques de l'établissement.",
+        isProtected: true,
+        menus: {
+          create: ownerMenuKeysForSchoolType(input.schoolType).map((menuKey) => ({
             id: randomUUID(),
             menuKey,
           })),

@@ -1,0 +1,1464 @@
+[
+  {
+    "cle": "connexion",
+    "titre": "Se connecter",
+    "chapitre": "Prise en main",
+    "chemin": "/login",
+    "menu": [],
+    "sansSession": true,
+    "attendre": "input",
+    "url": "http://localhost:5173/app/login",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "HorizonEcole",
+        "rect": {
+          "x": 550,
+          "y": 239,
+          "w": 400,
+          "h": 48
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1438,
+          "y": 20,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "HE",
+        "id": null,
+        "titre": "Accueil HorizonEcole",
+        "classe": "login-he-logo",
+        "rect": {
+          "x": 720,
+          "y": 165,
+          "w": 60,
+          "h": 60
+        }
+      },
+      {
+        "texte": "Se connecter",
+        "id": null,
+        "titre": null,
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-primary",
+        "rect": {
+          "x": 579,
+          "y": 607,
+          "w": 342,
+          "h": 48
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "text",
+        "id": "login_email",
+        "nom": null,
+        "libelle": "Email",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 619,
+          "y": 443,
+          "w": 290,
+          "h": 24
+        }
+      },
+      {
+        "balise": "input",
+        "type": "password",
+        "id": "login_password",
+        "nom": null,
+        "libelle": "Mot de passe",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 619,
+          "y": 549,
+          "w": 270,
+          "h": 24
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [
+      "login",
+      "login_email",
+      "login_password"
+    ],
+    "hauteurDocument": 950,
+    "texte": "HE\nHorizonEcole\n\nConnectez-vous à votre espace de gestion\n\nEmail\nMot de passe\nSe connecter\n\nVotre école n'est pas encore enregistrée ? Configurer un établissement\n\nGestion scolaire · Primaire, Collège et Lycée"
+  },
+  {
+    "cle": "espace-famille",
+    "titre": "L’Espace Famille",
+    "chapitre": "Prise en main",
+    "chemin": "/parent",
+    "menu": [],
+    "url": "http://localhost:5173/app/parent",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Bonjour, Étienne",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [
+      {
+        "texte": "AK Adjoua Kouadio 6ème A",
+        "actif": true,
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 174,
+          "h": 46
+        }
+      },
+      {
+        "texte": "AB Ahmed Bakayoko 6ème A",
+        "actif": false,
+        "rect": {
+          "x": 633,
+          "y": 177,
+          "w": 185,
+          "h": 46
+        }
+      }
+    ],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": "Présences",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 330,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "ÉK Étienne Kouadio Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "ÉK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "AK Adjoua Kouadio 6ème A",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 174,
+          "h": 46
+        }
+      },
+      {
+        "texte": "AB Ahmed Bakayoko 6ème A",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 633,
+          "y": 177,
+          "w": 185,
+          "h": 46
+        }
+      },
+      {
+        "texte": "Tout voir",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1294,
+          "y": 379,
+          "w": 79,
+          "h": 31
+        }
+      },
+      {
+        "texte": "Tout voir",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1294,
+          "y": 762,
+          "w": 79,
+          "h": 31
+        }
+      },
+      {
+        "texte": "Emploi du temps",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 391,
+          "y": 1222,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Notes",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 639,
+          "y": 1222,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 887,
+          "y": 1222,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Bulletins",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 1135,
+          "y": 1222,
+          "w": 238,
+          "h": 58
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": null,
+        "classe": "ds-dash-action",
+        "rect": {
+          "x": 391,
+          "y": 1290,
+          "w": 238,
+          "h": 58
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1461,
+    "texte": "Bonjour, Étienne\n\nDimanche 16 Août 2026 · Année 2025-2026\n\nENFANT\nAK\nAdjoua Kouadio\n6ème A\nAB\nAhmed Bakayoko\n6ème A\nTaux de présence\n97%\nSéances suivies\n247\nRetards\n9\nAbsences\n8\nLes cours de Adjoua aujourd'hui\n0\n\nAucun cours programmé aujourd'hui.\n\nDerniers appels\nTout voir\n14/11\nSéance 1\nMathématiques\nAwa Sangaré\nPrésent\n14/11\nSéance 1\nPhysique-Chimie\nFatou Diomandé\nPrésent\n14/11\nSéance 1\nHistoire-Géographie\nMariam Coulibaly\nPrésent\n14/11\nSéance 1\nAnglais\nSerge Bamba\nPrésent\n14/11\nSéance 1\nÉducation Civique et Morale\nIbrahim Ouattara\nPrésent\nDernières notes\nTout voir\n16/08\n3e Trimestre\nPhysique-Chimie\nComposition n°3 · Coef. 2\n16.50/20\n16/08\n3e Trimestre\nPhysique-Chimie\nDevoir 2 n°2 · Coef. 1\n10.50/20\n16/08\n3e Trimestre\nPhysique-Chimie\nDevoir 1 n°1 · Coef. 1\n14.25/20\n16/08\n3e Trimestre\nSciences de la Vie et de la Terre\nComposition n°3 · Coef. 2\n16.50/20\n16/08\n3e Trimestre\nSciences de la Vie et de la Terre\nDevoir 2 n°2 · Coef. 1\n11.50/20\n\nRACCOURCIS\n\nEmploi du temps\nNotes\nPrésences\nBulletins\nMes enfants\n\nDonnées affichées pour Adjoua Kouadio — 6ème A."
+  },
+  {
+    "cle": "mes-enfants",
+    "titre": "Mes enfants",
+    "chapitre": "Suivre mon enfant",
+    "chemin": "/parent/children",
+    "menu": [],
+    "url": "http://localhost:5173/app/parent/children",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Mes enfants",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": "Présences",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 330,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "ÉK Étienne Kouadio Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "ÉK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "Emploi du temps",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-outline ds-btn-sm",
+        "rect": {
+          "x": 391,
+          "y": 350,
+          "w": 149,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 548,
+          "y": 350,
+          "w": 113,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletins",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 668,
+          "y": 350,
+          "w": 101,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Emploi du temps",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-outline ds-btn-sm",
+        "rect": {
+          "x": 911,
+          "y": 350,
+          "w": 149,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1068,
+          "y": 350,
+          "w": 113,
+          "h": 32
+        }
+      },
+      {
+        "texte": "Bulletins",
+        "id": null,
+        "titre": null,
+        "classe": "ds-btn ds-btn-ghost ds-btn-sm",
+        "rect": {
+          "x": 1188,
+          "y": 350,
+          "w": 101,
+          "h": 32
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 950,
+    "texte": "Mes enfants\n\nLes élèves rattachés à votre compte, et l'accès direct à leur suivi.\n\nAK\nAdjoua Kouadio\n6ème A\n2026-0001\nInscrit\nDate de naissance\n12/03/2013(13 ans)\nLien de parenté\nPère\nEmploi du temps\nPrésences\nBulletins\nAB\nAhmed Bakayoko\n6ème A\n2026-0002\nInscrit\nDate de naissance\n04/07/2013(13 ans)\nLien de parenté\nPère\nEmploi du temps\nPrésences\nBulletins"
+  },
+  {
+    "cle": "emploi-du-temps",
+    "titre": "L’emploi du temps",
+    "chapitre": "Suivre mon enfant",
+    "chemin": "/parent/timetable",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/parent/timetable",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Emploi du temps",
+        "rect": {
+          "x": 306,
+          "y": 86,
+          "w": 290,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [
+      {
+        "texte": "AK Adjoua Kouadio 6ème A",
+        "actif": true,
+        "rect": {
+          "x": 387,
+          "y": 177,
+          "w": 174,
+          "h": 46
+        }
+      },
+      {
+        "texte": "AB Ahmed Bakayoko 6ème A",
+        "actif": false,
+        "rect": {
+          "x": 569,
+          "y": 177,
+          "w": 185,
+          "h": 46
+        }
+      }
+    ],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": "Présences",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 330,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "ÉK Étienne Kouadio Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "ÉK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "AK Adjoua Kouadio 6ème A",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 387,
+          "y": 177,
+          "w": 174,
+          "h": 46
+        }
+      },
+      {
+        "texte": "AB Ahmed Bakayoko 6ème A",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 569,
+          "y": 177,
+          "w": 185,
+          "h": 46
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 1266,
+          "y": 116,
+          "w": 192,
+          "h": 32
+        }
+      }
+    ],
+    "tableaux": [
+      {
+        "colonnes": [
+          "HORAIRES",
+          "LUNDI",
+          "MARDI",
+          "MERCREDI",
+          "JEUDI",
+          "VENDREDI",
+          "SAMEDI"
+        ],
+        "lignes": 9,
+        "premiereLigne": [
+          "07:30 - 08:20",
+          "Français Salle 12 Koffi N’Guessan",
+          "Mathématiques Salle 12 Awa Sangaré",
+          "Français Salle 12 Koffi N’Guessan",
+          "Mathématiques Salle 12 Awa Sangaré",
+          "Français Salle 12 Koffi N’Guessan",
+          "—"
+        ],
+        "rect": {
+          "x": 307,
+          "y": 249,
+          "w": 1150,
+          "h": 750
+        }
+      }
+    ],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 1060,
+    "texte": "Emploi du temps\n\nLa semaine de Adjoua — classe de 6ème A.\n\nAnnée scolaire\n2025-2026 (En cours)\nENFANT\nAK\nAdjoua Kouadio\n6ème A\nAB\nAhmed Bakayoko\n6ème A\nHORAIRES\tLUNDI\tMARDI\tMERCREDI\tJEUDI\tVENDREDI\tSAMEDI\n07:30 - 08:20\t\nFrançais\nSalle 12\nKoffi N’Guessan\n\t\nMathématiques\nSalle 12\nAwa Sangaré\n\t\nFrançais\nSalle 12\nKoffi N’Guessan\n\t\nMathématiques\nSalle 12\nAwa Sangaré\n\t\nFrançais\nSalle 12\nKoffi N’Guessan\n\t\n—\n\n08:20 - 09:10\t\nFrançais\nSalle 12\nKoffi N’Guessan\n\t\nMathématiques\nSalle 12\nAwa Sangaré\n\t\nAnglais\nSalle 12\nSerge Bamba\n\t\nFrançais\nSalle 12\nKoffi N’Guessan\n\t\nMathématiques\nSalle 12\nAwa Sangaré\n\t\n—\n\n09:10 - 10:00\t\nMathématiques\nSalle 12\nAwa Sangaré\n\t\nFrançais\nSalle 12\nKoffi N’Guessan\n\t\nMathématiques\nSalle 12\nAwa Sangaré\n\t\nHistoire-Géographie\nSalle 12\nMariam Coulibaly\n\t\nÉducation Civique et Morale\nSalle 12\nIbrahim Ouattara\n\t\n—\n\n10:00 - 10:15\tRÉCRÉATION\n10:15 - 11:05\t\nAnglais\nSalle 12\nSerge Bamba\n\t\nPhysique-Chimie\nSalle 12\nFatou Diomandé\n\t\nSciences de la Vie et de la Terre\nSalle 12\nJean-Marc Aka\n\t\nPhysique-Chimie\nSalle 12\nFatou Diomandé\n\t\nAnglais\nSalle 12\nSerge Bamba\n\t\n—\n\n11:05 - 11:55\t\nHistoire-Géographie\nSalle 12\nMariam Coulibaly\n\t\nAnglais\nSalle 12\nSerge Bamba\n\t\nÉducation Physique et Sportive\nNadège Yao\n\t\nAnglais\nSalle 12\nSerge Bamba\n\t\nHistoire-Géographie\nSalle 12\nMariam Coulibaly\n\t\n—\n\n11:55 - 14:00\tAPRÈS-MIDI\n14:00 - 14:50\t\nSciences de la Vie et de la Terre\nSalle 12\nJean-Marc Aka\n\t\nHistoire-Géographie\nSalle 12\nMariam Coulibaly\n\t\n—\n\t\nSciences de la Vie et de la Terre\nSalle 12\nJean-Marc Aka\n\t\nPhysique-Chimie\nSalle 12\nFatou Diomandé\n\t\n—\n\n14:50 - 15:40\t\nÉducation Physique et Sportive\nNadège Yao\n\t\nÉducation Civique et Morale\nSalle 12\nIbrahim Ouattara\n\t\n—\n\t\nFrançais\nSalle 12\nKoffi N’Guessan\n\t\nMathématiques\nSalle 12\nAwa Sangaré\n\t\n—"
+  },
+  {
+    "cle": "presences",
+    "titre": "Les présences",
+    "chapitre": "Suivre mon enfant",
+    "chemin": "/parent/attendance",
+    "menu": [],
+    "url": "http://localhost:5173/app/parent/attendance",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Présences & assiduité",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      }
+    ],
+    "onglets": [
+      {
+        "texte": "AK Adjoua Kouadio 6ème A",
+        "actif": true,
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 174,
+          "h": 46
+        }
+      },
+      {
+        "texte": "AB Ahmed Bakayoko 6ème A",
+        "actif": false,
+        "rect": {
+          "x": 633,
+          "y": 177,
+          "w": 185,
+          "h": 46
+        }
+      }
+    ],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": "Présences",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 330,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "ÉK Étienne Kouadio Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "ÉK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "AK Adjoua Kouadio 6ème A",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 174,
+          "h": 46
+        }
+      },
+      {
+        "texte": "AB Ahmed Bakayoko 6ème A",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 633,
+          "y": 177,
+          "w": 185,
+          "h": 46
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 391,
+          "y": 297,
+          "w": 317,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "Toute l'année",
+        "requis": false,
+        "rect": {
+          "x": 724,
+          "y": 297,
+          "w": 317,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "Toutes les matières",
+        "requis": false,
+        "rect": {
+          "x": 1056,
+          "y": 297,
+          "w": 317,
+          "h": 32
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 17277,
+    "texte": "Présences & assiduité\n\nChaque appel fait en classe par les enseignants, séance par séance.\n\nENFANT\nAK\nAdjoua Kouadio\n6ème A\nAB\nAhmed Bakayoko\n6ème A\nAnnée scolaire\n2025-2026 (En cours)\nTrimestre\nToute l'année\nMatière\nToutes les matières\nAssiduité satisfaisante\n97%\nRetards\n9\nAbsences non justifiées\n8\nAbsences excusées\n0\nHistorique des séances\n264\n14/11\n14:50\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n14/11\n14:00\nPhysique-Chimie\nSéance 1\nFatou Diomandé\n· 6ème A\nPrésent\n14/11\n11:05\nHistoire-Géographie\nSéance 1\nMariam Coulibaly\n· 6ème A\nPrésent\n14/11\n10:15\nAnglais\nSéance 1\nSerge Bamba\n· 6ème A\nPrésent\n14/11\n09:10\nÉducation Civique et Morale\nSéance 1\nIbrahim Ouattara\n· 6ème A\nPrésent\n14/11\n08:20\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n14/11\n07:30\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n13/11\n14:50\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n13/11\n14:00\nSciences de la Vie et de la Terre\nSéance 1\nJean-Marc Aka\n· 6ème A\nPrésent\n13/11\n11:05\nAnglais\nSéance 1\nSerge Bamba\n· 6ème A\nPrésent\n13/11\n10:15\nPhysique-Chimie\nSéance 1\nFatou Diomandé\n· 6ème A\nPrésent\n13/11\n09:10\nHistoire-Géographie\nSéance 1\nMariam Coulibaly\n· 6ème A\nPrésent\n13/11\n08:20\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n13/11\n07:30\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n12/11\n11:05\nÉducation Physique et Sportive\nSéance 1\nNadège Yao\n· 6ème A\nPrésent\n12/11\n10:15\nSciences de la Vie et de la Terre\nSéance 1\nJean-Marc Aka\n· 6ème A\nPrésent\n12/11\n09:10\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n12/11\n08:20\nAnglais\nSéance 1\nSerge Bamba\n· 6ème A\nPrésent\n12/11\n07:30\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n11/11\n14:50\nÉducation Civique et Morale\nSéance 1\nIbrahim Ouattara\n· 6ème A\nPrésent\n11/11\n14:00\nHistoire-Géographie\nSéance 1\nMariam Coulibaly\n· 6ème A\nPrésent\n11/11\n11:05\nAnglais\nSéance 1\nSerge Bamba\n· 6ème A\nPrésent\n11/11\n10:15\nPhysique-Chimie\nSéance 1\nFatou Diomandé\n· 6ème A\nPrésent\n11/11\n09:10\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n11/11\n08:20\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n11/11\n07:30\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n10/11\n14:50\nÉducation Physique et Sportive\nSéance 1\nNadège Yao\n· 6ème A\nPrésent\n10/11\n14:00\nSciences de la Vie et de la Terre\nSéance 1\nJean-Marc Aka\n· 6ème A\nPrésent\n10/11\n11:05\nHistoire-Géographie\nSéance 1\nMariam Coulibaly\n· 6ème A\nPrésent\n10/11\n10:15\nAnglais\nSéance 1\nSerge Bamba\n· 6ème A\nPrésent\n10/11\n09:10\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n10/11\n08:20\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n10/11\n07:30\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n07/11\n14:50\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n07/11\n14:00\nPhysique-Chimie\nSéance 1\nFatou Diomandé\n· 6ème A\nPrésent\n07/11\n11:05\nHistoire-Géographie\nSéance 1\nMariam Coulibaly\n· 6ème A\nPrésent\n07/11\n10:15\nAnglais\nSéance 1\nSerge Bamba\n· 6ème A\nPrésent\n07/11\n09:10\nÉducation Civique et Morale\nSéance 1\nIbrahim Ouattara\n· 6ème A\nPrésent\n07/11\n08:20\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n07/11\n07:30\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n06/11\n14:50\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n06/11\n14:00\nSciences de la Vie et de la Terre\nSéance 1\nJean-Marc Aka\n· 6ème A\nPrésent\n06/11\n11:05\nAnglais\nSéance 1\nSerge Bamba\n· 6ème A\nPrésent\n06/11\n10:15\nPhysique-Chimie\nSéance 1\nFatou Diomandé\n· 6ème A\nAbsent\n06/11\n09:10\nHistoire-Géographie\nSéance 1\nMariam Coulibaly\n· 6ème A\nPrésent\n06/11\n08:20\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n06/11\n07:30\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n05/11\n11:05\nÉducation Physique et Sportive\nSéance 1\nNadège Yao\n· 6ème A\nPrésent\n05/11\n10:15\nSciences de la Vie et de la Terre\nSéance 1\nJean-Marc Aka\n· 6ème A\nPrésent\n05/11\n09:10\nMathématiques\nSéance 1\nAwa Sangaré\n· 6ème A\nPrésent\n05/11\n08:20\nAnglais\nSéance 1\nSerge Bamba\n· 6ème A\nPrésent\n05/11\n07:30\nFrançais\nSéance 1\nKoffi N’Guessan\n· 6ème A\nPrésent\n04/11\n14:50\nÉducation Civique et Morale\nSéance 1\nIbrahim Ouattara\n· 6ème A\nPré"
+  },
+  {
+    "cle": "resultats",
+    "titre": "Résultats & Bulletins",
+    "chapitre": "Suivre mon enfant",
+    "chemin": "/parent/grades",
+    "menu": [],
+    "hauteurMax": 1800,
+    "url": "http://localhost:5173/app/parent/grades",
+    "titreDocument": "HorizonEcole - Gestion Scolaire",
+    "titres": [
+      {
+        "niveau": "H1",
+        "texte": "Résultats & Bulletins",
+        "rect": {
+          "x": 370,
+          "y": 86,
+          "w": 1024,
+          "h": 38
+        }
+      },
+      {
+        "niveau": "H2",
+        "texte": "Bulletins",
+        "rect": {
+          "x": 370,
+          "y": 3463,
+          "w": 1024,
+          "h": 28
+        }
+      }
+    ],
+    "onglets": [
+      {
+        "texte": "AK Adjoua Kouadio 6ème A",
+        "actif": true,
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 174,
+          "h": 46
+        }
+      },
+      {
+        "texte": "AB Ahmed Bakayoko 6ème A",
+        "actif": false,
+        "rect": {
+          "x": 633,
+          "y": 177,
+          "w": 185,
+          "h": 46
+        }
+      }
+    ],
+    "boutons": [
+      {
+        "texte": "Espace Famille",
+        "id": null,
+        "titre": "Espace Famille",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 84,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Mes enfants",
+        "id": null,
+        "titre": "Mes enfants",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 167,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Emploi du Temps",
+        "id": null,
+        "titre": "Emploi du Temps",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 250,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Présences",
+        "id": null,
+        "titre": "Présences",
+        "classe": "ds-nav-item",
+        "rect": {
+          "x": 14,
+          "y": 290,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "Résultats & Bulletins",
+        "id": null,
+        "titre": "Résultats & Bulletins",
+        "classe": "ds-nav-item ds-nav-active",
+        "rect": {
+          "x": 14,
+          "y": 330,
+          "w": 233,
+          "h": 40
+        }
+      },
+      {
+        "texte": "ÉK Étienne Kouadio Parent",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger ds-user-chip",
+        "rect": {
+          "x": 14,
+          "y": 880,
+          "w": 235,
+          "h": 50
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Thème actuel : Mode clair. Cliquer pour changer.",
+        "classe": "ant-btn css-dev-only-do-not-override-pivpca ant-btn-text",
+        "rect": {
+          "x": 1320,
+          "y": 11,
+          "w": 42,
+          "h": 42
+        }
+      },
+      {
+        "texte": "",
+        "id": null,
+        "titre": "Notifications",
+        "classe": "ds-icon-btn",
+        "rect": {
+          "x": 1368,
+          "y": 13,
+          "w": 38,
+          "h": 38
+        }
+      },
+      {
+        "texte": "ÉK",
+        "id": null,
+        "titre": "Menu utilisateur",
+        "classe": "ant-dropdown-trigger flex items-center",
+        "rect": {
+          "x": 1412,
+          "y": 13,
+          "w": 64,
+          "h": 38
+        }
+      },
+      {
+        "texte": "AK Adjoua Kouadio 6ème A",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 451,
+          "y": 177,
+          "w": 174,
+          "h": 46
+        }
+      },
+      {
+        "texte": "AB Ahmed Bakayoko 6ème A",
+        "id": null,
+        "titre": null,
+        "classe": "flex min-h-[44px] items-center",
+        "rect": {
+          "x": 633,
+          "y": 177,
+          "w": 185,
+          "h": 46
+        }
+      },
+      {
+        "texte": "Anglais Coef. 2 · 9 notes 14.03",
+        "id": null,
+        "titre": null,
+        "classe": "flex items-center gap-3",
+        "rect": {
+          "x": 391,
+          "y": 497,
+          "w": 462,
+          "h": 47
+        }
+      },
+      {
+        "texte": "Éducation Civique et Morale Coef. 1 · 9 notes 13.03",
+        "id": null,
+        "titre": null,
+        "classe": "flex items-center gap-3",
+        "rect": {
+          "x": 911,
+          "y": 497,
+          "w": 462,
+          "h": 47
+        }
+      },
+      {
+        "texte": "Éducation Physique et Sportive Coef. 1 · 9 notes 13.47",
+        "id": null,
+        "titre": null,
+        "classe": "flex items-center gap-3",
+        "rect": {
+          "x": 391,
+          "y": 1242,
+          "w": 462,
+          "h": 47
+        }
+      },
+      {
+        "texte": "Français Coef. 4 · 9 notes 12.89",
+        "id": null,
+        "titre": null,
+        "classe": "flex items-center gap-3",
+        "rect": {
+          "x": 911,
+          "y": 1242,
+          "w": 462,
+          "h": 47
+        }
+      },
+      {
+        "texte": "Histoire-Géographie Coef. 2 · 9 notes 13.61",
+        "id": null,
+        "titre": null,
+        "classe": "flex items-center gap-3",
+        "rect": {
+          "x": 391,
+          "y": 1987,
+          "w": 462,
+          "h": 47
+        }
+      },
+      {
+        "texte": "Mathématiques Coef. 4 · 9 notes 12.83",
+        "id": null,
+        "titre": null,
+        "classe": "flex items-center gap-3",
+        "rect": {
+          "x": 911,
+          "y": 1987,
+          "w": 462,
+          "h": 47
+        }
+      },
+      {
+        "texte": "Physique-Chimie Coef. 2 · 9 notes 12.67",
+        "id": null,
+        "titre": null,
+        "classe": "flex items-center gap-3",
+        "rect": {
+          "x": 391,
+          "y": 2732,
+          "w": 462,
+          "h": 47
+        }
+      },
+      {
+        "texte": "Sciences de la Vie et de la Terre Coef. 2 · 9 notes 14.44",
+        "id": null,
+        "titre": null,
+        "classe": "flex items-center gap-3",
+        "rect": {
+          "x": 911,
+          "y": 2732,
+          "w": 462,
+          "h": 47
+        }
+      }
+    ],
+    "champs": [
+      {
+        "balise": "input",
+        "type": "search",
+        "id": null,
+        "nom": null,
+        "libelle": "Rechercher dans l'application",
+        "valeur": "",
+        "requis": false,
+        "rect": {
+          "x": 325,
+          "y": 21,
+          "w": 310,
+          "h": 22
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "2025-2026 (En cours)",
+        "requis": false,
+        "rect": {
+          "x": 391,
+          "y": 297,
+          "w": 317,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "Toute l'année",
+        "requis": false,
+        "rect": {
+          "x": 724,
+          "y": 297,
+          "w": 317,
+          "h": 32
+        }
+      },
+      {
+        "balise": "div.ant-select",
+        "type": null,
+        "id": null,
+        "nom": null,
+        "libelle": "",
+        "valeur": "Toutes les matières",
+        "requis": false,
+        "rect": {
+          "x": 1056,
+          "y": 297,
+          "w": 317,
+          "h": 32
+        }
+      }
+    ],
+    "tableaux": [],
+    "statistiques": [],
+    "vides": [],
+    "modales": [],
+    "identifiants": [],
+    "hauteurDocument": 3912,
+    "texte": "Résultats & Bulletins\n\nNotes et bulletins de Adjoua — classe de 6ème A.\n\nENFANT\nAK\nAdjoua Kouadio\n6ème A\nAB\nAhmed Bakayoko\n6ème A\nAnnée scolaire\n2025-2026 (En cours)\nTrimestre\nToute l'année\nMatière\nToutes les matières\nMoyenne de l'année\n13.27\nNotes reçues\n72\nMatières évaluées\n8\nAnglais\nCoef. 2 · 9 notes\n14.03\nComposition n°3\nCoef.\n2\n16/08/2026\n· 3e Trimestre\nSerge Bamba\n17.00/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nSerge Bamba\n14.00/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nSerge Bamba\n11.00/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 2e Trimestre\nSerge Bamba\n14.25/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nSerge Bamba\n15.50/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nSerge Bamba\n11.25/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 1er Trimestre\nSerge Bamba\n13.75/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nSerge Bamba\n13.75/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nSerge Bamba\n15.75/20\nÉducation Civique et Morale\nCoef. 1 · 9 notes\n13.03\nComposition n°3\nCoef.\n2\n16/08/2026\n· 3e Trimestre\nIbrahim Ouattara\n12.75/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nIbrahim Ouattara\n10.25/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nIbrahim Ouattara\n11.75/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 2e Trimestre\nIbrahim Ouattara\n13.50/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nIbrahim Ouattara\n15.75/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nIbrahim Ouattara\n11.75/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 1er Trimestre\nIbrahim Ouattara\n13.75/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nIbrahim Ouattara\n12.00/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nIbrahim Ouattara\n15.75/20\nÉducation Physique et Sportive\nCoef. 1 · 9 notes\n13.47\nComposition n°3\nCoef.\n2\n16/08/2026\n· 3e Trimestre\nNadège Yao\n15.75/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nNadège Yao\n12.75/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nNadège Yao\n12.75/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 2e Trimestre\nNadège Yao\n9.75/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nNadège Yao\n14.25/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nNadège Yao\n15.75/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 1er Trimestre\nNadège Yao\n11.00/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nNadège Yao\n13.75/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nNadège Yao\n15.50/20\nFrançais\nCoef. 4 · 9 notes\n12.89\nComposition n°3\nCoef.\n2\n16/08/2026\n· 3e Trimestre\nKoffi N’Guessan\n12.00/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nKoffi N’Guessan\n12.25/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nKoffi N’Guessan\n13.25/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 2e Trimestre\nKoffi N’Guessan\n9.75/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nKoffi N’Guessan\n13.75/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nKoffi N’Guessan\n13.00/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 1er Trimestre\nKoffi N’Guessan\n13.50/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nKoffi N’Guessan\n12.75/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nKoffi N’Guessan\n15.75/20\nHistoire-Géographie\nCoef. 2 · 9 notes\n13.61\nComposition n°3\nCoef.\n2\n16/08/2026\n· 3e Trimestre\nMariam Coulibaly\n13.25/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nMariam Coulibaly\n15.75/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nMariam Coulibaly\n14.00/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 2e Trimestre\nMariam Coulibaly\n10.25/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nMariam Coulibaly\n12.50/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 2e Trimestre\nMariam Coulibaly\n13.25/20\nComposition n°3\nCoef.\n2\n16/08/2026\n· 1er Trimestre\nMariam Coulibaly\n12.25/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nMariam Coulibaly\n17.25/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 1er Trimestre\nMariam Coulibaly\n14.00/20\nMathématiques\nCoef. 4 · 9 notes\n12.83\nComposition n°3\nCoef.\n2\n16/08/2026\n· 3e Trimestre\nAwa Sangaré\n10.75/20\nDevoir 2 n°2\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nAwa Sangaré\n10.50/20\nDevoir 1 n°1\nCoef.\n1\n16/08/2026\n· 3e Trimestre\nAwa Sangaré\n13.50/20\nComposition n°3\nCoef.\n2\n1"
+  }
+]

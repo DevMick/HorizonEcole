@@ -1,0 +1,491 @@
+---
+import Base from '@/layouts/Base.astro';
+import SectionHeader from '@/components/SectionHeader.astro';
+import Icone from '@/components/Icone.astro';
+import { MENU_CYCLES } from '@/lib/navigation';
+import { MODULES, SUR_MESURE } from '@/lib/pricing';
+
+/*
+ * Le Propriétaire ouvre la liste et occupe toute la largeur : c'est le persona
+ * qui décide de l'achat, et le seul espace que le fondateur d'un groupe
+ * scolaire utilise lui-même.
+ */
+const espaceProprietaire = {
+  nom: 'Propriétaire',
+  href: '/fonctionnalites#proprietaire',
+  points: [
+    'Effectifs, assiduité, résultats, finance',
+    'Comparaison avec l’année précédente',
+    'Points d’attention remontés automatiquement',
+    'Consultation seule : aucune écriture possible',
+  ],
+};
+
+const espaces = [
+  {
+    nom: 'Administration',
+    accent: '',
+    pastille: 'pastille-ink',
+    bouton: '',
+    icone: 'administration' as const,
+    href: '/fonctionnalites#administration',
+    points: ['Élèves, parents et inscriptions', 'Classes, matières et coefficients', 'Rôles, droits et journal d’audit'],
+  },
+  {
+    nom: 'Enseignant',
+    accent: 'carte-craie',
+    pastille: 'pastille-craie',
+    bouton: 'btn-tertiaire-craie',
+    icone: 'enseignant' as const,
+    href: '/fonctionnalites#enseignants',
+    points: ['Saisie des notes par évaluation', 'Appel et feuille de présence', 'Bilan de période et conduite'],
+  },
+  {
+    nom: 'Élève',
+    accent: 'carte-ambre',
+    pastille: 'pastille-ambre',
+    bouton: 'btn-tertiaire-ambre',
+    icone: 'eleve' as const,
+    href: '/fonctionnalites#eleves-parents',
+    points: ['Notes et moyennes en temps réel', 'Bulletins en ligne', 'Emploi du temps de la classe'],
+  },
+  {
+    nom: 'Parent',
+    accent: 'carte-ambre',
+    pastille: 'pastille-ambre',
+    bouton: 'btn-tertiaire-ambre',
+    icone: 'parent' as const,
+    href: '/fonctionnalites#eleves-parents',
+    points: ['Absences et retards', 'Situation des paiements', 'Comptes sécurisés individuels'],
+  },
+];
+
+const phares = [
+  { icone: 'dossier' as const, titre: 'Inscriptions & dossiers', texte: 'Le dossier de l’élève, de la première inscription à la réinscription, sans ressaisie d’une année sur l’autre.' },
+  { icone: 'bulletin' as const, titre: 'Notes & bulletins PDF', texte: 'Coefficients par matière et par série, moyennes pondérées, rangs, bulletins prêts à imprimer.' },
+  { icone: 'presence' as const, titre: 'Appel & absences', texte: 'L’appel se fait en quelques secondes ; les sessions non appelées remontent à la direction.' },
+  { icone: 'horloge' as const, titre: 'Emploi du temps', texte: 'Créneaux, salles, professeurs principaux, exceptions et rattrapages.' },
+  { icone: 'paiement' as const, titre: 'Frais de scolarité & reçus', texte: 'Échéanciers standards ou personnalisés, encaissements, reçus, suivi du recouvrement.' },
+  { icone: 'bouclier' as const, titre: 'Rôles, droits & audit', texte: 'Chaque profil voit ce qui le concerne. Les actions sensibles sont tracées.' },
+];
+
+const problemes = [
+  { icone: 'papiers' as const, titre: 'Des registres dispersés', texte: 'Le secrétariat tient un cahier, les enseignants un tableur, la direction un troisième fichier. Aucun ne dit la même chose.' },
+  { icone: 'calculatrice' as const, titre: 'Des bulletins calculés à la main', texte: 'Deux semaines de travail par trimestre, et des erreurs de moyenne qu’on découvre devant les parents.' },
+  { icone: 'alerte' as const, titre: 'Des impayés découverts trop tard', texte: 'Le montant restant à encaisser n’apparaît qu’en fin d’année, quand il n’est plus recouvrable.' },
+];
+
+const faq = [
+  { q: 'HorizonEcole convient-il à mon cycle ?', r: 'Le logiciel couvre le primaire (CP1 à CM2), le collège (6e à 3e, BEPC) et le lycée (6e à Terminale, séries A, C et D, BAC). Un groupe scolaire peut piloter les trois depuis la même direction.' },
+  { q: 'Combien de temps pour être opérationnel ?', r: 'Comptez deux à quatre semaines entre la signature et la mise en service : paramétrage de l’année scolaire, reprise de vos données existantes, création des comptes et formation des équipes.' },
+  { q: 'Nos enseignants ne sont pas informatisés. Est-ce un obstacle ?', r: 'La formation fait partie de la mise en service, qui est offerte : de une à cinq journées sur site selon la taille de l’établissement, secrétariat et enseignants ensemble.' },
+  { q: 'Et si nous avons un besoin que le logiciel ne couvre pas ?', r: 'Nous le prenons en compte. Un calcul de moyenne propre à votre établissement, un modèle de bulletin particulier, un état attendu par votre tutelle : le besoin est étudié, développé et intégré à votre installation.' },
+  { q: 'Que deviennent nos données si nous arrêtons ?', r: 'Elles vous appartiennent. Vous pouvez en obtenir un export complet, en base et en PDF, à tout moment et sans frais.' },
+  { q: 'Les tarifs comprennent-ils l’hébergement ?', r: 'Non. Les prix affichés couvrent la solution logicielle : abonnement, mises à jour et support, la mise en service étant offerte. L’hébergement — notre infrastructure ou votre propre serveur — se définit ensuite, selon ce dont vous disposez déjà.' },
+];
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'HorizonEcole',
+    url: 'https://horizonecole.com',
+    areaServed: 'CI',
+    description: 'Logiciel de gestion scolaire pour les établissements ivoiriens.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.r },
+    })),
+  },
+];
+---
+
+<Base
+  titre="Le logiciel de gestion scolaire pensé pour les établissements ivoiriens"
+  description="Du CP1 à la Terminale : inscriptions, notes, bulletins, présences et frais de scolarité dans un seul outil. Tarifs publics, mise en service et formation offertes."
+  canonique="/"
+  jsonLd={jsonLd}
+>
+  <!-- ─────────────────────────── 1. Héros ───────────────────────────
+       Aucune animation d'apparition ici : masquer puis révéler le titre
+       retarderait le plus grand élément peint, donc la mesure de vitesse la
+       plus visible pour un visiteur sur réseau lent. -->
+  <section class="fond-papier relative overflow-hidden border-b border-ardoise-200">
+    <!-- Deux halos d'encre, purement décoratifs, qui donnent de la profondeur
+         au papier sans rien peser : ce sont des dégradés, pas des images. -->
+    <div
+      class="pointer-events-none absolute -right-52 -top-44 h-[38rem] w-[38rem] rounded-full
+             bg-[radial-gradient(circle,rgba(52,71,143,.11),transparent_65%)]"
+      aria-hidden="true"
+    ></div>
+    <div
+      class="pointer-events-none absolute -bottom-56 -left-48 h-[32rem] w-[32rem] rounded-full
+             bg-[radial-gradient(circle,rgba(204,135,34,.10),transparent_65%)]"
+      aria-hidden="true"
+    ></div>
+
+    <div class="conteneur relative py-16 text-center sm:py-20 md:py-28">
+      <p class="badge-ambre">Primaire · Collège · Lycée</p>
+
+      <h1
+        class="mx-auto mt-5 max-w-4xl text-[2.15rem] leading-[1.12] tracking-tight
+               sm:text-[2.75rem] lg:text-[3.4rem]"
+      >
+        Le logiciel de gestion scolaire pensé pour les
+        <!-- Le surlignage à la craie met en avant ce qui situe le produit. -->
+        <span class="surligne">établissements ivoiriens</span>
+      </h1>
+
+      <p class="mx-auto mt-6 max-w-2xl text-[1.0625rem] leading-relaxed text-ardoise-600 sm:text-chapo">
+        Du CP1 à la Terminale : inscriptions, notes, bulletins, présences et frais de
+        scolarité dans un seul outil. Vos données restent les vôtres.
+      </p>
+
+      <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+        <a href="/demonstration" class="btn-primaire">
+          Demander une démonstration
+          <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true" class="fleche">
+            <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor"
+                  stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+        <a href="/tarifs" class="btn-secondaire">Voir les tarifs</a>
+      </div>
+
+      <ul
+        class="mx-auto mt-8 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2
+               text-legende text-ardoise-500"
+      >
+        {['Réponse sous 48 h ouvrées', 'Mise en service offerte', 'Résiliable chaque année'].map(
+          (point) => (
+            <li class="flex items-center gap-1.5">
+              <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"
+                   class="shrink-0 text-craie-500">
+                <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {point}
+            </li>
+          ),
+        )}
+      </ul>
+
+      <!-- Onglets de dossier : le motif signature d'« Encre & Craie », ici en
+           grand. Ils qualifient le visiteur dès le premier écran — « suis-je
+           concerné ? » — et remplacent l'aperçu d'écran par un élément qui
+           conduit quelque part. -->
+      <nav class="mt-14 sm:mt-16" aria-label="Choisir son cycle">
+        <p class="text-[0.72rem] font-bold uppercase tracking-[0.08em] text-ardoise-500">
+          Votre établissement
+        </p>
+        <ul class="mt-4 grid gap-3 sm:grid-cols-3">
+          {MENU_CYCLES.map((cycle, i) => {
+            const module = Object.values(MODULES)[i];
+            return (
+              <li>
+                <a
+                  href={cycle.href}
+                  class="group relative flex h-full flex-col items-center justify-center gap-1
+                         rounded-carte border border-ardoise-200 bg-white/80 px-5 py-5
+                         backdrop-blur-sm transition-all duration-300 hover:-translate-y-1
+                         hover:border-ink-300 hover:bg-white hover:shadow-levee"
+                >
+                  <span
+                    class="absolute left-1/2 top-0 h-1 w-10 -translate-x-1/2 rounded-b bg-ink-600
+                           transition-[width] duration-300 group-hover:w-20"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="font-display text-[1.05rem] font-bold text-ink-900">
+                    {module.nom}
+                  </span>
+                  <span class="text-legende text-ardoise-500">{module.niveaux}</span>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ────────────────────── 2. Bandeau de réassurance ────────────────── -->
+  <section class="border-b border-ardoise-200 bg-ink-900 py-8 text-white">
+    <div class="conteneur grid gap-6 sm:grid-cols-3">
+      {[
+        ['3', 'cycles couverts', 'du CP1 à la Terminale'],
+        ['5', 'espaces utilisateurs', 'propriétaire, administration, enseignant, élève, parent'],
+        ['48 h', 'de délai de réponse', 'sur toute demande de démonstration'],
+      ].map(([chiffre, libelle, precision]) => (
+        <div>
+          <p class="font-mono text-[1.75rem] font-semibold leading-none tabular-nums text-white">{chiffre}</p>
+          <p class="mt-1.5 text-[0.95rem] font-semibold">{libelle}</p>
+          <p class="text-legende text-ink-300">{precision}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ──────────────────────── 3. Le problème ─────────────────────────── -->
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Ce que vit une direction sans outil commun"
+        chapo="Trois constats que nous retrouvons dans presque tous les établissements que nous accompagnons."
+      />
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {problemes.map((p, i) => (
+          <article class="carte carte-ambre reveal" data-retard={i + 1}>
+            <span class="pastille pastille-ambre"><Icone nom={p.icone} taille={22} /></span>
+            <h3 class="mt-4 text-display-md">{p.titre}</h3>
+            <p class="mt-3 text-ardoise-600">{p.texte}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────── 4. Les quatre espaces ─────────────────────── -->
+  <section class="section bg-ardoise-0">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Cinq espaces, un seul système"
+        chapo="Chacun accède à ce qui le concerne, avec ses propres droits — et rien d’autre."
+      />
+
+      <article class="carte reveal mt-10 lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-10">
+        <div>
+          <div class="flex items-center gap-3.5">
+            <span class="pastille pastille-ink">
+              <Icone nom="proprietaire" taille={22} />
+            </span>
+            <div>
+              <h3 class="text-display-md">Espace {espaceProprietaire.nom}</h3>
+              <p class="text-legende text-ardoise-500">Le pilotage, sans passer par personne</p>
+            </div>
+          </div>
+          <p class="mt-5 text-ardoise-600">
+            Vous dirigez l’établissement sans le gérer au quotidien ? Cet espace vous donne
+            l’état réel de la maison — effectifs, assiduité, résultats, recouvrement — comparé
+            à l’année précédente, sans avoir à le réclamer à votre direction.
+          </p>
+        </div>
+        <ul class="mt-6 space-y-2.5 lg:mt-0">
+          {espaceProprietaire.points.map((point) => (
+            <li class="flex gap-2.5 text-ardoise-700">
+              <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"
+                   class="mt-1 shrink-0 text-craie-500">
+                <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              {point}
+            </li>
+          ))}
+          <li class="pt-2">
+            <a href={espaceProprietaire.href} class="btn-tertiaire">
+              <span class="etiquette">Voir l’espace Propriétaire</span>
+              <span class="puce-fleche"><Icone nom="fleche" taille={13} /></span>
+            </a>
+          </li>
+        </ul>
+      </article>
+
+      <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        {espaces.map((espace, i) => (
+          <article class={`carte reveal ${espace.accent}`} data-retard={(i % 2) + 1}>
+            <div class="flex items-center gap-3.5">
+              <span class={`pastille ${espace.pastille}`}>
+                <Icone nom={espace.icone} taille={22} />
+              </span>
+              <h3 class="text-display-md">Espace {espace.nom}</h3>
+            </div>
+            <ul class="mt-5 space-y-2.5 text-ardoise-600">
+              {espace.points.map((point) => (
+                <li class="flex gap-2.5">
+                  <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true"
+                       class="mt-1 shrink-0 text-craie-500">
+                    <path d="m3.5 8.5 3 3 6-7" fill="none" stroke="currentColor" stroke-width="1.8"
+                          stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <a href={espace.href} class={`btn-tertiaire mt-6 ${espace.bouton}`}>
+              <span class="etiquette">En savoir plus</span>
+              <span class="puce-fleche"><Icone nom="fleche" taille={13} /></span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────── 5. Fonctionnalités phares ───────────────────── -->
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Tout ce que gère une école, dans un seul outil"
+        chapo="Le périmètre couvert au quotidien par l’administration, les enseignants et les familles."
+      />
+      <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {phares.map((f, i) => (
+          <article class="carte reveal" data-retard={(i % 3) + 1}>
+            <span class="pastille pastille-ink"><Icone nom={f.icone} taille={22} /></span>
+            <h3 class="mt-4 text-[1.05rem] font-bold text-ink-900">{f.titre}</h3>
+            <p class="mt-2.5 text-legende leading-relaxed text-ardoise-600">{f.texte}</p>
+          </article>
+        ))}
+      </div>
+      <div class="mt-8">
+        <a href="/fonctionnalites" class="btn-secondaire">
+          Voir toutes les fonctionnalités
+          <Icone nom="fleche" taille={15} classe="fleche" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 6. Par cycle ──────────────────────────── -->
+  <section class="section bg-ardoise-0">
+    <div class="conteneur">
+      <SectionHeader titre="Le logiciel parle la langue de votre cycle" />
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {MENU_CYCLES.map((cycle, i) => {
+          const module = Object.values(MODULES)[i];
+          return (
+            <article class="carte reveal" data-retard={i + 1}>
+              <h3 class="text-display-md">{module.nom}</h3>
+              <p class="mt-1 text-legende font-semibold text-ambre-800">{module.niveaux}</p>
+              <p class="mt-3 text-legende leading-relaxed text-ardoise-600">{module.sousTitre}</p>
+              <a href={cycle.href} class="btn-tertiaire mt-6">
+                <span class="etiquette">Voir le module {module.nomCourt}</span>
+                <span class="puce-fleche"><Icone nom="fleche" taille={13} /></span>
+              </a>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────── 7. Accompagnement ──────────────────────── -->
+  <section class="section">
+    <div class="conteneur">
+      <SectionHeader
+        titre="Une école mise en service, pas un logiciel livré"
+        chapo="Installation, reprise de vos données et formation des équipes : offertes la première année."
+      />
+      <ol class="mt-10 grid gap-6 md:grid-cols-3">
+        {[
+          ['Paramétrage & reprise', 'Année scolaire, classes, matières et coefficients. Vos élèves et vos paiements existants sont importés.'],
+          ['Formation des équipes', 'De une à cinq journées sur site selon la taille de l’établissement, secrétariat et enseignants compris.'],
+          ['Premier trimestre accompagné', 'Nous restons présents jusqu’à l’édition des premiers bulletins.'],
+        ].map(([titre, texte], i) => (
+          <li class="carte reveal" data-retard={i + 1}>
+            <span
+              class="grid h-9 w-9 place-items-center rounded-full bg-ambre-50 font-mono
+                     text-legende font-semibold text-ambre-800"
+            >{i + 1}</span>
+            <h3 class="mt-4 text-display-md">{titre}</h3>
+            <p class="mt-3 text-ardoise-600">{texte}</p>
+          </li>
+        ))}
+      </ol>
+
+      <!-- Développement spécifique : on affirme la prise en charge du besoin
+           propre à l'établissement, sans se prononcer sur son chiffrage. -->
+      <div class="reveal mt-8 rounded-carte border border-ambre-100 bg-ambre-50 p-6 md:p-7
+                  lg:flex lg:items-center lg:justify-between lg:gap-8">
+        <div class="max-w-3xl">
+          <h3 class="text-display-md">{SUR_MESURE.titre}</h3>
+          <p class="mt-3 text-ardoise-700">{SUR_MESURE.chapo}</p>
+          <p class="mt-2 text-legende text-ardoise-600">{SUR_MESURE.contenu}</p>
+        </div>
+        <a href="/accompagnement" class="btn-tertiaire btn-tertiaire-ambre mt-4 shrink-0 lg:mt-0">
+          <span class="etiquette">Comment nous procédons</span>
+          <span class="puce-fleche"><Icone nom="fleche" taille={13} /></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────────────── 8. FAQ ───────────────────────────── -->
+  <section class="section bg-ardoise-0">
+    <div class="conteneur max-w-3xl">
+      <SectionHeader titre="Questions fréquentes" />
+      <div class="reveal mt-8 space-y-3">
+        {faq.map((f) => (
+          <details
+            class="group rounded-carte border border-ardoise-200 bg-white px-5
+                   transition-[border-color,box-shadow] duration-300
+                   hover:border-ardoise-300 open:shadow-douce"
+          >
+            <summary
+              class="flex min-h-[56px] cursor-pointer list-none items-center justify-between
+                     gap-4 py-4 font-display font-bold text-ink-900"
+            >
+              {f.q}
+              <span
+                class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-ambre-50
+                       text-ambre-800 transition-transform duration-300 group-open:rotate-45"
+                aria-hidden="true"
+              >
+                <svg width="14" height="14" viewBox="0 0 16 16">
+                  <path d="M8 3.5v9M3.5 8h9" fill="none" stroke="currentColor" stroke-width="1.8"
+                        stroke-linecap="round" />
+                </svg>
+              </span>
+            </summary>
+            <p class="pb-5 pr-10 text-ardoise-600">{f.r}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────────── 9. Appel final ───────────────────────────
+       Bloc sombre posé sur fond clair plutôt que section pleine largeur : le
+       pied de page étant lui aussi en bleu-encre, les deux se confondraient. -->
+  <section class="section">
+    <div class="conteneur">
+      <div
+        class="reveal relative overflow-hidden rounded-[20px] bg-ink-900 px-6 py-14
+               text-center text-white sm:px-10 md:py-16"
+      >
+        <div
+          class="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full
+                 bg-[radial-gradient(circle,rgba(204,135,34,.22),transparent_65%)]"
+          aria-hidden="true"
+        ></div>
+        <div
+          class="pointer-events-none absolute -bottom-28 -left-20 h-72 w-72 rounded-full
+                 bg-[radial-gradient(circle,rgba(47,148,104,.18),transparent_65%)]"
+          aria-hidden="true"
+        ></div>
+
+        <div class="relative">
+          <h2 class="mx-auto max-w-2xl text-display-lg !text-white">
+            Voyons ensemble ce que cela donnerait dans votre établissement
+          </h2>
+          <p class="mx-auto mt-5 max-w-xl text-chapo text-ink-100">
+            La démonstration se fait sur vos propres cas : vos classes, vos coefficients,
+            vos frais de scolarité.
+          </p>
+          <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
+            <a href="/demonstration" class="btn-sombre">
+              Demander une démonstration
+              <Icone nom="fleche" taille={15} classe="fleche" />
+            </a>
+            <a href="/contact" class="btn-contour-clair">Nous écrire</a>
+          </div>
+          <p class="mt-6 text-legende text-ink-300">Réponse sous 48 h ouvrées.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

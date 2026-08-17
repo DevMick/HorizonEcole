@@ -1,0 +1,370 @@
+/*
+ * Socle visuel du site vitrine HorizonEcole.
+ * Polices auto-hébergées (sous-ensemble latin) : aucun appel à un CDN tiers, le
+ * réseau ivoirien impose de maîtriser les temps de réponse.
+ */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/inter-latin-400-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/inter-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/inter-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/inter-latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-latin-600-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/space-grotesk-latin-700-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/ibm-plex-mono-latin-600-normal.woff2') format('woff2');
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-corps text-ardoise-900 antialiased;
+    /* Le corps ne défile jamais horizontalement : les tableaux larges gèrent
+       leur propre débordement. */
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-ink-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Focus visible non supprimé — exigence RGAA. */
+  :focus-visible {
+    outline: 2px solid theme('colors.ink.600');
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: theme('colors.ink.100');
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+    /* Une animation d'apparition désactivée doit laisser le contenu VISIBLE :
+       sans cette règle, les blocs resteraient à opacité nulle pour les
+       personnes qui ont demandé moins de mouvement. */
+    .reveal { opacity: 1 !important; transform: none !important; }
+  }
+}
+
+/* ───────────────────────── Apparition au défilement ─────────────────────────
+ * Amélioration progressive : sans JavaScript, `.reveal` n'est jamais masqué
+ * (la mise en retrait n'est appliquée qu'une fois la classe `js` posée sur
+ * <html> par le script de Base.astro). Le contenu reste donc lisible même si
+ * le script ne s'exécute pas — cas fréquent sur réseau instable.
+ */
+@layer utilities {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .js .reveal.est-visible {
+    opacity: 1;
+    transform: none;
+    will-change: auto;
+  }
+  /* Décalage en cascade pour les grilles de cartes. */
+  .js .reveal[data-retard='1'] { transition-delay: 70ms; }
+  .js .reveal[data-retard='2'] { transition-delay: 140ms; }
+  .js .reveal[data-retard='3'] { transition-delay: 210ms; }
+  .js .reveal[data-retard='4'] { transition-delay: 280ms; }
+  .js .reveal[data-retard='5'] { transition-delay: 350ms; }
+}
+
+@layer components {
+  .conteneur {
+    @apply mx-auto w-full max-w-conteneur px-4 sm:px-6;
+  }
+
+  .section {
+    @apply py-[--espace-section];
+    --espace-section: 4rem;
+  }
+  @screen md {
+    .section { --espace-section: 6rem; }
+  }
+
+  /*
+   * En-tête : discret au repos, détaché du contenu dès qu'on défile.
+   *
+   * Les deux états sont définis ici, dans la couche « composants », et non par
+   * des utilitaires posés sur l'élément : une classe de composant ne peut pas
+   * l'emporter sur un utilitaire de même spécificité, la couche « utilities »
+   * étant émise après. Mettre `border-transparent` sur la balise aurait donc
+   * neutralisé la bordure de l'état défilé.
+   */
+  .entete {
+    @apply sticky top-0 z-50 border-b border-transparent bg-white/85 backdrop-blur-md;
+    transition: border-color 300ms, box-shadow 300ms, background-color 300ms;
+  }
+  .entete-defile {
+    @apply border-ardoise-200 bg-white/95 shadow-[0_1px_12px_-4px_rgba(23,31,63,.18)];
+  }
+
+  /* ─────────────────────────────── Boutons ───────────────────────────────
+   * Hauteur minimale de 44 px : la cible tactile recommandée. En dessous, le
+   * taux d'erreur au doigt grimpe nettement — c'est la première raison de
+   * frustration sur mobile, et le trafic ivoirien est majoritairement mobile.
+   */
+  .btn {
+    @apply relative inline-flex min-h-[44px] items-center justify-center gap-2
+           rounded-bouton px-5 py-3 text-[0.95rem] font-semibold
+           transition-[background-color,border-color,color,box-shadow,transform]
+           duration-200 ease-out;
+  }
+  /* La flèche glisse au survol : un signal de direction, pas une décoration. */
+  .btn .fleche {
+    @apply transition-transform duration-200 ease-out;
+  }
+  .btn:hover .fleche { transform: translateX(3px); }
+
+  .btn-primaire {
+    @apply btn bg-ink-600 text-white shadow-[0_1px_2px_rgba(23,31,63,.18)]
+           hover:-translate-y-0.5 hover:bg-ink-700 hover:shadow-[0_6px_16px_-4px_rgba(23,31,63,.35)]
+           active:translate-y-0 active:shadow-[0_1px_2px_rgba(23,31,63,.18)];
+  }
+  .btn-secondaire {
+    @apply btn border border-ardoise-300 bg-white text-ink-700
+           hover:-translate-y-0.5 hover:border-ink-400 hover:bg-ink-50
+           hover:shadow-[0_6px_16px_-6px_rgba(23,31,63,.25)]
+           active:translate-y-0 active:shadow-none;
+  }
+  .btn-sombre {
+    @apply btn bg-white text-ink-900 hover:-translate-y-0.5
+           hover:shadow-[0_8px_20px_-6px_rgba(0,0,0,.45)] active:translate-y-0;
+  }
+  .btn-contour-clair {
+    @apply btn border border-white/30 text-white hover:border-white/60 hover:bg-white/10;
+  }
+  .btn-fantome {
+    @apply btn px-3 py-2 font-medium text-ardoise-700
+           hover:bg-ardoise-100/70 hover:text-ink-700;
+  }
+
+  /*
+   * Lien-bouton tertiaire — « En savoir plus », « Voir le module … ».
+   *
+   * Ni bouton plein ni lien souligné : ces liens ferment une carte et doivent
+   * se lire comme une action sans concurrencer l'appel principal de la page.
+   * D'où la flèche en pastille, qui se remplit au survol, et le soulignement
+   * qui se déploie de la gauche vers la droite — le sens de la lecture.
+   */
+  .btn-tertiaire {
+    /* 44 px comme les autres boutons : c'est une cible tactile, pas un lien
+       inline dans une phrase. */
+    @apply inline-flex min-h-[44px] items-center gap-2.5 text-[0.9rem] font-semibold
+           text-ink-600 transition-colors duration-200;
+  }
+  .btn-tertiaire .etiquette {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 0% 1.5px;
+    transition: background-size 300ms ease-out;
+    padding-bottom: 2px;
+  }
+  .btn-tertiaire:hover .etiquette { background-size: 100% 1.5px; }
+
+  .btn-tertiaire .puce-fleche {
+    @apply grid h-7 w-7 shrink-0 place-items-center rounded-full border
+           border-ink-200 bg-ink-50 text-ink-600;
+    transition: background-color 300ms, border-color 300ms, color 300ms, transform 300ms;
+  }
+  .btn-tertiaire:hover .puce-fleche {
+    @apply border-ink-600 bg-ink-600 text-white;
+    transform: translateX(3px);
+  }
+
+  /* Déclinaisons alignées sur l'accent de la carte qui les porte. */
+  .btn-tertiaire-craie { @apply text-craie-700; }
+  .btn-tertiaire-craie .puce-fleche { @apply border-craie-100 bg-craie-50 text-craie-600; }
+  .btn-tertiaire-craie:hover .puce-fleche { @apply border-craie-600 bg-craie-600 text-white; }
+
+  .btn-tertiaire-ambre { @apply text-ambre-800; }
+  .btn-tertiaire-ambre .puce-fleche { @apply border-ambre-100 bg-ambre-50 text-ambre-800; }
+  .btn-tertiaire-ambre:hover .puce-fleche { @apply border-ambre-800 bg-ambre-800 text-white; }
+
+  /*
+   * Languette de dossier — le geste signature d'« Encre & Craie ». Référence à
+   * l'onglet coloré d'un dossier scolaire papier ; c'est le seul ornement
+   * récurrent du système. Elle s'allonge au survol : le mouvement reste dans
+   * la métaphore (on tire l'onglet) plutôt que d'ajouter un effet étranger.
+   */
+  .carte {
+    @apply relative overflow-hidden rounded-carte border border-ardoise-200 bg-white
+           p-6 shadow-douce transition-[transform,box-shadow,border-color]
+           duration-300 ease-out;
+  }
+  .carte::before {
+    content: '';
+    @apply absolute left-6 top-0 h-1 w-10 rounded-b bg-ink-600
+           transition-[width,background-color] duration-300 ease-out;
+  }
+  .carte:hover {
+    @apply -translate-y-1 border-ardoise-300 shadow-levee;
+  }
+  .carte:hover::before { @apply w-16; }
+
+  .carte-craie::before { @apply bg-craie-600; }
+  .carte-ambre::before { @apply bg-ambre-600; }
+  .carte-nue::before { content: none; }
+  /* Carte non interactive : ni élévation ni languette qui s'allonge. */
+  .carte-fixe:hover { @apply translate-y-0 border-ardoise-200 shadow-douce; }
+  .carte-fixe:hover::before { @apply w-10; }
+
+  /* Pastille d'icône, déclinée sur les trois accents du système. */
+  .pastille {
+    @apply grid h-11 w-11 shrink-0 place-items-center rounded-[10px]
+           transition-colors duration-300;
+  }
+  .pastille-ink   { @apply bg-ink-50 text-ink-600; }
+  .pastille-craie { @apply bg-craie-50 text-craie-600; }
+  .pastille-ambre { @apply bg-ambre-50 text-ambre-800; }
+  .carte:hover .pastille-ink   { @apply bg-ink-100; }
+  .carte:hover .pastille-craie { @apply bg-craie-100; }
+  .carte:hover .pastille-ambre { @apply bg-ambre-100; }
+
+  /*
+   * Fond « papier réglé » du héros : deux dégradés répétés qui évoquent la
+   * page de cahier. Purement CSS — aucune image à télécharger, donc aucun
+   * poids ajouté au premier écran.
+   */
+  .fond-papier {
+    background-color: theme('colors.white');
+    background-image:
+      linear-gradient(to bottom, rgba(238, 241, 250, 0.75), rgba(255, 255, 255, 0) 60%),
+      repeating-linear-gradient(
+        to bottom,
+        transparent 0 31px,
+        rgba(52, 71, 143, 0.055) 31px 32px
+      );
+  }
+  /* Marge rouge du cahier, à gauche — visible seulement à partir du grand écran. */
+  .fond-papier::after {
+    content: '';
+    @apply pointer-events-none absolute inset-y-0 hidden lg:block;
+    left: max(2rem, calc((100% - theme('maxWidth.conteneur')) / 2 - 2.5rem));
+    width: 1px;
+    background: rgba(204, 135, 34, 0.28);
+  }
+
+  /*
+   * Surlignage « à la craie » sur un fragment de titre.
+   *
+   * Réalisé par un dégradé de fond plutôt que par une barre positionnée en
+   * absolu : la barre imposait `whitespace-nowrap` pour rester alignée, ce qui
+   * faisait dépasser puis rogner le titre sur petit écran. Avec
+   * `box-decoration-break: clone`, le surlignage suit le texte sur chacune de
+   * ses lignes, quel que soit l'endroit où il se coupe.
+   */
+  .surligne {
+    background-image: linear-gradient(
+      transparent 62%,
+      theme('colors.ambre.100') 62%,
+      theme('colors.ambre.100') 94%,
+      transparent 94%
+    );
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  /* Chiffres : toujours en mono, esprit registre. */
+  .chiffre {
+    @apply font-mono font-semibold tabular-nums text-ink-600;
+  }
+
+  .lien {
+    @apply font-medium text-ink-600 underline decoration-ink-200 underline-offset-4
+           hover:decoration-ink-600;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-badge px-2 py-0.5 text-[0.72rem] font-semibold;
+  }
+  .badge-ambre { @apply badge bg-ambre-50 text-ambre-800; }
+  .badge-craie { @apply badge bg-craie-50 text-craie-700; }
+  .badge-ink   { @apply badge bg-ink-50 text-ink-700; }
+
+  /* Tout tableau large défile dans son propre conteneur, jamais la page. */
+  .table-defilante {
+    @apply -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0;
+  }
+
+  .prose-site :is(h2) { @apply mt-10 text-display-lg; }
+  .prose-site :is(h3) { @apply mt-8 text-display-md; }
+  .prose-site :is(p, ul, ol) { @apply mt-4 text-ardoise-700; }
+  .prose-site :is(ul) { @apply list-disc space-y-2 pl-5; }
+  .prose-site :is(a) { @apply lien; }
+}

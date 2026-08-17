@@ -1,0 +1,32 @@
+---
+import Base from '@/layouts/Base.astro';
+import { URL_CONNEXION } from '@/lib/navigation';
+---
+
+<Base
+  titre="Page introuvable"
+  description="Cette page n’existe pas ou a été déplacée."
+  canonique="/404"
+>
+  <section class="section">
+    <div class="conteneur max-w-2xl text-center">
+      <p class="chiffre text-chiffre">404</p>
+      <h1 class="mt-4 text-display-lg">Cette page n’existe pas</h1>
+      <p class="mt-5 text-chapo text-ardoise-600">
+        Le lien est peut-être ancien, ou comporte une erreur de saisie.
+      </p>
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="/" class="btn-primaire">Retour à l’accueil</a>
+        <!-- Chemin de secours des utilisateurs existants : ils arrivent souvent
+             ici depuis un favori antérieur à la mise en ligne du site. -->
+        <a href={URL_CONNEXION} class="btn-secondaire">Accéder à mon espace</a>
+      </div>
+      <ul class="mt-10 flex flex-wrap justify-center gap-x-6 gap-y-2 text-legende">
+        <li><a href="/fonctionnalites" class="lien">Fonctionnalités</a></li>
+        <li><a href="/tarifs" class="lien">Tarifs</a></li>
+        <li><a href="/securite" class="lien">Sécurité</a></li>
+        <li><a href="/contact" class="lien">Contact</a></li>
+      </ul>
+    </div>
+  </section>
+</Base>
