@@ -76,6 +76,11 @@ import { notFound } from './middleware/notFound';
 
 const app = express();
 
+// nginx est le seul reverse proxy devant l'API (même hôte) : sans ceci,
+// express-rate-limit rejette chaque requête car il ne fait pas confiance à
+// l'en-tête X-Forwarded-For que nginx ajoute (ERR_ERL_UNEXPECTED_X_FORWARDED_FOR).
+app.set('trust proxy', 1);
+
 // CRITICAL: First middleware - Capture ALL requests before anything else
 // Logging disabled for production
 // app.use((req, res, next) => {
